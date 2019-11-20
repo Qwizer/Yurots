@@ -1,4 +1,4 @@
-<npc name="Dark Rodo" script="Dark Rodo.lua" floorchange="0" walkinterval="1500" speed="100">
+<npc name="Dark Rodo" script="DarkRodo.lua" floorchange="0" walkinterval="1500" speed="100">
 	<health now="100" max="100"/>
 	<look type="130" head="19" body="86" legs="87" feet="95"/>
 	<parameters>
