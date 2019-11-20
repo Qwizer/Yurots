@@ -101,7 +101,7 @@ minactioninterval = 200
 minactionexinterval = 1000
 
 -- house rent period
--- options: daily, weekly, monthly
+-- options: daily, weekly, monthly, never
 houserentperiod = "never"
 
 -- whether or not to check for premium accounts when using beds
