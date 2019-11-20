@@ -1,6 +1,6 @@
 # Yurots
 OTServ Yurots 7.72 Mysql
-Admin: 123457/123457
+<br>Admin: 123457/123457
 
 # Sources e Executavel Compativel
 https://github.com/TwistedScorpio/OTHire
