@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Seller" script="Seller.lua" walkinterval="1500" floorchange="0">
+<look type="128" head="100" body="100" legs="119" feet="115"/>
+    <mana now="800" max="800"/>
+    <health now="200" max="200"/>
+
+<parameters>
+    <parameter key="message_greet" value="Hello |PLAYERNAME|, I buy many items, you are abble to choise between armors, weapons, helmets, shields, boots, amulets and dolls, What do you offer me?" />
+    <parameter key="message_farewell" value="Good bye |PLAYERNAME|!" /> 
+    </parameters>
+</npc>
