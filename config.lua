@@ -102,7 +102,7 @@ minactionexinterval = 1000
 
 -- house rent period
 -- options: daily, weekly, monthly
-houserentperiod = "monthly"
+houserentperiod = "never"
 
 -- whether or not to check for premium accounts when using beds
 premonlybeds = true
@@ -326,14 +326,14 @@ passwordsalt = ""
 
 -- House configuration (game_class)
 -- House tile price
-house_tile_price = 100
+house_tile_price = 1000
 -- Only premium players can buy houses?
 house_only_premium = true
 -- Level to buy houses
-house_level = 1
+house_level = 10
 -- Show house price and its rent price when looking at its door?
 -- PS: This info is going to be shown just if house has no owner
-show_house_prices = false
+show_house_prices = true
 
 -- SQL type
 -- options: mysql, sqlite, odbc or pgsql
