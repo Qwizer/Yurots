@@ -1,2 +1,5 @@
 <?xml version="1.0"?>
-<houses />
+<houses>
+	<house name="Yurots House #1" houseid="1" entryx="153" entryy="61" entryz="7" rent="0" townid="1" size="66" />
+	<house name="Yurots House #2" houseid="2" entryx="156" entryy="61" entryz="7" rent="0" townid="1" size="72" />
+</houses>
