@@ -82,8 +82,7 @@
                             <li class="nav-item">
                                 <a href="#emailSettings" class="nav-link" data-toggle="tab">
                                     <i class="icon-envelop3 mr-2"></i>
-                                    Email Settings <span
-                                        class="badge badge-flat border-grey-800 text-danger text-capitalize mr-1 float-right">NEW</span>
+                                    Email Settings 
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -110,13 +109,13 @@
                                     Custom CSS
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a href="{{ route('admin.updateFoodomaa') }}" class="nav-link">
                                     <i class="icon-feed spinner mr-2"></i>
                                     Update Foodomaa <span
                                         class="badge badge-flat border-grey-800 text-danger text-capitalize mr-1 float-right">NEW</span>
                                 </a>
-                            </li>
+                            </li> --}}
                             <li class="nav-item">
                                 <a href="#cacheSettings" class="nav-link" data-toggle="tab">
                                     <i class="icon-database-refresh mr-2"></i>
@@ -130,13 +129,13 @@
                                     Fix Update Issues
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a href="{{ route('admin.modules') }}" class="nav-link">
                                     <i class="icon-puzzle mr-2"></i>
                                     Modules <span
                                         class="badge badge-flat border-grey-800 text-danger text-capitalize mr-1 float-right">NEW</span>
                                 </a>
-                            </li>
+                            </li> --}}
                         </ul>
                         <div class="tab-content" style="width: 100%; padding: 0 25px;">
                             <div class="tab-pane fade show active" id="generalSettings">
@@ -1032,6 +1031,19 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label"><strong>Currency Symbol Alignment</strong></label>
+                                    <div class="col-lg-9">
+                                        <select name="currencySymbolAlign" class="form-control form-control-lg">
+                                            <option value="left" @if(config('settings.currencySymbolAlign')=="left" ) selected
+                                                @endif>Left
+                                            </option>
+                                            <option value="right" @if(config('settings.currencySymbolAlign')=="right" ) selected
+                                                @endif>Right
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
                                     <label class="col-lg-3 col-form-label"><strong>Wallet Name:</strong></label>
                                     <div class="col-lg-9">
                                         <input type="text" class="form-control form-control-lg" name="walletName"
@@ -1060,6 +1072,20 @@
                                                 <input value="true" type="checkbox" class="switchery-primary"
                                                     @if(config('settings.showVegNonVegBadge')=="true" )
                                                     checked="checked" @endif name="showVegNonVegBadge">
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label"><strong>Beautify Date/Time
+                                        </strong></label>
+                                    <div class="col-lg-9">
+                                        <div class="checkbox checkbox-switchery mt-2">
+                                            <label>
+                                                <input value="true" type="checkbox" class="switchery-primary"
+                                                    @if(config('settings.showFromNowDate')=="true" )
+                                                    checked="checked" @endif name="showFromNowDate">
                                             </label>
                                         </div>
                                     </div>
@@ -1993,8 +2019,8 @@
                                 <hr>
 
                                 <h4 class="font-weight-bold">Force Clear Cache</h4>
-                                <p>Clicking on this will logout all the customers and delivery guys, force clear the
-                                    cache on their devices and update the application.</p>
+                                <p>Clicking on this will force clear the
+                                    cache on their devices and update the application on the user's device.</p>
                                 <a href="javascript:void(0)" data-type="CACHE" data-popup="tooltip"
                                     title="Double Click to Execute" data-placement="right"
                                     class="btn btn-secondary btn-labeled btn-labeled-left" id="forceClearCache"> <b><i
@@ -2002,8 +2028,7 @@
                                 <hr>
 
                                 <h4 class="font-weight-bold">Force New Settings</h4>
-                                <p>Clicking on this will force update new settings for all the users and delivery guys.
-                                    This will not logout any user.</p>
+                                <p>Clicking on this will force update new settings for all the users and delivery guys.</p>
                                 <a href="javascript:void(0)" data-type="SETTINGS" data-popup="tooltip"
                                     title="Double Click to Execute" data-placement="right"
                                     class="btn btn-secondary btn-labeled btn-labeled-left" id="forceClearSettings">
@@ -2015,7 +2040,7 @@
                                 <legend class="font-weight-semibold text-uppercase font-size-sm">
                                     Fix Update Issues
                                 </legend>
-                                <p>Sometimes after an update, the front-facing app (for customer or delivery) may have
+                                <p>After an update, the front-facing app (for customer or delivery) will have
                                     some issues.
                                     <br> The issue may be because of:
                                 </p>

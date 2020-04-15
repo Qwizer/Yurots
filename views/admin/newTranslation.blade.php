@@ -503,6 +503,12 @@
                             value="{{ config('settings.setNewPasswordButtonText') }}" placeholder="Set New Password Button Text">
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Login/Registration Policy Message</strong></label>
+                    <div class="col-lg-9">
+                        <textarea class="summernote-editor" name="registrationPolicyMessage" placeholder="Sub Heading Text" rows="6"></textarea>
+                    </div>
+                </div>
                 <!-- END Login Screen Settings-->
                 <!-- HomePage Screen Settings -->
                 <button class="btn btn-primary translation-section-btn mt-4" type="button"> <i class="icon-mobile mr-1"></i>HomePage Screen Settings </button>
@@ -583,7 +589,31 @@
                             value="{{ config('settings.footerAccount') }}" placeholder="Footer Account Text">
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Footer Alerts Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="footerAlerts"
+                           value="{{ config('settings.footerAlerts') }}" placeholder="Footer Alerts Text">
+                    </div>
+                </div>
                 <!--END HomePage Screen Settings -->
+                <!-- Alerts Screen Settings -->
+                <button class="btn btn-primary translation-section-btn mt-4" type="button"> <i class="icon-mobile mr-1"></i>Alerts Screen Settings </button>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Mark All Read Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="markAllAlertReadText"
+                            value="{{ config('settings.markAllAlertReadText') }}" placeholder="Mark All Read Text">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>No New Alerts Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="noNewAlertsText"
+                            value="{{ config('settings.noNewAlertsText') }}" placeholder="No New Alerts Text">
+                    </div>
+                </div>
+                <!-- END Alerts Screen Settings -->
                 <!-- Explore Screen Settings -->
                 <button class="btn btn-primary translation-section-btn mt-4" type="button"> <i class="icon-mobile mr-1"></i>Explore Screen Settings </button>
                 <div class="form-group row">
@@ -946,6 +976,13 @@
                     <div class="col-lg-9">
                         <input type="text" class="form-control form-control-lg" name="cartRestaurantNotOperational"
                             value="{{ config('settings.cartRestaurantNotOperational') }}" placeholder="Restaurant Not Operational Message">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Min Order Message</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="restaurantMinOrderMessage"
+                            value="{{ config('settings.restaurantMinOrderMessage') }}" placeholder="Min Order Message">
                     </div>
                 </div>
                 <!-- END Cart Screen Settings -->
@@ -1378,6 +1415,13 @@
                     <div class="col-lg-9">
                         <input type="text" class="form-control form-control-lg" name="buttonSaveAddress"
                             value="{{ config('settings.buttonSaveAddress') }}" placeholder="Save Address Button">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Saved Addresses (Location page)</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="locationSavedAddresses"
+                            value="{{ config('settings.locationSavedAddresses') }}" placeholder="Saved Addresses">
                     </div>
                 </div>
                 <!-- END Search Location Screen Settings -->

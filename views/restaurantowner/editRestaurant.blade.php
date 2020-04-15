@@ -139,6 +139,15 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label">Min Order Price</label>
+                        <div class="col-lg-9">
+                            <input value="{{ $restaurant->min_order_price }}" type="text" class="form-control form-control-lg min_order_price" name="min_order_price"
+                                placeholder="Min Cart Value before discount and tax {{ config('settings.currencyFormat') }}">
+                        </div>
+                    </div>
+                    
                     @csrf
                     <div class="text-left">
                         <div class="btn-group btn-group-justified" style="width: 225px">
@@ -197,6 +206,7 @@
        $('.longitude').numeric({allowThouSep:false});
        $('.restaurant_charges').numeric({ allowThouSep:false, maxDecimalPlaces: 2 });
        $('.delivery_charges').numeric({ allowThouSep:false, maxDecimalPlaces: 2 });
+       $('.min_order_price').numeric({ allowThouSep:false, maxDecimalPlaces: 2, allowMinus: false });
     });
 </script>
 @endsection

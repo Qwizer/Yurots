@@ -9,7 +9,14 @@
 <form method="POST" action="{{ url('install/configuration') }}" class="form-horizontal">
     {{ csrf_field() }}
     <div class="box">
-        <p>Enter your purchase code.
+        <div class="text-danger">
+            @if(Session::has('message'))
+                {{ Session::get('message') }}
+            @endif
+            @if($errors->any())
+                {{ implode('', $errors->all(':message')) }}
+            @endif
+        </div>
         <div class="configure-form">
             <div class="form-group {{ $errors->has('db.purchase_code') ? 'has-error': '' }}">
                 <label class="control-label col-sm-3" for="host">Purchase Code <span>*</span></label>

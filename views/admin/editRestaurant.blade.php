@@ -246,6 +246,15 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label">Min Order Price</label>
+                        <div class="col-lg-9">
+                            <input value="{{ $restaurant->min_order_price }}" type="text" class="form-control form-control-lg min_order_price" name="min_order_price"
+                                placeholder="Min Cart Value before discount and tax {{ config('settings.currencyFormat') }}">
+                        </div>
+                    </div>
+
                     @csrf
                     <div class="text-left">
                         <div class="btn-group btn-group-justified" style="width: 225px">
@@ -343,6 +352,9 @@
         $('.extra_delivery_charge').numeric({ allowThouSep:false, maxDecimalPlaces: 2, allowMinus: false });
         $('.extra_delivery_distance').numeric({ allowThouSep:false, maxDecimalPlaces: 0, allowMinus: false });
         
+        $('.min_order_price').numeric({ allowThouSep:false, maxDecimalPlaces: 2, allowMinus: false });
+        
+
         @if($restaurant->delivery_charge_type == "FIXED")
             $('#dynamicChargeDiv').addClass('hidden');
         @else

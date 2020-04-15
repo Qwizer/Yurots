@@ -256,54 +256,6 @@ Dashboard
             window.location = this.href;
             return false;
          });
-        
-        /** FIREBASE **/
-        @if(config('settings.firebaseSDKSnippet') != NULL)
-            // firebase config from db
-            <?php echo config('settings.firebaseSDKSnippet') ?>
-            // Initialize Firebase
-            firebase.initializeApp(firebaseConfig);
-            
-            // Retrieve Firebase Messaging object.
-            const messaging = firebase.messaging();
-    
-            navigator.serviceWorker.register('{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/firebase-messaging-sw.js')
-            .then((registration) => {
-              messaging.useServiceWorker(registration);
-    
-              // Request permission and get token.....
-              messaging.requestPermission().then(function() {
-                  console.log('Notification permission granted.');
-                  //make API call to save the user token to send notifications
-              }).catch(function(err) {
-                console.log('Unable to get permission to notify.', err);
-              });
-              
-              messaging.getToken().then(function(currentToken) {
-                if (currentToken) {
-                  console.log(currentToken);
-                  console.log("make api call now")
-                  // make API CALL to save token in db
-                  $.ajax({
-                      url: '{{ url('restaurant-owner/save-restaurant-owner-notification-token') }}',
-                      type: 'POST',
-                      dataType: 'JSON',
-                      data: {user_id: "{{Auth::user()->id}}", _token: "{{ csrf_token() }}" , push_token: currentToken},
-                  })
-                  .done(function() {
-                      console.log("Saving notification token success");
-                  })
-                  .fail(function() {
-                      console.log("Saving notification token failed");
-                  })
-                  
-                }
-              }).catch(function(err) {
-                console.log('An error occurred while retrieving token. ', err);
-              });
-            });
-        @endif
-        /** END FIREBASE **/
     });
 </script>
 @endsection

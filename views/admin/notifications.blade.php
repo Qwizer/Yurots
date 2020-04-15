@@ -10,7 +10,10 @@
 <div class="page-header">
     <div class="page-header-content header-elements-md-inline">
         <div class="page-title d-flex">
-            <h4><i class="icon-circle-right2 mr-2"></i>
+            <h4>
+                <span class="font-weight-bold mr-2">Total Users</span>
+                <span class="badge badge-primary badge-pill animated flipInX">{{ count($users) }}</span>
+                <br>
                 <span class="font-weight-bold mr-2">Total Subscribers</span>
                 <span class="badge badge-primary badge-pill animated flipInX">{{ $count }}</span>
             </h4>
@@ -19,56 +22,120 @@
     </div>
 </div>
 <div class="content">
-    <div class="col-md-8">
-        <div class="card">
-            <div class="card-body">
-                <div class="form-group row">
-                    <label class="col-lg-3 col-form-label">Notification Image: </label>
-                    <div class="col-lg-9">
-                        <img class="slider-preview-image hidden"/>
-                        <div class="uploader">
-                            <form method="POST" action="{{ route('admin.uploadNotificationImage') }}" enctype="multipart/form-data" class="dropzone" id="dropzone">
-                                <input type="hidden" name="_token" value="{{ csrf_token() }}" id="csrfToken">
-                            </form>
-                            <span class="help-text text-muted">Image size: 1600x1100</span>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="text-muted mb-3"><strong>Send push notification & alert to all users</strong></h3>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label">Notification Image: </label>
+                        <div class="col-lg-9">
+                            <img class="slider-preview-image hidden"/>
+                            <div class="uploader">
+                                <form method="POST" action="{{ route('admin.uploadNotificationImage') }}" enctype="multipart/form-data" class="dropzone" id="dropzone">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}" id="csrfToken">
+                                </form>
+                                <span class="help-text text-muted">Image size: 1600x1100</span>
+                            </div>
                         </div>
                     </div>
+                    <form action="{{ route('admin.sendNotifiaction') }}" method="POST" enctype="multipart/form-data">
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>Notification Title:</label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control form-control-lg" name="data[title]"
+                                    placeholder="Notification Title" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>Message:</label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control form-control-lg" name="data[message]"
+                                    placeholder="Notification Message" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label">URL:</label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control form-control-lg" name="data[click_action]"
+                                    placeholder="This link will be opened when the notification is clicked">
+                            </div>
+                        </div>
+                        <input type="hidden" name="data[badge]" value="/assets/img/favicons/favicon-96x96.png">
+                        <input type="hidden" name="data[icon]" value="/assets/img/favicons/favicon-512x512.png">
+                        <input type="hidden" name="data[image]" value="" class="notificationImage">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-primary btn-labeled btn-labeled-left">
+                            <b><i class="icon-paperplane"></i></b>
+                            SEND
+                            </button>
+                        </div>
+                    </form>
                 </div>
-                <form action="{{ route('admin.sendNotifiaction') }}" method="POST" enctype="multipart/form-data">
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="text-muted mb-3"><strong>Send push notification & alert to selected users</strong></h3>
                     <div class="form-group row">
-                        <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>Notification Title:</label>
+                        <label class="col-lg-3 col-form-label">Notification Image: </label>
                         <div class="col-lg-9">
-                            <input type="text" class="form-control form-control-lg" name="data[title]"
-                                placeholder="Notification Title" required>
+                            <img class="slider-preview-image hidden"/>
+                            <div class="uploader">
+                                <form method="POST" action="{{ route('admin.uploadNotificationImage') }}" enctype="multipart/form-data" class="dropzone" id="dropzone">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}" id="csrfToken">
+                                </form>
+                                <span class="help-text text-muted">Image size: 1600x1100</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>Message:</label>
-                        <div class="col-lg-9">
-                            <input type="text" class="form-control form-control-lg" name="data[message]"
-                                placeholder="Notification Message" required>
+                    <form action="{{ route('admin.sendNotificationToSelectedUsers') }}" method="POST" enctype="multipart/form-data">
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>Select Users:</label>
+                            <div class="col-lg-9">
+                                <select multiple="multiple" class="form-control select" data-fouc name="users[]">
+                                    @foreach ($users as $user)
+                                    <option value="{{ $user->id }}" class="text-capitalize">{{ $user->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-3 col-form-label">URL:</label>
-                        <div class="col-lg-9">
-                            <input type="text" class="form-control form-control-lg" name="data[click_action]"
-                                placeholder="This link will be opened when the notification is clicked">
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>Notification Title:</label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control form-control-lg" name="data[title]"
+                                    placeholder="Notification Title" required>
+                            </div>
                         </div>
-                    </div>
-                    <input type="hidden" name="data[badge]" value="/assets/img/favicons/favicon-96x96.png">
-                    <input type="hidden" name="data[icon]" value="/assets/img/favicons/favicon-512x512.png">
-                    <input type="hidden" name="data[image]" value="" id="notificationImage">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
-                    @if($count > 0)
-                    <div class="text-right">
-                        <button type="submit" class="btn btn-primary btn-labeled btn-labeled-left">
-                        <b><i class="icon-paperplane"></i></b>
-                        SEND
-                        </button>
-                    </div>
-                    @endif
-                </form>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>Message:</label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control form-control-lg" name="data[message]"
+                                    placeholder="Notification Message" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label">URL:</label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control form-control-lg" name="data[click_action]"
+                                    placeholder="This link will be opened when the notification is clicked">
+                            </div>
+                        </div>
+                        <input type="hidden" name="data[badge]" value="/assets/img/favicons/favicon-96x96.png">
+                        <input type="hidden" name="data[icon]" value="/assets/img/favicons/favicon-512x512.png">
+                        <input type="hidden" name="data[image]" value="" class="notificationImage">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-primary btn-labeled btn-labeled-left">
+                            <b><i class="icon-paperplane"></i></b>
+                            SEND
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
@@ -87,8 +154,15 @@
        }
     }
     
+
     $(function() {
        $('.form-control-uniform').uniform();
+
+       $('.select').select2({
+           minimumResultsForSearch: Infinity,
+           placeholder: 'Select Users',
+       });
+
     });
 
     @if($count == 0)
@@ -114,14 +188,14 @@
         timeout: 50000,
         removedfile: function(file) 
         {
-           $('#notificationImage').attr('value', "");
+           $('.notificationImage').attr('value', "");
             var fileRef;
             return (fileRef = file.previewElement) != null ? fileRef.parentNode.removeChild(file.previewElement) : void 0;
         },
         success: function(file, response) 
         {
             console.log(response.success);
-            $('#notificationImage').attr('value', '/assets/img/various/' +response.success);
+            $('.notificationImage').attr('value', '/assets/img/various/' +response.success);
         },
         error: function(file, response)
         {

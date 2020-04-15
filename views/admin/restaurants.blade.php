@@ -319,6 +319,15 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label">Min Order Price</label>
+                        <div class="col-lg-9">
+                            <input type="text" class="form-control form-control-lg min_order_price" name="min_order_price"
+                                placeholder="Min Cart Value before discount and tax {{ config('settings.currencyFormat') }}">
+                        </div>
+                    </div>
+
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>Commission Rate %:</label>
                         <div class="col-lg-9">
@@ -425,6 +434,9 @@
         $('.base_delivery_distance').numeric({ allowThouSep:false, maxDecimalPlaces: 0, allowMinus: false });
         $('.extra_delivery_charge').numeric({ allowThouSep:false, maxDecimalPlaces: 2, allowMinus: false });
         $('.extra_delivery_distance').numeric({ allowThouSep:false, maxDecimalPlaces: 0, allowMinus: false });
+
+        $('.min_order_price').numeric({ allowThouSep:false, maxDecimalPlaces: 2, allowMinus: false });
+        
     
          $("[name='delivery_charge_type']").change(function(event) {
              if ($(this).val() == "FIXED") {

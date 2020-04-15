@@ -493,6 +493,12 @@
                         <input type="text" class="form-control form-control-lg" name="setNewPasswordButtonText" value="@if (!empty($data->setNewPasswordButtonText)) {{ $data->setNewPasswordButtonText }}@else{{ config('settings.setNewPasswordButtonText') }}@endif" placeholder="Set New Password Button Text">
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Login/Registration Policy Message</strong></label>
+                    <div class="col-lg-9">
+                        <textarea class="summernote-editor" name="registrationPolicyMessage" placeholder="Sub Heading Text" rows="6">@if (!empty($data->registrationPolicyMessage)) {{ $data->registrationPolicyMessage }}@else{{ config('settings.registrationPolicyMessage') }}@endif</textarea>
+                    </div>
+                </div>
                 <!-- END Login Screen Settings-->
                 <!-- HomePage Screen Settings -->
                 <button class="btn btn-primary translation-section-btn mt-4" type="button"> <i class="icon-mobile mr-1"></i>HomePage Screen Settings </button>
@@ -574,13 +580,37 @@
                     </div>
                 </div>
                 <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Footer Alerts Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="footerAlerts"
+                            value="@if (!empty($data->footerAlerts)) {{ $data->footerAlerts }}@else{{ config('settings.footerAlerts') }}@endif" placeholder="Footer Alerts Text">
+                    </div>
+                </div>
+                <div class="form-group row">
                     <label class="col-lg-3 col-form-label"><strong>No Results Found Text</strong></label>
                     <div class="col-lg-9">
                         <input type="text" class="form-control form-control-lg" name="exploreNoResults"
-                            value="@if (!empty($data->exploreNoResults)) {{ $data->exploreNoResults }}@else{{ config('settings.exploreNoResults') }}@endif"placeholder="Footer Account Text">
+                            value="@if (!empty($data->exploreNoResults)) {{ $data->exploreNoResults }}@else{{ config('settings.exploreNoResults') }}@endif" placeholder="Footer Account Text">
                     </div>
                 </div>
                 <!--END HomePage Screen Settings -->
+                <!-- Alerts Screen Settings -->
+                <button class="btn btn-primary translation-section-btn mt-4" type="button"> <i class="icon-mobile mr-1"></i>Alerts Screen Settings </button>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Mark All Read Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="markAllAlertReadText"
+                            value="@if (!empty($data->markAllAlertReadText)) {{ $data->markAllAlertReadText }}@else{{ config('settings.markAllAlertReadText') }}@endif" placeholder="Mark All Read Text">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>No New Alerts Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="noNewAlertsText"
+                            value="@if (!empty($data->noNewAlertsText)) {{ $data->noNewAlertsText }}@else{{ config('settings.noNewAlertsText') }}@endif" placeholder="No New Alerts Text">
+                    </div>
+                </div>
+                <!-- END Alerts Screen Settings -->
                 <!-- Explore Screen Settings -->
                 <button class="btn btn-primary translation-section-btn mt-4" type="button"> <i class="icon-mobile mr-1"></i>Explore Screen Settings </button>
                 <div class="form-group row">
@@ -936,6 +966,13 @@
                     <div class="col-lg-9">
                         <input type="text" class="form-control form-control-lg" name="cartRestaurantNotOperational"
                             value="{{ $data->cartRestaurantNotOperational }}" placeholder="Restaurant Not Operational Message">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Min Order Message</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="restaurantMinOrderMessage"
+                            value="@if (!empty($data->restaurantMinOrderMessage)) {{ $data->restaurantMinOrderMessage }}@else{{ config('settings.restaurantMinOrderMessage') }}@endif" placeholder="Min Order Message">
                     </div>
                 </div>
                 <!-- END Cart Screen Settings -->
@@ -1368,6 +1405,12 @@
                     <div class="col-lg-9">
                         <input type="text" class="form-control form-control-lg" name="buttonSaveAddress"
                             value="{{ $data->buttonSaveAddress }}" placeholder="Save Address Button">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Saved Addresses (Location page)</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="locationSavedAddresses" value="@if (!empty($data->locationSavedAddresses)) {{ $data->locationSavedAddresses }}@else{{ config('settings.locationSavedAddresses') }}@endif" placeholder="Saved Addresses">
                     </div>
                 </div>
                 <!-- END Search Location Screen Settings -->

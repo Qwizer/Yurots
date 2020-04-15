@@ -65,18 +65,14 @@ Login
                         class="icon-circle-right2 ml-2"></i></button>
                 </div>
 
-                
-               
+                <div class="content-divider text-muted form-group"><span> OR </span></div>
+                <div class="content d-flex justify-content-center align-items-center mt-3">
+                    <button class="btn btn-lg btn-registerBtn mr-2 regButtonDelivery" type="button">Register for Delivery</button>
+                    <button class="btn btn-lg btn-registerBtn regButtonResOwn" type="button">Register for Restaurant</button>
+                </div>
             </div>
-           
         </div>
     </form>
-    
-    <div class="copyright text-center">
-                    &copy;
-                    <script>document.write(new Date().getFullYear())</script>,
-                    <span>Designed by <a href="https://mrswebmaker.com/" target="_blank">MRSwebmaker</a></span>
-                </div>
      <form class="registration-form py-5 hidden" action="{{ route('registerRestaurantDelivery') }}" method="POST" id="regForm" style="margin: 0 auto 20px auto;">
         <input type="hidden" name="role" id="roleValue">
         <div class="card mb-0">
@@ -125,7 +121,11 @@ Login
                         class="icon-circle-right2 ml-2"></i></button>
                 </div>
 
-                
+                <div class="content-divider text-muted form-group"><span> OR </span></div>
+                <div class="content d-flex justify-content-center align-items-center mt-3">
+                    <button class="btn btn-lg btn-registerBtn mr-2 regButtonDelivery" type="button">Register for Delivery</button>
+                    <button class="btn btn-lg btn-registerBtn regButtonResOwn" type="button">Register for Restaurant</button>
+                </div>
 
             </div>
         </div>

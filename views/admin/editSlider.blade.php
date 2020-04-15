@@ -91,7 +91,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="btn btn-md btn-primary" id="enterCustomURL">Enter Custom URL</button>
+                    <button class="btn btn-md btn-primary" id="enterCustomURL" type="button">Enter Custom URL</button>
                     <div class="form-group row hidden" id="customURL">
                        <label class="col-lg-3 col-form-label">Custom URL:</label>
                         <div class="col-lg-9">
@@ -172,6 +172,7 @@
             $(this).hide();
             $('#customURL').removeClass('hidden');
             $('#restaurantURL').addClass('hidden');
+            $('#urlInput').removeAttr('required');
             $('#customUrl').attr('required', 'required');
          });
     });
