@@ -1,0 +1,4 @@
+# Referenced at /Akshay/GIT Project/Eatance/Eatance/android/app/build/intermediates/merged_manifests/release/AndroidManifest.xml:52
+-keep class com.Shobak.Lobak.MainApplication { <init>(); }
+# Referenced at /Akshay/GIT Project/Eatance/Eatance/android/app/build/intermediates/merged_manifests/release/AndroidManifest.xml:52
+-keep class com.Shobak.Lobak.whateverString { <init>(); }

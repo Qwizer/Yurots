@@ -1,0 +1,14 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:timePickerDialogTheme" tools:ignore="NewApi">@style/Dialog.Theme</item>
+        <item name="android:datePickerDialogTheme" tools:ignore="NewApi">@style/Dialog.Theme</item>
+    </style>
+
+    <style name="Dialog.Theme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">#FFB300</item>
+        <item name="android:textColorPrimary">#233646</item>
+    </style>
+
+</resources>

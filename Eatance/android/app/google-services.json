@@ -1,0 +1,79 @@
+{
+  "project_info": {
+    "project_number": "734613902766",
+    "firebase_url": "https://asapandroid-c4345.firebaseio.com",
+    "project_id": "asapandroid-c4345",
+    "storage_bucket": "asapandroid-c4345.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:734613902766:android:bee6392a8f76d6f0",
+        "android_client_info": {
+          "package_name": "com.eatance"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "734613902766-nj05leefahrehg5jvvb3al197hhqjfko.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.eatance",
+            "certificate_hash": "953c0a71ec67e5e180cfdc2c7d0c7bba4b787c5e"
+          }
+        },
+        {
+          "client_id": "734613902766-k1qj63h0i47i9go249vms58pqh18cac1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.eatance",
+            "certificate_hash": "60de3298cce8c8ea4ecf4ab5af74b954cbb7fd27"
+          }
+        },
+        {
+          "client_id": "734613902766-o8ub606d84rf9ccpsilj1k7pbq7tsleh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.eatance",
+            "certificate_hash": "b50f6fb88f358a4453a70400de2cb51286ffc772"
+          }
+        },
+        {
+          "client_id": "734613902766-c6o5pj5goqng29iju771bicch52eulad.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.eatance",
+            "certificate_hash": "009bdcd17815708703050ce45a99f79079bd8719"
+          }
+        },
+        {
+          "client_id": "734613902766-5c88ee1k2nkjcpni1qoqeg24sc5jtgrq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdHo-Jonfc5MKmvwXFZr0nZUyYNiBgsz4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "734613902766-6i984gassjja4vmv79ojujrfvll586cq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "734613902766-asnvg87l7lapvc8e6fsjf6st81tj5sr7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.evince.eatance"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

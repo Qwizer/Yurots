@@ -1,0 +1,47 @@
+dependencies: \
+  /Akshay/Menuwala/Eatance/node_modules/react-native/Libraries/NativeAnimation/RCTNativeAnimatedNodesManager.m \
+  /Akshay/Menuwala/Eatance/ios/Pods/Target\ Support\ Files/React-RCTAnimation/React-RCTAnimation-prefix.pch \
+  /Akshay/Menuwala/Eatance/node_modules/react-native/Libraries/NativeAnimation/RCTNativeAnimatedNodesManager.h \
+  /Akshay/Menuwala/Eatance/ios/Pods/Headers/Public/React-Core/React/RCTBridgeModule.h \
+  /Akshay/Menuwala/Eatance/ios/Pods/Headers/Public/React-Core/React/RCTDefines.h \
+  /Akshay/Menuwala/Eatance/ios/Pods/Headers/Public/React-Core/React/RCTUIManager.h \
+  /Akshay/Menuwala/Eatance/ios/Pods/Headers/Public/React-Core/React/RCTBridge.h \
+  /Akshay/Menuwala/Eatance/ios/Pods/Headers/Public/React-Core/React/RCTBridgeDelegate.h \
+  /Akshay/Menuwala/Eatance/ios/Pods/Headers/Public/React-Core/React/RCTJavaScriptLoader.h \
+  /Akshay/Menuwala/Eatance/ios/Pods/Headers/Public/React-Core/React/RCTFrameUpdate.h \
+  /Akshay/Menuwala/Eatance/ios/Pods/Headers/Public/React-Core/React/RCTInvalidating.h \
+  /Akshay/Menuwala/Eatance/ios/Pods/Headers/Public/React-Core/React/RCTRootView.h \
+  /Akshay/Menuwala/Eatance/ios/Pods/Headers/Public/React-Core/React/RCTViewManager.h \
+  /Akshay/Menuwala/Eatance/ios/Pods/Headers/Public/React-Core/React/RCTConvert.h \
+  /Akshay/Menuwala/Eatance/ios/Pods/Headers/Public/React-Core/React/RCTAnimationType.h \
+  /Akshay/Menuwala/Eatance/ios/Pods/Headers/Public/React-Core/React/RCTBorderStyle.h \
+  /Akshay/Menuwala/Eatance/ios/Pods/Headers/Public/React-Core/React/RCTLog.h \
+  /Akshay/Menuwala/Eatance/ios/Pods/Headers/Public/React-Core/React/RCTAssert.h \
+  /Akshay/Menuwala/Eatance/ios/Pods/Headers/Public/React-Core/React/RCTUtils.h \
+  /Akshay/Menuwala/Eatance/ios/Pods/Headers/Public/React-Core/React/RCTPointerEvents.h \
+  /Akshay/Menuwala/Eatance/ios/Pods/Headers/Public/React-Core/React/RCTTextDecorationLineType.h \
+  /Akshay/Menuwala/Eatance/ios/Pods/Headers/Private/yoga/Yoga.h \
+  /Akshay/Menuwala/Eatance/ios/Pods/Headers/Private/yoga/YGEnums.h \
+  /Akshay/Menuwala/Eatance/ios/Pods/Headers/Private/yoga/YGMacros.h \
+  /Akshay/Menuwala/Eatance/ios/Pods/Headers/Private/yoga/YGValue.h \
+  /Akshay/Menuwala/Eatance/ios/Pods/Headers/Public/React-Core/React/RCTEventDispatcher.h \
+  /Akshay/Menuwala/Eatance/ios/Pods/Headers/Public/React-Core/React/UIView+React.h \
+  /Akshay/Menuwala/Eatance/ios/Pods/Headers/Public/React-Core/React/RCTComponent.h \
+  /Akshay/Menuwala/Eatance/node_modules/react-native/Libraries/NativeAnimation/Nodes/RCTAdditionAnimatedNode.h \
+  /Akshay/Menuwala/Eatance/node_modules/react-native/Libraries/NativeAnimation/Nodes/RCTValueAnimatedNode.h \
+  /Akshay/Menuwala/Eatance/node_modules/react-native/Libraries/NativeAnimation/Nodes/RCTAnimatedNode.h \
+  /Akshay/Menuwala/Eatance/node_modules/react-native/Libraries/NativeAnimation/Drivers/RCTAnimationDriver.h \
+  /Akshay/Menuwala/Eatance/node_modules/react-native/Libraries/NativeAnimation/Nodes/RCTDiffClampAnimatedNode.h \
+  /Akshay/Menuwala/Eatance/node_modules/react-native/Libraries/NativeAnimation/Nodes/RCTDivisionAnimatedNode.h \
+  /Akshay/Menuwala/Eatance/node_modules/react-native/Libraries/NativeAnimation/Drivers/RCTEventAnimation.h \
+  /Akshay/Menuwala/Eatance/node_modules/react-native/Libraries/NativeAnimation/Drivers/RCTFrameAnimation.h \
+  /Akshay/Menuwala/Eatance/node_modules/react-native/Libraries/NativeAnimation/Drivers/RCTDecayAnimation.h \
+  /Akshay/Menuwala/Eatance/node_modules/react-native/Libraries/NativeAnimation/Nodes/RCTInterpolationAnimatedNode.h \
+  /Akshay/Menuwala/Eatance/node_modules/react-native/Libraries/NativeAnimation/Nodes/RCTModuloAnimatedNode.h \
+  /Akshay/Menuwala/Eatance/node_modules/react-native/Libraries/NativeAnimation/Nodes/RCTMultiplicationAnimatedNode.h \
+  /Akshay/Menuwala/Eatance/node_modules/react-native/Libraries/NativeAnimation/Nodes/RCTPropsAnimatedNode.h \
+  /Akshay/Menuwala/Eatance/node_modules/react-native/Libraries/NativeAnimation/Drivers/RCTSpringAnimation.h \
+  /Akshay/Menuwala/Eatance/node_modules/react-native/Libraries/NativeAnimation/Nodes/RCTStyleAnimatedNode.h \
+  /Akshay/Menuwala/Eatance/node_modules/react-native/Libraries/NativeAnimation/Nodes/RCTSubtractionAnimatedNode.h \
+  /Akshay/Menuwala/Eatance/node_modules/react-native/Libraries/NativeAnimation/Nodes/RCTTransformAnimatedNode.h \
+  /Akshay/Menuwala/Eatance/node_modules/react-native/Libraries/NativeAnimation/Nodes/RCTTrackingAnimatedNode.h

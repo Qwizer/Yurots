@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Akshay/GIT Project/Eatance/Eatance/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-hdpi-v4/values-hdpi-v4.xml",
+            "map": [
+                {
+                    "source": "/Users/akshay/.gradle/caches/transforms-2/files-2.1/e8bcec486f3ceec3fe1dc210b17a5a76/res/values-hdpi-v4/values-hdpi-v4.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "6",
+                        "endColumns": "13",
+                        "endOffsets": "327"
+                    }
+                }
+            ]
+        }
+    ]
+}

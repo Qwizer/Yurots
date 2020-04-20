@@ -1,0 +1,11 @@
+dependencies: \
+  /Akshay/Menuwala/Eatance/node_modules/react-native/ReactCommon/yoga/yoga/YGMarker.cpp \
+  /Akshay/Menuwala/Eatance/ios/Pods/Target\ Support\ Files/yoga/yoga-prefix.pch \
+  /Akshay/Menuwala/Eatance/node_modules/react-native/ReactCommon/yoga/yoga/YGMarker.h \
+  /Akshay/Menuwala/Eatance/node_modules/react-native/ReactCommon/yoga/yoga/YGMacros.h \
+  /Akshay/Menuwala/Eatance/node_modules/react-native/ReactCommon/yoga/yoga/YGConfig.h \
+  /Akshay/Menuwala/Eatance/node_modules/react-native/ReactCommon/yoga/yoga/Yoga-internal.h \
+  /Akshay/Menuwala/Eatance/node_modules/react-native/ReactCommon/yoga/yoga/CompactValue.h \
+  /Akshay/Menuwala/Eatance/node_modules/react-native/ReactCommon/yoga/yoga/YGValue.h \
+  /Akshay/Menuwala/Eatance/node_modules/react-native/ReactCommon/yoga/yoga/YGEnums.h \
+  /Akshay/Menuwala/Eatance/node_modules/react-native/ReactCommon/yoga/yoga/Yoga.h

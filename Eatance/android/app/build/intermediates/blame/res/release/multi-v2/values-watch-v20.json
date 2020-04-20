@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Akshay/GIT Project/Eatance/Eatance/android/app/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-watch-v20/values-watch-v20.xml",
+            "map": [
+                {
+                    "source": "/Users/akshay/.gradle/caches/transforms-2/files-2.1/e8bcec486f3ceec3fe1dc210b17a5a76/res/values-watch-v20/values-watch-v20.xml",
+                    "from": {
+                        "startLines": "2,5,8",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,214,385",
+                        "endLines": "4,7,10",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "209,380,553"
+                    }
+                }
+            ]
+        }
+    ]
+}
