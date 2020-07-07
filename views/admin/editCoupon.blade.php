@@ -46,7 +46,7 @@
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>Dicount Type:</label>
                         <div class="col-lg-9">
-                            <select class="form-control select-search" name="discount_type" required>
+                            <select class="form-control select-search select" name="discount_type" required>
                             <option value="AMOUNT" class="text-capitalize" @if($coupon->discount_type == "AMOUNT") selected="selected" @endif>
                             Fixed Amount Discount
                             </option>
@@ -54,6 +54,13 @@
                             Percentage Discount
                             </option>
                             </select>
+                        </div>
+                    </div>
+                    <div class="form-group row @if($coupon->discount_type =="AMOUNT") hidden @endif" id="max_discount">
+                        <label class="col-lg-3 col-form-label">Max Discount</label>
+                        <div class="col-lg-9">
+                            <input type="text" class="form-control form-control-lg max_discount" name="max_discount"
+                                placeholder="Max discount applicable in {{ config('settings.currencyFormat') }}" value="{{ $coupon->max_discount }}">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -87,7 +94,21 @@
                         <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>Max number of use:</label>
                         <div class="col-lg-9">
                             <input value="{{ $coupon->max_count }}" type="text" class="form-control form-control-lg" name="max_count"
-                                placeholder="Coupon Discount" required>
+                                placeholder="Max number of use" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label">Min Subtotal</label>
+                        <div class="col-lg-9">
+                            <input type="text" class="form-control form-control-lg min_subtotal" name="min_subtotal"
+                                placeholder="Min subtotal required for coupon in {{ config('settings.currencyFormat') }}" value="{{ $coupon->min_subtotal }}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label">Subtotal not reached message</label>
+                        <div class="col-lg-9">
+                            <input type="text" class="form-control form-control-lg" name="subtotal_message"
+                                placeholder="Subtotal not reached message" value="{{ $coupon->subtotal_message }}">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -136,9 +157,7 @@
 </div>
 <script>
     $(function () {
-        $('.select').select2({
-            minimumResultsForSearch: Infinity,
-        });
+         $('.select').select2();
     
         var isactive = document.querySelector('.isactive');
         new Switchery(isactive, { color: '#f44336' });
@@ -148,6 +167,17 @@
         $('.daterange-single').daterangepicker({ 
             singleDatePicker: true,
         });
+
+        $('[name="discount_type"]').change(function(event) {
+         console.log($(this).val());
+            if ($(this).val() == "PERCENTAGE") {
+             $('#max_discount').removeClass('hidden');
+            } else {
+              $('#max_discount').addClass('hidden');
+            }
+        });
+        $('.min_subtotal').numeric({ allowThouSep:false, maxDecimalPlaces: 2, allowMinus: false });
+        $('.max_discount').numeric({ allowThouSep:false, maxDecimalPlaces: 2, allowMinus: false });
     });
 </script>
 @endsection

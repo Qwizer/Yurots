@@ -90,8 +90,10 @@
                                 @else
                                 <select class="form-control select" data-fouc name="roles">
                                     <option></option>
-                                    @foreach ($roles as $role)
-                                    <option value="{{ $role->name }}" class="text-capitalize">{{ $role->name }}</option>
+                                    @foreach ($roles as $key => $role)
+                                    @if($key != 1)
+                                        <option value="{{ $role->name }}" class="text-capitalize">{{ $role->name }}</option>
+                                    @endif
                                     @endforeach
                                 </select>
                                 @endif

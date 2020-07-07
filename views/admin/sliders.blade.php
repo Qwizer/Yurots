@@ -75,6 +75,23 @@
                             @if($slider->position_id == 6)
                             <td>After 6th Store</td>
                             @endif
+
+                            @if($slider->size == 1)
+                            <td>Extra Small</td>
+                            @endif
+                            @if($slider->size == 2)
+                            <td>Small</td>
+                            @endif
+                            @if($slider->size == 3)
+                            <td>Medium</td>
+                            @endif
+                            @if($slider->size == 4)
+                            <td>Large</td>
+                            @endif
+                            @if($slider->size == 5)
+                            <td>Extra Large</td>
+                            @endif
+
                             <td>{{ $slider->size }}</td>
                             <td>{{ $slider->created_at->diffForHumans() }}</td>
                             <td class="text-center">
@@ -115,7 +132,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-3 col-form-label">Slider Position:</label>
+                        <label class="col-lg-3 col-form-label">Position:</label>
                         <div class="col-lg-9">
                             <select name="position_id" class="form-control form-control-lg">
                                 <option value="0">Main Position</option>

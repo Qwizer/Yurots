@@ -1,4 +1,7 @@
 @extends('install.layout.master')
+@section('title')
+Installation
+@endsection
 @section('thankyou')
 <style>
     .main-col {

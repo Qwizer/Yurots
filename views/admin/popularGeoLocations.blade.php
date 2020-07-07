@@ -113,7 +113,7 @@
                                 <button type="button" class="btn btn-primary gllpSearchButton">Search</button>
                             </div>
                         </div> --}}
-                        <span class="text-muted">You can use services like: <a href="https://www.mapcoordinates.net/en">https://www.mapcoordinates.net/en</a></span> <br> If you enter an invalid Latitude/Longitude the map system might crash with a white screen.
+                        <span class="text-muted">You can use services like: <a href="https://www.mapcoordinates.net/en" target="_blank">https://www.mapcoordinates.net/en</a></span> <br> If you enter an invalid Latitude/Longitude the map system might crash with a white screen.
                     </fieldset>
                     <div class="form-group row mt-3">
                         <label class="col-lg-3 col-form-label">Is Active?</label>

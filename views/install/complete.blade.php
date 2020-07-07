@@ -1,4 +1,7 @@
-@extends('install.layout.master') 
+@extends('install.layout.master')
+@section('title')
+Completed
+@endsection
 @section('content')
 <div class="box">
     <div class="installation-message text-center">

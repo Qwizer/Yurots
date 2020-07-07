@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/css/install.css">
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js'></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js'></script>
-        <title>Installation</title>
+        <title>@yield('title')</title>
         <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106310733-1"></script>
     <script>
@@ -28,6 +28,7 @@
         @yield("custom-script-two")
         <div class="wrapper">
             @yield("thankyou")
+            @yield("update")
             <div class="col-lg-8 col-md-9 col-sm-10 main-col">
                 <div class="row">
                     <div class="col-md-3">

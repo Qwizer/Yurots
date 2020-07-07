@@ -61,6 +61,7 @@
     </div>
   </div>
   <div class="row pt-4 p-0">
+
     <div class="col-xl-12">
       <div class="panel panel-flat dashboard-main-col mt-4">
         <button class="btn btn-default btn-labeled btn-lg mr-2 mt-2 stopSound float-right" data-popup="tooltip" data-placement="right" title="{{ __('storeDashboard.dashboardStopSound') }}" style="background-color: #F5F5F5;"><i class="icon-volume-mute5"></i></button>
@@ -125,13 +126,14 @@
         @endif
       </div>
     </div>
+
     <div class="col-xl-12">
       <div class="panel panel-flat dashboard-main-col mt-4">
         <div class="panel-heading">
           <h4 class="panel-title pl-3 pt-3"><strong>{{__('storeDashboard.dashboardPreparingOrders')}}</strong></h4>
           <hr>
         </div>
-        @if(count($acceptedOrders))
+        @if(count($preparingOrders))
         <div class="table-responsive">
           <table class="table text-nowrap">
             <thead>
@@ -145,36 +147,164 @@
               </tr>
             </thead>
             <tbody>
-              @foreach($acceptedOrders as $aO)
+              @foreach($preparingOrders as $pO)
               <tr>
                 <td>
-                  <a href="{{ route('restaurant.viewOrder', $aO->unique_order_id) }}"
-                    class="letter-icon-title">{{ $aO->unique_order_id }}</a>
+                  <a href="{{ route('restaurant.viewOrder', $pO->unique_order_id) }}"
+                    class="letter-icon-title">{{ $pO->unique_order_id }}</a>
                 </td>
                 <td class="text-center accepted-order-actions">
-                  @if($aO->delivery_type == 2 && $aO->orderstatus_id == 2)
-                  <a href="{{ route('restaurant.markOrderReady', $aO->id) }}"
+                  @if($pO->delivery_type == 2 && $pO->orderstatus_id == 2)
+                  <a href="{{ route('restaurant.markOrderReady', $pO->id) }}"
                      class="btn btn-warning btn-labeled btn-labeled-left mr-2 actionAfterAccept"> <b><i
                     class="icon-checkmark3 ml-1"></i></b> {{__('storeDashboard.dashboardMarkAsReady')}} </a>
                   @endif
-                  @if($aO->delivery_type == 2 && $aO->orderstatus_id == 7)
-                  <a href="{{ route('restaurant.markSelfPickupOrderAsCompleted', $aO->id) }}"
+                  @if($pO->delivery_type == 2 && $pO->orderstatus_id == 7)
+                  <a href="{{ route('restaurant.markSelfPickupOrderAsCompleted', $pO->id) }}"
                     class="btn btn-success btn-labeled btn-labeled-left mr-2 actionAfterAccept"> <b><i
                     class="icon-checkmark3 ml-1"></i></b> {{__('storeDashboard.dashboardMarkAsCompleted')}} </a>
                   @endif
-                  @if($aO->delivery_type == 1)
+                  @if($pO->delivery_type == 1)
                   <span>--</span>
                   @endif
                 </td>
                 <td>
                   <span class="text-semibold no-margin">{{ config('settings.currencyFormat') }}
-                  {{ $aO->total }}</span>
+                  {{ $pO->total }}</span>
                 </td>
                 <td>
-                  {{ $aO->created_at->diffForHumans() }}
+                  {{ $pO->created_at->diffForHumans() }}
                 </td>
                 <td>
-                  {{ $aO->updated_at->diffForHumans() }}
+                  {{ $pO->updated_at->diffForHumans() }}
+                </td>
+              </tr>
+              @endforeach
+            </tbody>
+          </table>
+          @else
+          <div class="text-center text-muted pb-2">
+            <h4> {{__('storeDashboard.dashboardNoOrders')}} </h4>
+          </div>
+          @endif
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-xl-12">
+      <div class="panel panel-flat dashboard-main-col mt-4">
+        <div class="panel-heading">
+          <h4 class="panel-title pl-3 pt-3"><strong>Self-Pickup Orders</strong></h4>
+          <hr>
+        </div>
+        @if(count($selfpickupOrders))
+        <div class="table-responsive">
+          <table class="table text-nowrap">
+            <thead>
+              <tr>
+                <th>{{__('storeDashboard.dashboardOrderID')}}</th>
+                <th class="text-center"><i class="
+                  icon-circle-down2"></i></th>
+                <th>{{__('storeDashboard.dashboardPrice')}}</th>
+                <th>{{__('storeDashboard.dashboardOrderPlacedTime')}}</th>
+                <th>{{__('storeDashboard.dashboardOrderAcceptedTime')}}</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach($selfpickupOrders as $spO)
+              <tr>
+                <td>
+                  <a href="{{ route('restaurant.viewOrder', $spO->unique_order_id) }}"
+                    class="letter-icon-title">{{ $spO->unique_order_id }}</a>
+                </td>
+                <td class="text-center accepted-order-actions">
+                  @if($spO->delivery_type == 2 && $spO->orderstatus_id == 2)
+                  <a href="{{ route('restaurant.markOrderReady', $spO->id) }}"
+                     class="btn btn-warning btn-labeled btn-labeled-left mr-2 actionAfterAccept"> <b><i
+                    class="icon-checkmark3 ml-1"></i></b> {{__('storeDashboard.dashboardMarkAsReady')}} </a>
+                  @endif
+                  @if($spO->delivery_type == 2 && $spO->orderstatus_id == 7)
+                  <a href="{{ route('restaurant.markSelfPickupOrderAsCompleted', $spO->id) }}"
+                    class="btn btn-success btn-labeled btn-labeled-left mr-2 actionAfterAccept"> <b><i
+                    class="icon-checkmark3 ml-1"></i></b> {{__('storeDashboard.dashboardMarkAsCompleted')}} </a>
+                  @endif
+                  @if($spO->delivery_type == 1)
+                  <span>--</span>
+                  @endif
+                </td>
+                <td>
+                  <span class="text-semibold no-margin">{{ config('settings.currencyFormat') }}
+                  {{ $spO->total }}</span>
+                </td>
+                <td>
+                  {{ $spO->created_at->diffForHumans() }}
+                </td>
+                <td>
+                  {{ $spO->updated_at->diffForHumans() }}
+                </td>
+              </tr>
+              @endforeach
+            </tbody>
+          </table>
+          @else
+          <div class="text-center text-muted pb-2">
+            <h4> {{__('storeDashboard.dashboardNoOrders')}} </h4>
+          </div>
+          @endif
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-12">
+      <div class="panel panel-flat dashboard-main-col mt-4">
+        <div class="panel-heading">
+          <h4 class="panel-title pl-3 pt-3"><strong>OnGoing Deliveries</strong></h4>
+          <hr>
+        </div>
+        @if(count($ongoingOrders))
+        <div class="table-responsive">
+          <table class="table text-nowrap">
+            <thead>
+              <tr>
+                <th>{{__('storeDashboard.dashboardOrderID')}}</th>
+                <th class="text-center"><i class="
+                  icon-circle-down2"></i></th>
+                <th>{{__('storeDashboard.dashboardPrice')}}</th>
+                <th>{{__('storeDashboard.dashboardOrderPlacedTime')}}</th>
+                <th>{{__('storeDashboard.dashboardOrderAcceptedTime')}}</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach($ongoingOrders as $ogO)
+              <tr>
+                <td>
+                  <a href="{{ route('restaurant.viewOrder', $ogO->unique_order_id) }}"
+                    class="letter-icon-title">{{ $ogO->unique_order_id }}</a>
+                </td>
+                <td class="text-center accepted-order-actions">
+                  @if($ogO->delivery_type == 2 && $ogO->orderstatus_id == 2)
+                  <a href="{{ route('restaurant.markOrderReady', $ogO->id) }}"
+                     class="btn btn-warning btn-labeled btn-labeled-left mr-2 actionAfterAccept"> <b><i
+                    class="icon-checkmark3 ml-1"></i></b> {{__('storeDashboard.dashboardMarkAsReady')}} </a>
+                  @endif
+                  @if($ogO->delivery_type == 2 && $ogO->orderstatus_id == 7)
+                  <a href="{{ route('restaurant.markSelfPickupOrderAsCompleted', $ogO->id) }}"
+                    class="btn btn-success btn-labeled btn-labeled-left mr-2 actionAfterAccept"> <b><i
+                    class="icon-checkmark3 ml-1"></i></b> {{__('storeDashboard.dashboardMarkAsCompleted')}} </a>
+                  @endif
+                  @if($ogO->delivery_type == 1)
+                  <span>--</span>
+                  @endif
+                </td>
+                <td>
+                  <span class="text-semibold no-margin">{{ config('settings.currencyFormat') }}
+                  {{ $ogO->total }}</span>
+                </td>
+                <td>
+                  {{ $ogO->created_at->diffForHumans() }}
+                </td>
+                <td>
+                  {{ $ogO->updated_at->diffForHumans() }}
                 </td>
               </tr>
               @endforeach

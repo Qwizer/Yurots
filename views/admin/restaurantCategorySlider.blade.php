@@ -126,17 +126,17 @@
                 </div>
             </div>
             @else
-            <div class="row">
+            <div class="row" id="sortable">
                 @foreach($restaurantCategorySlider as $slide)
-                <div class="col-md-3 mb-2">
-                    <p class="h5">{{ $slide->name }}</p>
+                <div class="col-md-2 mb-2 each-slide" data-id="{{ $slide->id }}">
+                    <p class="h6 mb-1"><strong>{{ $slide->name }}</strong></p>
                     <img src="{{ substr(url("/"), 0, strrpos(url("/"), '/')) }}{{ $slide->image }}" alt="{{ $slide->name }}" width="150" height="150">
                     <div class="btn-group btn-group-justified" style="width: 150px">
-                        <a href="{{ route('admin.deleteRestaurantCategorySlide', $slide->id) }}" class="btn btn-danger" data-popup="tooltip" title="Delete Slide" data-placement="bottom"> <i class="icon-trash ml-1"></i> </a>
+                        <a href="{{ route('admin.deleteRestaurantCategorySlide', $slide->id) }}" class="btn btn-danger rounded-0" data-popup="tooltip" title="Delete Slide" data-placement="bottom"> <i class="icon-trash ml-1"></i> </a>
                         @if($slide->is_active)
-                        <a href="{{ route('admin.disableRestaurantCategorySlide', $slide->id) }}" class="btn btn-secondary" data-popup="tooltip" title="Disable Slide" data-placement="bottom"> <i class="icon-switch2 ml-1"></i> </a>
+                        <a href="{{ route('admin.disableRestaurantCategorySlide', $slide->id) }}" class="btn btn-secondary rounded-0" data-popup="tooltip" title="Disable Slide" data-placement="bottom"> <i class="icon-switch2 ml-1"></i> </a>
                         @else
-                        <a href="{{ route('admin.disableRestaurantCategorySlide', $slide->id) }}" class="btn btn-warning" data-popup="tooltip" title="Enable Slide" data-placement="bottom"> <i class="icon-switch2 ml-1"></i> </a>
+                        <a href="{{ route('admin.disableRestaurantCategorySlide', $slide->id) }}" class="btn btn-warning rounded-0" data-popup="tooltip" title="Enable Slide" data-placement="bottom"> <i class="icon-switch2 ml-1"></i> </a>
                         @endif
                     </div>
                 </div>
@@ -161,6 +161,7 @@
                         <img class="slider-preview-image hidden"/>
                         <div class="uploader">
                             <input type="file" class="form-control-uniform" name="image" required accept="image/x-png,image/gif,image/jpeg" onchange="readURL(this);">
+                            <span class="help-text text-muted">Image of minimum dimension 384x384</span>
                         </div>
                     </div>
                 </div>
@@ -265,6 +266,7 @@
         </div>
     </div>
 </div>
+<input type="hidden" id="token" value="{{ csrf_token() }}">
 <script>
     function readURL(input) {
         if (input.files && input.files[0]) {
@@ -280,8 +282,7 @@
         }
     }
     
-    $(document).ready(function() {
-    
+    $(function () {
         if (Array.prototype.forEach) {
                var elems = Array.prototype.slice.call(document.querySelectorAll('.switchery-primary'));
                elems.forEach(function(html) {
@@ -340,6 +341,40 @@
         })
 
         $('.slider-size').numeric({ allowThouSep:false, maxDecimalPlaces: 0, allowMinus: false, min:1, max: 5});
+
+        $('#sortable').sortable({
+            animation: 350,
+            easing: "cubic-bezier(0.42, 0, 0.58, 1.0)",
+            ghostClass: "sortable-placeholder",
+            onUpdate: function (evt) {
+                let newSortOrder = {};
+                $('.each-slide').each(function() {
+                    newSortOrder[$(this).index()] = $(this).data('id');
+                });
+                $.ajax({
+                  url: '{{ route('admin.updateCategorySlidePosition') }}',
+                  type: 'POST',
+                  dataType: 'JSON',
+                  data: {newOrder: newSortOrder, _token: $('#token').val()},
+              })
+              .done(function(res) {
+                   $.jGrowl("Slides sorted successfully", {
+                       position: 'bottom-center',
+                       header: 'Done ✅',
+                       theme: 'bg-success',
+                       life: '2000',
+                   }); 
+              })
+              .fail(function() {
+                  console.log("error");
+                  $.jGrowl("Something went wrong! Reload the page and try again later.", {
+                      position: 'bottom-center',
+                      header: 'Wooopsss ⚠️',
+                      theme: 'bg-warning',
+                  });
+              })
+            },
+        });
     });
 </script>
 @endsection

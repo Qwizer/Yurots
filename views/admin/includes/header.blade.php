@@ -152,7 +152,10 @@
                                 <i class="icon-bubble-dots4 mr-2"></i>
                                 Send Push Notifications
                                 </a>
-                                
+                                <a href="{{ route("admin.modules") }}" class="dropdown-item {{ Request::is('admin/modules') ? 'active' : '' }}">
+                                    <i class="icon-stars mr-2"></i>
+                                    Premium Modules <span class="badge badge-flat border-grey-800 text-danger text-capitalize ml-1 float-right">NEW</span>
+                                </a>
                             </div>
                             <div class="col-md-6">
                                 <a href="{{ route('admin.restaurantpayouts') }}" class="dropdown-item {{ Request::is('admin/store-payouts') ? 'active' : '' }}">

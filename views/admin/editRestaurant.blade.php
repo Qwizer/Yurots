@@ -59,7 +59,7 @@
                             <div class="uploader">
                                 <input type="hidden" name="old_image" value="{{ $restaurant->image }}">
                                 <input type="file" class="form-control-uniform" name="image" accept="image/x-png,image/gif,image/jpeg" onchange="readURL(this);">
-                                <span class="help-text text-muted">Image size: 160x117</span>
+                                <span class="help-text text-muted">Image dimension 160x117</span>
                             </div>
                         </div>
                     </div>
@@ -126,7 +126,7 @@
                             </div>
                         </div>
                         --}}
-                        <span class="text-muted">You can use services like: <a href="https://www.mapcoordinates.net/en">https://www.mapcoordinates.net/en</a></span> <br> If you enter an invalid Latitude/Longitude the map system might crash with a white screen.
+                        <span class="text-muted">You can use services like: <a href="https://www.mapcoordinates.net/en" target="_blank">https://www.mapcoordinates.net/en</a></span> <br> If you enter an invalid Latitude/Longitude the map system might crash with a white screen.
                     </fieldset>
                     <hr>
                     <div class="form-group row">
@@ -307,14 +307,14 @@
                             @if($restaurant->is_active)
                             <a href="{{ route('admin.disableRestaurant', $restaurant->id) }}"
                                 class="btn btn-danger btn-labeled btn-labeled-left mr-2" data-popup="tooltip"
-                                title="Users won't be able to place order from this restaurant if Disabled" data-placement="bottom">
+                                title="Users won't be able to place order from this Store if Disabled" data-placement="bottom">
                             <b><i class="icon-switch2"></i></b>
                             Close
                             </a>
                             @else
                             <a href="{{ route('admin.disableRestaurant', $restaurant->id) }}"
                                 class="btn btn-secondary btn-labeled btn-labeled-left mr-2" data-popup="tooltip"
-                                title="Restaurant is Disabled. Enable to accept orders." data-placement="bottom">
+                                title="Store is Disabled. Enable to accept orders." data-placement="bottom">
                             <b><i class="icon-switch2"></i></b>
                             Open
                             </a>

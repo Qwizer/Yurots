@@ -113,7 +113,7 @@
                                     <button type="button" class="btn btn-primary gllpSearchButton">{{__('storeDashboard.seLblSearch')}}</button>
                                 </div>
                             </div> --}}
-                            <span class="text-muted">{{__('storeDashboard.sePhTextLatLong1')}} <a href="https://www.mapcoordinates.net/en">https://www.mapcoordinates.net/en</a></span> <br> {{__('storeDashboard.sePhTextLatLong2')}}
+                            <span class="text-muted">{{__('storeDashboard.sePhTextLatLong1')}} <a href="https://www.mapcoordinates.net/en" target="_blank">https://www.mapcoordinates.net/en</a></span> <br> {{__('storeDashboard.sePhTextLatLong2')}}
                         </fieldset>
                         <hr>
                         <div class="form-group row">
@@ -167,14 +167,14 @@
                                 @if($restaurant->is_active)
                                <a href="{{ route('restaurant.disableRestaurant', $restaurant->id) }}"
                                     class="btn btn-danger btn-labeled btn-labeled-left mr-2" data-popup="tooltip"
-                                    title="Users won't be able to place order from this restaurant if Closed" data-placement="bottom">
+                                    title="Users won't be able to place order from this store if Closed" data-placement="bottom">
                                 <b><i class="icon-switch2"></i></b>
                                 {{__('storeDashboard.seDisable')}}
                                 </a>
                                 @else
                                 <a href="{{ route('restaurant.disableRestaurant', $restaurant->id) }}"
                                     class="btn btn-secondary btn-labeled btn-labeled-left mr-2" data-popup="tooltip"
-                                    title="Restaurant is Closed. Open to accept orders." data-placement="bottom">
+                                    title="Store is Closed. Open to accept orders." data-placement="bottom">
                                 <b><i class="icon-switch2"></i></b>
                                 {{__('storeDashboard.seEnable')}}
                                 </a>

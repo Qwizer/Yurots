@@ -15,8 +15,8 @@
             <div class="breadcrumb">
                 <button type="button" class="btn btn-secondary btn-labeled btn-labeled-left" id="addNewCoupon"
                     data-toggle="modal" data-target="#addNewCouponModal">
-                <b><i class="icon-plus2"></i></b>
-                Add New Coupon
+                    <b><i class="icon-plus2"></i></b>
+                    Add New Coupon
                 </button>
             </div>
         </div>
@@ -37,6 +37,8 @@
                             <th>Status</th>
                             <th>Usage</th>
                             <th>Expiry Date</th>
+                            <th>Min Subtotal</th>
+                            <th>Max Discount</th>
                             <th class="text-center" style="width: 10%;"><i class="
                                 icon-circle-down2"></i></th>
                         </tr>
@@ -46,14 +48,15 @@
                         <tr>
                             <td>{{ $coupon->name }}</td>
                             @if($coupon->restaurant_id == 0 || $coupon->restaurant_id == NULL)
-                            <td><span class="badge badge-flat border-grey-800 text-default text-capitalize">ALL STORES</span></td>
+                            <td><span class="badge badge-flat border-grey-800 text-default text-capitalize">ALL
+                                    STORES</span></td>
                             @else
                             <td>{{ $coupon->restaurant->name }}</td>
                             @endif
                             <td>{{ $coupon->code }}</td>
                             <td>
                                 <span class="badge badge-flat border-grey-800 text-default text-capitalize">
-                                {{ $coupon->discount_type }}
+                                    {{ $coupon->discount_type }}
                                 </span>
                             </td>
                             <td>
@@ -65,21 +68,27 @@
                             </td>
                             <td>@if($coupon->is_active)
                                 <span class="badge badge-flat border-grey-800 text-default text-capitalize">
-                                Active
+                                    Active
                                 </span>
                                 @else
                                 <span class="badge badge-flat border-grey-800 text-default text-capitalize">
-                                Inactive
+                                    Inactive
                                 </span>
                                 @endif
                             </td>
-                            <td><span class="badge badge-flat border-grey-800 text-default text-capitalize">{{ $coupon->count }}</span></td>
-                            <td>{{ $coupon->expiry_date->diffForHumans() }} <br>({{ $coupon->expiry_date->format('Y-m-d') }})</td>
+                            <td><span
+                                    class="badge badge-flat border-grey-800 text-default text-capitalize">{{ $coupon->count }}</span>
+                            </td>
+                            <td>{{ $coupon->expiry_date->diffForHumans() }}
+                                <br>({{ $coupon->expiry_date->format('Y-m-d') }})
+                            </td>
+                            <td>{{ $coupon->min_subtotal }}</td>
+                            <td>{{ $coupon->max_discount }}</td>
                             <td class="text-center">
                                 <div class="btn-group btn-group-justified">
                                     <a href="{{ route('admin.get.getEditCoupon', $coupon->id) }}"
                                         class="badge badge-primary badge-icon"> EDIT <i
-                                        class="icon-database-edit2 ml-1"></i></a>
+                                            class="icon-database-edit2 ml-1"></i></a>
                                 </div>
                             </td>
                         </tr>
@@ -133,8 +142,16 @@
                             </select>
                         </div>
                     </div>
+                    <div class="form-group row hidden" id="max_discount">
+                        <label class="col-lg-3 col-form-label">Max Discount</label>
+                        <div class="col-lg-9">
+                            <input type="text" class="form-control form-control-lg max_discount" name="max_discount"
+                                placeholder="Max discount applicable in {{ config('settings.currencyFormat') }}">
+                        </div>
+                    </div>
                     <div class="form-group row">
-                        <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>Coupon Discount:</label>
+                        <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>Coupon
+                            Discount:</label>
                         <div class="col-lg-9">
                             <input type="text" class="form-control form-control-lg" name="discount"
                                 placeholder="Coupon Discount" required>
@@ -142,9 +159,11 @@
                     </div>
                     <div class="form-group">
                         <div class="row">
-                            <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>Expiry Date:</label>
+                            <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>Expiry
+                                Date:</label>
                             <div class="col-lg-9">
-                                <input type="text" class="form-control form-control-lg daterange-single" value="{{ $todaysDate }}" name="expiry_date">
+                                <input type="text" class="form-control form-control-lg daterange-single"
+                                    value="{{ $todaysDate }}" name="expiry_date">
                             </div>
                         </div>
                     </div>
@@ -154,17 +173,34 @@
                             <select class="form-control select-search select" name="restaurant_id" required>
                                 <option value="0" class="text-capitalize" selected="selected">ALL STORES</option>
                                 @foreach ($restaurants as $restaurant)
-                                <option value="{{ $restaurant->id }}" class="text-capitalize">{{ $restaurant->name }}</option>
+                                <option value="{{ $restaurant->id }}" class="text-capitalize">{{ $restaurant->name }}
+                                </option>
                                 @endforeach
                             </select>
-                            <span class="help-text text-muted">Select the first option <b>"ALL STORES"</b> if the coupon can be applied to all stores.</span>
+                            <span class="help-text text-muted">Select the first option <b>"ALL STORES"</b> if the coupon
+                                can be applied to all stores.</span>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>Max number of use:</label>
+                        <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>Max number of
+                            use:</label>
                         <div class="col-lg-9">
                             <input type="text" class="form-control form-control-lg" name="max_count"
-                                placeholder="Coupon Discount" required>
+                                placeholder="Max number of use" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label">Min Subtotal</label>
+                        <div class="col-lg-9">
+                            <input type="text" class="form-control form-control-lg min_subtotal" name="min_subtotal"
+                                placeholder="Min subtotal required for coupon in {{ config('settings.currencyFormat') }}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label">Subtotal not reached message</label>
+                        <div class="col-lg-9">
+                            <input type="text" class="form-control form-control-lg" name="subtotal_message"
+                                placeholder="Subtotal not reached message">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -172,7 +208,8 @@
                         <div class="col-lg-9">
                             <div class="checkbox checkbox-switchery">
                                 <label>
-                                <input value="true" type="checkbox" class="switchery-primary isactive" checked="checked" name="is_active">
+                                    <input value="true" type="checkbox" class="switchery-primary isactive"
+                                        checked="checked" name="is_active">
                                 </label>
                             </div>
                         </div>
@@ -180,8 +217,8 @@
                     @csrf
                     <div class="text-right">
                         <button type="submit" class="btn btn-primary">
-                        SAVE
-                        <i class="icon-database-insert ml-1"></i>
+                            SAVE
+                            <i class="icon-database-insert ml-1"></i>
                         </button>
                     </div>
                 </form>
@@ -201,6 +238,16 @@
            $('.daterange-single').daterangepicker({ 
                singleDatePicker: true,
            });
+           $('[name="discount_type"]').change(function(event) {
+            console.log($(this).val());
+               if ($(this).val() == "PERCENTAGE") {
+                $('#max_discount').removeClass('hidden');
+               } else {
+                 $('#max_discount').addClass('hidden');
+               }
+           });
+           $('.min_subtotal').numeric({ allowThouSep:false, maxDecimalPlaces: 2, allowMinus: false });
+           $('.max_discount').numeric({ allowThouSep:false, maxDecimalPlaces: 2, allowMinus: false });
        });    
 </script>
 @endsection

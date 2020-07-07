@@ -1,4 +1,7 @@
 @extends('install.layout.master') 
+@section('title')
+Configuration
+@endsection
 @section('content')
 @if (session()->has('error'))
 <div class="alert alert-danger fade in alert-dismissable">

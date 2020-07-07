@@ -38,6 +38,11 @@
 
         <!-- Core JS files -->
         <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/global_assets/js/main/jquery.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.10.2/Sortable.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-sortablejs@latest/jquery-sortable.js"></script>
+
+
         <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/global_assets/js/main/bootstrap.bundle.min.js"></script>
         <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/global_assets/js/plugins/loaders/blockui.min.js"></script>
         <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/global_assets/js/plugins/ui/slinky.min.js"></script>
@@ -64,7 +69,8 @@
         <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/js/jquery-alphanum.js"></script>
         @if(Request::is('admin/settings'))
         <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/global_assets/js/plugins/editors/ace/ace.js"></script>
-        @endif
+        @endif 
+
         @if(Request::is('admin/stores') || Request::is('admin/store/*') || Request::is('store-owner/stores') || Request::is('store-owner/store/*') || Request::is('admin/popular-geo-locations'))
         <!-- Load GMAPS Only when needed -->
             {{-- <script src="https://maps.googleapis.com/maps/api/js?key={{ config('settings.googleApiKeyIP') }}"></script> --}}

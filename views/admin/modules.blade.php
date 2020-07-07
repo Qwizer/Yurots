@@ -14,7 +14,7 @@
             <div class="breadcrumb">
                 <button type="button" class="btn btn-secondary btn-labeled btn-labeled-left" id="uploadNewModuleBtn">
                 <b><i class="icon-plus2"></i></b>
-                Upload Module
+                Upload New Module
                 </button>
             </div>
         </div>
@@ -45,44 +45,39 @@
             	        <thead>
             	            <tr>
             	                <th>Name</th>
-            	                <th>Version</th>
-            	                <th>Installed At</th>
-            	                <th>Module Updated At</th>
-            	                <th>Settings Updated At</th>
-            	                <th class="text-center"><i class="
-            	                    icon-circle-down2"></i></th>
+            	                <th>Description</th>
+            	                <th class="text-center"><i class="icon-circle-down2"></i></th>
             	            </tr>
             	        </thead>
             	        <tbody>
             	            @foreach ($modules as $module)
-            	            {{-- {{ dd($module) }} --}}
             	            <tr>
-            	                <td><strong>{{ $module->name }}</strong></td>
-            	                <td><span class="badge badge-flat border-grey-800 text-default text-capitalize">
-            	                	<strong>{{ $module->version }}</strong></span></td>
-            	                <td>{{ $module->created_at->diffForHumans() }}</td>
-            	                <td>{{ \Carbon\Carbon::parse($module->update_date)->diffForHumans() }}</td>
-            	                <td>{{ $module->updated_at->diffForHumans() }}</td>
-            	                <td class="text-center">
-            	                	@if($module->is_active)
-            	                	<a href="{{ route('admin.enableModule', $module->id) }}"
-            	                        class="btn btn-primary btn-labeled btn-labeled-left btn-sm enDisBtn"  data-popup="tooltip" title="Double Click to Disable" data-placement="left">
-                            			<b><i class="icon-checkmark ml-1"></i></b>
-									Enabled
-                            		</a>
-                            		@else
-            	                    <a href="{{ route('admin.disableModule', $module->id) }}"
-            	                        class="btn btn-danger btn-labeled btn-labeled-left btn-sm enDisBtn"  data-popup="tooltip" title="Double Click to Enable" data-placement="left">
-                            			<b><i class="icon-cross3 ml-1"></i></b>
-									Disabled
-                            		</a>
-                            		@endif
-            	                    <a href="{{ route($module->settings_path) }}"
-            	                        class="btn btn-primary btn-labeled btn-labeled-left btn-sm">
-                            			<b><i class="icon-gear ml-1"></i></b>
-                            			Settings
-                            		</a>
-            	                </td>
+            	                <td><strong>{{ $module->getStudlyName() }}</strong></td>
+            	                <td>
+                                <small>{{ $module->getDescription() }}</small>
+                              </td>
+                              <td class="text-center">
+                                <div class="btn-group btn-group-justified align-items-center">
+                                  @if($module->isEnabled())
+                                  <a href="{{ route('admin.disableModule', $module->getStudlyName()) }}"
+                                      class="btn btn-primary btn-labeled btn-labeled-left btn-sm enDisBtn"  data-popup="tooltip" title="Double Click to Disable" data-placement="left">
+                                      <b><i class="icon-checkmark3 ml-1"></i></b>
+                                  Enabled
+                                  </a>
+                                  @else
+                                  <a href="{{ route('admin.enableModule', $module->getStudlyName()) }}"
+                                      class="btn btn-danger btn-labeled btn-labeled-left btn-sm enDisBtn"  data-popup="tooltip" title="Double Click to Enable" data-placement="left">
+                                      <b><i class="icon-cross2 ml-1"></i></b>
+                                  Disabled
+                                  </a>
+                                  @endif
+                                  <a href="{{ url($module->getLowerName()) }}/settings"
+                                      class="btn btn-secondary btn-labeled btn-labeled-left btn-sm ml-2" data-placement="left">
+                                      <b><i class="icon-gear ml-1"></i>  </b>
+                                      Settings
+                                    </a>
+                                </div>
+                              </td>
             	            </tr>
             	            @endforeach
             	        </tbody>

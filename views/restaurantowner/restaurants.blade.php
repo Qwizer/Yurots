@@ -169,7 +169,7 @@
                                 <button type="button" class="btn btn-primary gllpSearchButton">{{__('storeDashboard.seLblSearch')}}</button>
                             </div>
                         </div> --}}
-                        <span class="text-muted">{{__('storeDashboard.sePhTextLatLong1')}} <a href="https://www.mapcoordinates.net/en">https://www.mapcoordinates.net/en</a></span> <br> {{__('storeDashboard.sePhTextLatLong2')}}
+                        <span class="text-muted">{{__('storeDashboard.sePhTextLatLong1')}} <a href="https://www.mapcoordinates.net/en" target="_blank">https://www.mapcoordinates.net/en</a></span> <br> {{__('storeDashboard.sePhTextLatLong2')}}
                     </fieldset>
                     <hr>
                     <div class="form-group row">

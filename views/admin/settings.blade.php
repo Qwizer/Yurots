@@ -155,7 +155,7 @@
                                     <div class="col-lg-9">
                                         <input type="text" class="form-control form-control-lg" name="storeName"
                                             value="{{ config('settings.storeName') }}" placeholder="Enter Store Name">
-                                            <span class="help-text text-muted"> To change the Progressive Web Application names, refer to this <a href="https://docs.foodomaa.com/configurations/pwa-configurations" target="_blank">documentation</a></span>
+                                        <span class="help-text text-muted"> To change the Progressive Web Application names, refer to this <a href="https://docs.foodomaa.com/configurations/pwa-configurations" target="_blank">documentation</a></span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -1086,8 +1086,6 @@
                                             placeholder="Enter the name of your wallet system (Eg: Coins, PiggyBank)">
                                     </div>
                                 </div>
-                                
-                                
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label"><strong>Minimum Payout for Store in
                                     {{ config('settings.currencyFormat') }}: </strong></label>
@@ -1121,7 +1119,6 @@
                                         the order.</span>
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label"><strong>Upload Image Quality:</strong></label>
                                     <div class="col-lg-9">
@@ -1138,7 +1135,6 @@
                                         <span class="help-text text-muted">Only for Items upload via Admin and Store Dashboard.</span>
                                     </div>
                                 </div>
-                                
                                 <hr style="border-top: 3px dashed rgba(103, 58, 183, 0.20);">
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label"><strong>Development Mode
@@ -1200,7 +1196,7 @@
                                     <label class="col-lg-3 col-form-label"><strong>Open Graph Image: </strong></label>
                                     <div class="col-lg-9">
                                         <input type="file" class="form-control-uniform" name="seoOgImage" data-fouc>
-                                        <span class="help-text text-muted">Image size 1200x630 </span>
+                                        <span class="help-text text-muted">Image dimension 1200x630 </span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -1234,7 +1230,7 @@
                                     <div class="col-lg-9">
                                         <input type="file" class="form-control-uniform" name="seoTwitterImage"
                                             data-fouc>
-                                        <span class="help-text text-muted">Image size 600x335</span>
+                                        <span class="help-text text-muted">Image dimension 600x335</span>
                                     </div>
                                 </div>
                             </div>
@@ -1252,7 +1248,7 @@
                                     <label class="col-lg-3 col-form-label"><strong>Logo: </strong></label>
                                     <div class="col-lg-9">
                                         <input type="file" class="form-control-uniform" name="logo" accept="image/x-png" data-fouc>
-                                        <span class="help-text text-muted">Image size 320x89 - (PNG image only)</span>
+                                        <span class="help-text text-muted">Image dimension - (PNG image only)</span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -1265,7 +1261,7 @@
                                     <label class="col-lg-3 col-form-label"><strong>Favicon: </strong></label>
                                     <div class="col-lg-9">
                                         <input type="file" class="form-control-uniform" name="favicon" accept="image/x-png" data-fouc>
-                                        <span class="help-text text-muted">Image of min size: 512x512 (PNG image only)</span>
+                                        <span class="help-text text-muted">Image dimension 512x512 (PNG image only)</span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -1278,7 +1274,7 @@
                                     <label class="col-lg-3 col-form-label"><strong>Splash Screen: </strong></label>
                                     <div class="col-lg-9">
                                         <input type="file" class="form-control-uniform" name="splashLogo" accept="image/jpeg" data-fouc>
-                                        <span class="help-text text-muted">Image size 480x853 (JPG image only)</span>
+                                        <span class="help-text text-muted">Image dimension 480x853 (JPG image only)</span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -1292,7 +1288,7 @@
                                     <div class="col-lg-9">
                                         <input type="file" class="form-control-uniform" name="firstScreenHeroImage"
                                             data-fouc>
-                                        <span class="help-text text-muted">Image size 592x640 </span>
+                                        <span class="help-text text-muted">Image dimension 592x640 </span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -1405,8 +1401,8 @@
                                     </div>
                                 </div>
                                 <span class="help-text text-muted"><a
-                                            href="https://docs.foodomaa.com/configurations/push-notification-keys"
-                                            target="_blank">How to configure Push Notifiactions? </a></span>
+                                    href="https://docs.foodomaa.com/configurations/push-notification-keys"
+                                    target="_blank">How to configure Push Notifiactions? </a></span>
                                 <br>
                                 <hr>
                                 <span><strong class="text-danger">IMPORTANT</strong><br> <a href="https://docs.foodomaa.com/faqs/push-notifications-and-alerts" target="_blank">Click Here </a> to learn how Subscribers, Push Notifications, and Alerts work.</span>
@@ -1558,6 +1554,30 @@
                                         <input type="text" class="form-control form-control-lg" name="stripeSecretKey"
                                             value="{{ config('settings.stripeSecretKey') }}"
                                             placeholder="Stripe Secret Key (Leave blank if not using Stripe)">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label"><strong>Accept AliPay on Stripe</strong></label>
+                                    <div class="col-lg-9">
+                                        <div class="checkbox checkbox-switchery mt-2">
+                                            <label>
+                                            <input value="true" type="checkbox" class="switchery-primary"
+                                            @if(config('settings.stripeAcceptAliPay')=="true" ) checked="checked" @endif
+                                            name="stripeAcceptAliPay">
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label"><strong>Accept BitCoin on Stripe</strong></label>
+                                    <div class="col-lg-9">
+                                        <div class="checkbox checkbox-switchery mt-2">
+                                            <label>
+                                            <input value="true" type="checkbox" class="switchery-primary"
+                                            @if(config('settings.stripeAcceptBitCoin')=="true" ) checked="checked" @endif
+                                            name="stripeAcceptBitCoin">
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
                                 <hr>
@@ -1960,6 +1980,63 @@
                             Customer App Settings
                         </legend>
                         <div class="form-group row">
+                            <label class="col-lg-3 col-form-label"><strong>Show Coupon Desctiption on Coupon Success <span class="badge badge-flat border-grey-800 text-danger text-capitalize mx-1">NEW</span> <i class="icon-question3 ml-1" data-popup="tooltip" title="This will override the default coupon success message" data-placement="top"></i>
+                            </strong></label>
+                            <div class="col-lg-9">
+                                <div class="checkbox checkbox-switchery mt-2">
+                                    <label>
+                                    <input value="true" type="checkbox" class="switchery-primary"
+                                    @if(config('settings.showCouponDescriptionOnSuccess')=="true" ) checked="checked"
+                                    @endif name="showCouponDescriptionOnSuccess">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label"><strong>Use Google Distance Matrix API <span class="badge badge-flat border-grey-800 text-danger text-capitalize mx-1">NEW</span> <i class="icon-question3 ml-1" data-popup="tooltip" title="Google APIs will be used for calculating the delivery charge if the store has enabled Dynamic Delivery charge" data-placement="top"></i>
+                            </strong></label>
+                            <div class="col-lg-9">
+                                <div class="checkbox checkbox-switchery mt-2">
+                                    <label>
+                                    <input value="true" type="checkbox" class="switchery-primary"
+                                    @if(config('settings.enGDMA')=="true" ) checked="checked"
+                                    @endif name="enGDMA"> 
+                                    <span>To learn how Google Distance Matrix API works </span><a href="https://docs.foodomaa.com/configurations/google-distance-matrix-api" target="_blank">Click Here</a>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label"><strong>Randomize Stores
+                            <span class="badge badge-flat border-grey-800 text-danger text-capitalize mx-1">NEW</span> <i class="icon-question3 ml-1" data-popup="tooltip" title="Delivery and Selfpickup stores will be randomized (Sorting order will be ignored)" data-placement="left"></i>
+                            </strong></label>
+                            <div class="col-lg-9">
+                                <div class="checkbox checkbox-switchery mt-2">
+                                    <label>
+                                    <input value="true" type="checkbox" class="switchery-primary"
+                                    @if(config('settings.randomizeStores')=="true" )
+                                    checked="checked" @endif name="randomizeStores">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label"><strong>Show Inactive Items
+                            <span class="badge badge-flat border-grey-800 text-danger text-capitalize mx-1">NEW</span> <i class="icon-question3 ml-1" data-popup="tooltip" title="Inactive items will be displayed but Add to Cart button will not be shown" data-placement="left"></i>
+                            </strong></label>
+                            <div class="col-lg-9">
+                                <div class="checkbox checkbox-switchery mt-2">
+                                    <label>
+                                    <input value="true" type="checkbox" class="switchery-primary"
+                                    @if(config('settings.showInActiveItemsToo')=="true" )
+                                    checked="checked" @endif name="showInActiveItemsToo">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label class="col-lg-3 col-form-label"><strong>Flat/Apartment Mandatory in Address
                             </strong></label>
                             <div class="col-lg-9">
@@ -2108,7 +2185,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label"><strong>Show Product Discount Percentage
                             </strong></label>
@@ -2118,6 +2194,19 @@
                                     <input value="true" type="checkbox" class="switchery-primary"
                                     @if(config('settings.showPercentageDiscount')=="true" )
                                     checked="checked" @endif name="showPercentageDiscount">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label"><strong>Use Simple Spinner for Loading Pages <span class="badge badge-flat border-grey-800 text-danger text-capitalize mx-1">NEW</span>
+                            </strong></label>
+                            <div class="col-lg-9">
+                                <div class="checkbox checkbox-switchery mt-2">
+                                    <label>
+                                    <input value="true" type="checkbox" class="switchery-primary"
+                                    @if(config('settings.useSimpleSpinner')=="true" )
+                                    checked="checked" @endif name="useSimpleSpinner">
                                     </label>
                                 </div>
                             </div>
@@ -2195,6 +2284,19 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label"><strong>Show Item Price, Total & Comments <span class="badge badge-flat border-grey-800 text-danger text-capitalize mx-1">NEW</span>
+                            </strong></label>
+                            <div class="col-lg-9">
+                                <div class="checkbox checkbox-switchery mt-2">
+                                    <label>
+                                    <input value="true" type="checkbox" class="switchery-primary"
+                                    @if(config('settings.showPriceAndOrderCommentsDelivery')=="true" ) checked="checked"
+                                    @endif name="showPriceAndOrderCommentsDelivery">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="tab-pane fade" id="restaurantDashboardSettings">
                         <legend class="font-weight-semibold text-uppercase font-size-sm">
@@ -2244,18 +2346,18 @@
                             <span class="col-md-6 col-xs-12">{{ $versionMsg }}</span>
                         </div>
                         <div class="row">
-                            <p class="col-md-3 col-xs-12"><strong>Cache Version: </strong></p>
+                            <p class="col-md-3 col-xs-12"><strong>Cache Hash: </strong></p>
                             <span
-                                class="col-md-6 col-xs-12">{{ implode('-', str_split($versionJson->forceCacheClearVersion, 5)) }}</span>
+                                class="col-md-6 col-xs-12" id="cacheVersion">{{ implode('-', str_split($versionJson->forceCacheClearVersion, 5)) }}</span>
                         </div>
                         <div class="row">
-                            <p class="col-md-3 col-xs-12"><strong>Settings Version: </strong></p>
+                            <p class="col-md-3 col-xs-12"><strong>Settings Hash: </strong></p>
                             <span
-                                class="col-md-6 col-xs-12">{{ implode('-', str_split($versionJson->forceNewSettingsVersion, 5)) }}</span>
+                                class="col-md-6 col-xs-12" id="settingsVersion">{{ implode('-', str_split($versionJson->forceNewSettingsVersion, 5)) }}</span>
                         </div>
                         <hr>
                         <h4 class="font-weight-bold">Force Clear Cache</h4>
-                        <p>Clicking on this will force clear the
+                        <p>This will force clear the
                             cache on their devices and update the application on the user's device.
                         </p>
                         <a href="javascript:void(0)" data-type="CACHE" data-popup="tooltip"
@@ -2264,7 +2366,7 @@
                             class="icon-arrow-right7"></i></b> Force Clear Cache</a>
                         <hr>
                         <h4 class="font-weight-bold">Force New Settings</h4>
-                        <p>Clicking on this will force update new settings for all the users and delivery guys.</p>
+                        <p>This will force update new settings for all the users and delivery guys.</p>
                         <a href="javascript:void(0)" data-type="SETTINGS" data-popup="tooltip"
                             title="Double Click to Execute" data-placement="right"
                             class="btn btn-secondary btn-labeled btn-labeled-left" id="forceClearSettings">
@@ -2528,7 +2630,7 @@
                 $('#msg91Settings').addClass('hidden');
             } 
         });
-
+    
         $("[name='clear_confirmation']").on("keyup", function() {
          $("#cleanEverythingButton").attr("disabled", true);
           if( $("[name='clear_confirmation']").val() == 'CONFIRM') {

@@ -62,7 +62,7 @@ Store Owners | Dashboard
                                     @if($user->hasRole('Store Owner'))
                                 <a href="{{ route('admin.impersonate', $user->id) }}"
                                 class="badge badge-default badge-icon ml-2"  data-popup="tooltip"
-                    data-placement="left" title="Login to {{ $user->name }}" style="border: 1px solid #BDBDBD;"> <i
+                    data-placement="left" title="Login as {{ $user->name }}" style="border: 1px solid #BDBDBD;"> <i
                                 class="icon-arrow-right15"></i></a>
                                 @endif
                                 </div>

@@ -1,4 +1,7 @@
 @extends('install.layout.master') 
+@section('title')
+Pre-Installation
+@endsection
 @section('content')
 <h2>1. Pre-Installation </h2>
 

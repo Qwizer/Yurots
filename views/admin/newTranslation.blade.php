@@ -1358,6 +1358,13 @@
                             value="{{ config('settings.orderCancelledText') }}" placeholder="Order Canceled Text">
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Choose Avatar Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="chooseAvatarText"
+                        value="{{ config('settings.chooseAvatarText') }}" placeholder="Choose Avatar Text">
+                    </div>
+                </div>
                 <!-- END Account Screen Settings -->
                 <!-- Search Location Screen Settings -->
                 <button class="btn btn-primary translation-section-btn mt-4" type="button"> <i class="icon-mobile mr-1"></i>Search Location Screen Settings </button>
@@ -1439,6 +1446,13 @@
                     <div class="col-lg-9">
                         <input type="text" class="form-control form-control-lg" name="deleteAddressText"
                             value="{{ config('settings.deleteAddressText') }}" placeholder="Delete Address Button">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>No Address Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="noAddressText"
+                            value="{{ config('settings.noAddressText') }}" placeholder="No Address Text">
                     </div>
                 </div>
                 <!-- END Address Screen Settings -->

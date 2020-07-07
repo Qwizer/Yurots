@@ -217,7 +217,7 @@
                             <div class="uploader">
                                 <input type="file" class="form-control-lg form-control-uniform" name="image" required
                                     accept="image/x-png,image/gif,image/jpeg" onchange="readURL(this);">
-                                <span class="help-text text-muted">Image size: 486x355</span>
+                                <span class="help-text text-muted">Image dimension 486x355</span>
                             </div>
                         </div>
                     </div>

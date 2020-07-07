@@ -31,6 +31,11 @@
         </div>
         <div class="header-elements d-none py-0 mb-3 mb-md-0">
             <div class="breadcrumb">
+                <a href="{{ route('admin.sortStores') }}"
+                    class="btn btn-secondary btn-labeled btn-labeled-left mr-2">
+                    <b><i class="icon-sort"></i></b>
+                    Sort Stores
+                </a>
                 @if(!Request::is('admin/stores/pending-acceptance'))
                 <a href="{{ route('admin.pendingAcceptance') }}"
                     class="btn btn-secondary btn-labeled btn-labeled-left mr-2">
@@ -89,14 +94,32 @@
                                     alt="{{ $restaurant->name }}" height="80" width="80"
                                     style="border-radius: 0.275rem;"></td>
                             <td>{{ $restaurant->name }}</td>
+
                             @if(count($restaurant->users))
-                            @foreach($restaurant->users as $restaurantUser)
-                            @if($restaurantUser->hasRole("Store Owner"))
-                            <td> <a
-                                    href="{{ route('admin.get.editUser', $restaurantUser->id) }}">{{ $restaurantUser->name }}</a>
-                            </td>
+                            @php
+                                $resUsercount = 0
+                            @endphp
+                                @foreach($restaurant->users as $restaurantUser)
+                                    @if($restaurantUser->hasRole("Store Owner"))
+                                    @php
+                                        $resUsercount++;
+                                    @endphp
+                                    <td>
+                                        <a href="{{ route('admin.get.editUser', $restaurantUser->id) }}">{{ $restaurantUser->name }}</a>
+                                        <a href="{{ route('admin.impersonate', $restaurantUser->id) }}"
+                                                    class="badge badge-default badge-icon ml-2"  data-popup="tooltip"
+                                        data-placement="left" title="Login as {{ $restaurantUser->name }}" style="border: 1px solid #BDBDBD;"> <i
+                                                    class="icon-arrow-right15"></i></a>
+                                    </td>
+                                    @endif
+                                @endforeach
+                            @if($resUsercount == 0)
+                                <td>
+                                    <span class="badge badge-flat border-grey-800 text-default text-capitalize">
+                                        UNASSIGNED
+                                    </span>
+                                </td>
                             @endif
-                            @endforeach
                             @else
                             <td>
                                 <span class="badge badge-flat border-grey-800 text-default text-capitalize">
@@ -104,6 +127,7 @@
                                 </span>
                             </td>
                             @endif
+
                             <td>{{ $restaurant->created_at->diffForHumans() }}</td>
                             <td class="text-center">
                                 <div class="btn-group btn-group-justified align-items-center">
@@ -171,7 +195,7 @@
                             <div class="uploader">
                                 <input type="file" class="form-control-lg form-control-uniform" name="image" required
                                     accept="image/x-png,image/gif,image/jpeg" onchange="readURL(this);">
-                                <span class="help-text text-muted">Image size: 160x117</span>
+                                <span class="help-text text-muted">Image dimension 160x117</span>
                             </div>
                         </div>
                     </div>
@@ -244,7 +268,7 @@
                             </div>
                         </div> --}}
                         <span class="text-muted">You can use services like: <a
-                                href="https://www.mapcoordinates.net/en">https://www.mapcoordinates.net/en</a></span>
+                                href="https://www.mapcoordinates.net/en" target="_blank">https://www.mapcoordinates.net/en</a></span>
                         <br> If you enter an invalid Latitude/Longitude the map system might crash with a white screen.
                     </fieldset>
                     <hr>

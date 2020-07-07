@@ -186,7 +186,7 @@
                                 <input type="hidden" name="old_image" value="{{ $item->image }}">
                                 <input type="file" class="form-control-lg form-control-uniform" name="image"
                                     accept="image/x-png,image/gif,image/jpeg" onchange="readURL(this);">
-                                <span class="help-text text-muted">Image size: 486x355</span>
+                                <span class="help-text text-muted">Image dimension 486x355</span>
                             </div>
                         </div>
                     </div>
