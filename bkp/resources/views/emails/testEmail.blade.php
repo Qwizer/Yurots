@@ -1,0 +1,1 @@
+Este é um email de teste. Se você receber esse email, as configurações de email SMTP estão funcionando bem.
