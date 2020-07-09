@@ -162,7 +162,7 @@ Dashboard
                                 <th>ID do Pedido</th>
                                 <th class="text-center"><i class="
                                     icon-circle-down2"></i></th>
-                                <th>PreÃ§o</th>
+                                <th>Preço</th>
                                 <th>Tempo desde solicitado</th>
                                 <th>Tempo desde aceito</th>
                             </tr>
