@@ -31,7 +31,7 @@
                 <div class="card-body">
                     <form action="{{ route('restaurant.updateRestaurant') }}" method="POST" enctype="multipart/form-data">
                         <legend class="font-weight-semibold text-uppercase font-size-sm">
-                            <i class="icon-address-book mr-2"></i> {{__('storeDashboard.sePageTitleStoreDetails')}}
+                            <i class="icon-store2 mr-2"></i> {{__('storeDashboard.sePageTitleStoreDetails')}}
                         </legend>
                         <input type="hidden" name="id" value="{{ $restaurant->id }}">
                         <div class="form-group row">

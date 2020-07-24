@@ -512,6 +512,16 @@
                 <!-- END Login Screen Settings-->
                 <!-- HomePage Screen Settings -->
                 <button class="btn btn-primary translation-section-btn mt-4" type="button"> <i class="icon-mobile mr-1"></i>HomePage Screen Settings </button>
+
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Custom Home Message
+                    <span class="badge badge-flat border-grey-800 text-danger text-capitalize mx-1">NEW</span> <i class="icon-question3 ml-1" data-popup="tooltip" title="This will be displayed after the promo sliders and before the stores on the homepage (Custom HTML can be used)" data-placement="left"></i>
+                    </strong></label>
+                    <div class="col-lg-9">
+                        <textarea class="summernote-editor" name="customHomeMessage" placeholder="Custom Home Message - Leave empty to hide" rows="6">{{ config('settings.customHomeMessage') }}</textarea>
+                    </div>
+                </div>
+
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label"><strong>Delivery Button Text</strong></label>
                     <div class="col-lg-9">
@@ -804,6 +814,15 @@
                 <!-- Cart Screen Settings -->
                 <button class="btn btn-primary translation-section-btn mt-4" type="button"> <i class="icon-mobile mr-1"></i>Cart Screen Settings </button> 
                 <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Custom Cart Message
+                    <span class="badge badge-flat border-grey-800 text-danger text-capitalize mx-1">NEW</span> <i class="icon-question3 ml-1" data-popup="tooltip" title="This will be displayed on top of the cart page (Custom HTML can be used)" data-placement="left"></i>
+                    </strong></label>
+                    <div class="col-lg-9">
+                        <textarea class="summernote-editor" name="customCartMessage" placeholder="Custom Cart Message - Leave empty to hide" rows="6">{{ config('settings.customCartMessage') }}</textarea>
+                    </div>
+                </div>
+                
+                <div class="form-group row">
                     <label class="col-lg-3 col-form-label"><strong>Cart Title Text</strong></label>
                     <div class="col-lg-9">
                         <input type="text" class="form-control form-control-lg" name="cartPageTitle"
@@ -1006,6 +1025,13 @@
                             value="{{ config('settings.cartItemNotAvailable') }}" placeholder="Item Not Available Message">
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Order Total Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="orderTextTotal"
+                            value="{{ config('settings.orderTextTotal') }}" placeholder="Order Total Text">
+                    </div>
+                </div>
                 <!-- END Cart Screen Settings -->
                 <!-- Checkout Screen Settings -->
                 <button class="btn btn-primary translation-section-btn mt-4" type="button"> <i class="icon-mobile mr-1"></i>Checkout Screen Settings </button> 
@@ -1077,6 +1103,12 @@
                     <div class="col-lg-9">
                         <input type="text" class="form-control form-control-lg" name="checkoutRazorpaySubText"
                             value="{{ config('settings.checkoutRazorpaySubText') }}" placeholder="Razorpay Sub Text">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>User Banned Message</strong></label>
+                    <div class="col-lg-9">
+                        <textarea class="summernote-editor" name="userInActiveMessage" placeholder="User Banned Message" rows="6">{{ config('settings.userInActiveMessage') }}</textarea>
                     </div>
                 </div>
                 <!-- END Checkout Screen Settings -->
@@ -1828,6 +1860,82 @@
                     </div>
                 </div>
                 <!--  END Delivery Screen Settings -->
+
+                <!-- InAppNotification Screen Setting -->
+                <button class="btn btn-primary translation-section-btn mt-4" type="button"> <i class="icon-mobile mr-1"></i>In App Notification Popup </button> 
+
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Notification Close Button Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="inAppCloseButton"
+                           value="{{ config('settings.inAppCloseButton') }}" placeholder="Notification Close Button Text">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Notification Open Link Button Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="inAppOpenLinkButton"
+                           value="{{ config('settings.inAppOpenLinkButton') }}" placeholder="Notification Open Link Button Text">
+                    </div>
+                </div>
+                <!-- END InAppNotification Screen Setting -->
+
+                <!-- iOSPWAPrompt Screen Setting -->
+                <button class="btn btn-primary translation-section-btn mt-4" type="button"> <i class="icon-mobile mr-1"></i>iOS PWA Custom Popup</button> 
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Popup Title</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="iOSPWAPopupTitle"
+                           value="{{ config('settings.iOSPWAPopupTitle') }}" placeholder="Popup Title">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Popup Message</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="iOSPWAPopupBody"
+                           value="{{ config('settings.iOSPWAPopupBody') }}" placeholder="Popup Message">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Popup Share Button Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="iOSPWAPopupShareButtonLabel"
+                           value="{{ config('settings.iOSPWAPopupShareButtonLabel') }}" placeholder="Popup Share Button Text">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Popup Add To HomeScreen Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="iOSPWAPopupAddButtonLabel"
+                           value="{{ config('settings.iOSPWAPopupAddButtonLabel') }}" placeholder="Popup Add To HomeScreen Text">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Popup Cancel Button Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="iOSPWAPopupCloseButtonLabel"
+                           value="{{ config('settings.iOSPWAPopupCloseButtonLabel') }}" placeholder="Popup Cancel Button Text">
+                    </div>
+                </div>
+                <!-- END iOSPWAPrompt Screen Setting -->
+                
+                <!-- OfflineMode Screen Setting -->
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Offline Title Message</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="offlineTitleMessage"
+                           value="{{ config('settings.offlineTitleMessage') }}" placeholder="Offline Title Message">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Offline Sub-Title Message</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="offlineSubTitleMessage"
+                           value="{{ config('settings.offlineSubTitleMessage') }}" placeholder="Offline Sub-Title Message">
+                    </div>
+                </div>
+                <!-- END OfflineMode Screen Setting -->
+
                 <!-- END MOBILE -->
                 @csrf
                 <div class="text-right">

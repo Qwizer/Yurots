@@ -29,30 +29,32 @@
         <div class="wrapper">
             @yield("thankyou")
             @yield("update")
-            <div class="col-lg-8 col-md-9 col-sm-10 main-col">
-                <div class="row">
-                    <div class="col-md-3">
-                        <ul class="list-inline left-sidebar">
-                            <li class="{{ request()->is('install/pre-installation') ? 'active' : 'complete' }}">
-                                1. Pre-Installation
-                            </li>
-                            <li class="{{ request()->is('install/configuration') ? 'active' : '' }} {{ request()->is('install/complete') ? 'complete' : '' }}">
-                                2. Configuration
-                            </li>
-                            <li class="{{ request()->is('install/complete') ? 'active' : '' }}">
-                                3. Complete
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-md-9">
-                        <div class="content-wrapper clearfix">
-                            <div class="content">
-                                @yield('content')
+            @if(!Request::is('install/update'))
+                <div class="col-lg-8 col-md-9 col-sm-10 main-col">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <ul class="list-inline left-sidebar">
+                                <li class="{{ request()->is('install/pre-installation') ? 'active' : 'complete' }}">
+                                    1. Pre-Installation
+                                </li>
+                                <li class="{{ request()->is('install/configuration') ? 'active' : '' }} {{ request()->is('install/complete') ? 'complete' : '' }}">
+                                    2. Configuration
+                                </li>
+                                <li class="{{ request()->is('install/complete') ? 'active' : '' }}">
+                                    3. Complete
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="content-wrapper clearfix">
+                                <div class="content">
+                                    @yield('content')
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            @endif
         </div>
     </body>
 </html>

@@ -96,7 +96,7 @@
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>Select Users:</label>
                             <div class="col-lg-9">
-                                <select multiple="multiple" class="form-control select" data-fouc name="users[]">
+                                <select multiple="multiple" class="form-control select" data-fouc name="users[]" required="required">
                                     @foreach ($users as $user)
                                     <option value="{{ $user->id }}" class="text-capitalize">{{ $user->name }}</option>
                                     @endforeach

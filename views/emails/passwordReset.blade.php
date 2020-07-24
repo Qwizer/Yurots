@@ -58,7 +58,7 @@
             </tr>
             <tr>
                 <td align="center" bgcolor="#e9e9e9" style="padding: 12px 10px 12px 10px; color: #888888; font-family: Arial, sans-serif; font-size: 12px; line-height: 18px;">
-                    <b>Company Inc.</b> | 355 Example St. &bull; Suite A9 &bull; Syndey, Australia
+                    {{-- <b>Company Inc.</b> | 355 Example St. &bull; Suite A9 &bull; Syndey, Australia --}}
                 </td>
             </tr>
         </table>

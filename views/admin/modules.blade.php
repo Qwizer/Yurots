@@ -21,11 +21,10 @@
     </div>
 </div>
 <script>
-	$('#uploadNewModuleBtn').click(function(event) {
-		$('#moduleUploadBlock').toggle(500);
-	});
+    $('#uploadNewModuleBtn').click(function(event) {
+      $('#moduleUploadBlock').toggle(500);
+    });
 </script>
-
 <div class="content">
     <div class="col-md-12" id="moduleUploadBlock" style="display: none;">
         <div class="card">
@@ -36,68 +35,87 @@
             </div>
         </div>
     </div>
-
     <div class="col-md-12">
         <div class="card">
             <div class="card-body">
-            	<div class="table-responsive">
-            	    <table class="table">
-            	        <thead>
-            	            <tr>
-            	                <th>Name</th>
-            	                <th>Description</th>
-            	                <th class="text-center"><i class="icon-circle-down2"></i></th>
-            	            </tr>
-            	        </thead>
-            	        <tbody>
-            	            @foreach ($modules as $module)
-            	            <tr>
-            	                <td><strong>{{ $module->getStudlyName() }}</strong></td>
-            	                <td>
-                                <small>{{ $module->getDescription() }}</small>
-                              </td>
-                              <td class="text-center">
-                                <div class="btn-group btn-group-justified align-items-center">
-                                  @if($module->isEnabled())
-                                  <a href="{{ route('admin.disableModule', $module->getStudlyName()) }}"
-                                      class="btn btn-primary btn-labeled btn-labeled-left btn-sm enDisBtn"  data-popup="tooltip" title="Double Click to Disable" data-placement="left">
-                                      <b><i class="icon-checkmark3 ml-1"></i></b>
-                                  Enabled
-                                  </a>
-                                  @else
-                                  <a href="{{ route('admin.enableModule', $module->getStudlyName()) }}"
-                                      class="btn btn-danger btn-labeled btn-labeled-left btn-sm enDisBtn"  data-popup="tooltip" title="Double Click to Enable" data-placement="left">
-                                      <b><i class="icon-cross2 ml-1"></i></b>
-                                  Disabled
-                                  </a>
-                                  @endif
-                                  <a href="{{ url($module->getLowerName()) }}/settings"
-                                      class="btn btn-secondary btn-labeled btn-labeled-left btn-sm ml-2" data-placement="left">
-                                      <b><i class="icon-gear ml-1"></i>  </b>
-                                      Settings
-                                    </a>
-                                </div>
-                              </td>
-            	            </tr>
-            	            @endforeach
-            	        </tbody>
-            	    </table>
-            	</div>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th class="text-center"><i class="icon-circle-down2"></i></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($modules as $module)
+                            <tr>
+                                <td><strong>{{ $module->getStudlyName() }}</strong></td>
+                                <td>
+                                    <small>{{ $module->getDescription() }}</small>
+                                </td>
+                                <td class="text-center">
+                                    <div class="btn-group btn-group-justified align-items-center">
+                                        @if($module->isEnabled())
+                                        <a href="{{ route('admin.disableModule', $module->getStudlyName()) }}"
+                                            class="btn btn-primary btn-labeled btn-labeled-left btn-sm enDisBtn"  data-popup="tooltip" title="Double Click to Disable" data-placement="left">
+                                        <b><i class="icon-checkmark3 ml-1"></i></b>
+                                        Enabled
+                                        </a>
+                                        @else
+                                        <a href="{{ route('admin.enableModule', $module->getStudlyName()) }}"
+                                            class="btn btn-danger btn-labeled btn-labeled-left btn-sm enDisBtn"  data-popup="tooltip" title="Double Click to Enable" data-placement="left">
+                                        <b><i class="icon-cross2 ml-1"></i></b>
+                                        Disabled
+                                        </a>
+                                        @endif
+                                        <a href="{{ url($module->getLowerName()) }}/settings"
+                                            class="btn btn-secondary btn-labeled btn-labeled-left btn-sm ml-2" data-placement="left">
+                                        <b><i class="icon-gear ml-1"></i>  </b>
+                                        Settings
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
 <div id="installingModule" class="modal fade mt-5" tabindex="-1">
     <div class="modal-dialog modal-md">
         <div class="modal-content">
             <div class="modal-header pb-3">
-                <h5 class="modal-title"><span class="font-weight-bold"><i class="icon-spinner10 spinner mr-1"></i> Module is getting installed. Please Wait...</span></h5>
+                <h5 class="modal-title">
+                    <span class="font-weight-bold">
+                    <i class="icon-spinner10 spinner mr-1"></i> 
+                    Pending Verification
+                    </span>
+                </h5>
+            </div>
+            <div class="modal-body">
+                <form id="pcForm">
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label">Purchase Code</label>
+                        <div class="col-lg-9">
+                            <input type="text" class="form-control form-control-lg" name="pc"
+                                placeholder="Enter the purchase code of this module" required id="pc">
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <button type="submit" class="btn btn-primary" id="verifyInstall">
+                        Verify & Install
+                        <i class="icon-arrow-right8 ml-1"></i>
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
-
 <script>
     Dropzone.autoDiscover = false;
     
@@ -142,12 +160,9 @@
                            backdrop: 'static',
                            keyboard: false
                        });
-                       setTimeout(function() {
-                       		window.location = "module/install";
-                       }, 500);
                    }, 500);
-                   
                });
+    
                //if anything goes wrong during upload, show error message and remove file
                dropzone.on("error", function(file, errorMessage, xhr) {
                    dropzone.removeFile(file);
@@ -189,6 +204,59 @@
            }
        });
     
+          $('#pcForm').submit(function(event) {
+              event.preventDefault();
+              
+              $('#verifyInstall').attr('disabled', true);
+              $('#verifyInstall').html("Please Wait...")
+    
+              var pc = $('#pc').val();
+              var token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+              $.ajax({
+                url: '{{ route('admin.installModule') }}',
+                type: 'POST',
+                dataType: 'JSON',
+                data: {pc: pc, _token: token},
+              })
+              .done(function(data) {
+                if (data.success) {
+    
+                  console.log(data.message)
+    
+                  $.jGrowl("Module installation was successful", {
+                      position: 'bottom-center',
+                      header: 'Success ✅',
+                      theme: 'bg-success',
+                      life: '1800'
+                  }); 
+    
+                  setTimeout(function() {
+                     window.location.reload();
+                  }, 600);
+                }
+              })
+              .fail(function(err) {
+                console.log("error");
+    
+                $('#verifyInstall').attr({
+                  disabled: false,
+                  html: 'Verify & Install'
+                });
+    
+                $('#verifyInstall').attr('disabled', false);
+                $('#verifyInstall').html("Verify & Install <i class='icon-arrow-right8 ml-1'></i>")
+    
+                $(function () {
+                    $.jGrowl($.parseJSON(err.responseText).message, {
+                        position: 'bottom-center',
+                        header: 'Wooopsss ⚠️',
+                        theme: 'bg-warning',
+                        life: '5000'
+                    });    
+                });
+              })              
+          });
+    
            $('.select').select2({
                minimumResultsForSearch: Infinity,
            });
@@ -211,14 +279,14 @@
           $(".colorpicker-show-input").spectrum({
             showInput: true
           });
-			
-			$('.enDisBtn').dblclick(function(event) {
-				$(this).addClass('pointer-none');
-              	window.location = this.href;
-              	return false;
-			}).click(function(event) {
-				return false;
-			});;
+    
+    $('.enDisBtn').dblclick(function(event) {
+    $(this).addClass('pointer-none');
+                window.location = this.href;
+                return false;
+    }).click(function(event) {
+    return false;
+    });;
     });
     
 </script>

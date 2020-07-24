@@ -502,6 +502,16 @@
                 <!-- END Login Screen Settings-->
                 <!-- HomePage Screen Settings -->
                 <button class="btn btn-primary translation-section-btn mt-4" type="button"> <i class="icon-mobile mr-1"></i>HomePage Screen Settings </button>
+
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Custom Home Message
+                    <span class="badge badge-flat border-grey-800 text-danger text-capitalize mx-1">NEW</span> <i class="icon-question3 ml-1" data-popup="tooltip" title="This will be displayed after the promo sliders and before the stores on the homepage (Custom HTML can be used)" data-placement="left"></i>
+                    </strong></label>
+                    <div class="col-lg-9">
+                        <textarea class="summernote-editor" name="customHomeMessage" placeholder="Custom Home Message - Leave empty to hide" rows="6">@if (!empty($data->customHomeMessage)) {{ $data->customHomeMessage }}@else{{ config('settings.customHomeMessage') }}@endif</textarea>
+                    </div>
+                </div>
+
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label"><strong>Delivery Button Text</strong></label>
                     <div class="col-lg-9">
@@ -792,7 +802,17 @@
                 </div>
                 <!--END Items Screen Settings -->
                 <!-- Cart Screen Settings -->
-                <button class="btn btn-primary translation-section-btn mt-4" type="button"> <i class="icon-mobile mr-1"></i>Cart Screen Settings </button> 
+                <button class="btn btn-primary translation-section-btn mt-4" type="button"> <i class="icon-mobile mr-1"></i>Cart Screen Settings </button>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Custom Cart Message
+                    <span class="badge badge-flat border-grey-800 text-danger text-capitalize mx-1">NEW</span> <i class="icon-question3 ml-1" data-popup="tooltip" title="This will be displayed on top of the cart page (Custom HTML can be used)" data-placement="left"></i>
+                    </strong></label>
+                    <div class="col-lg-9">
+                        <textarea class="summernote-editor" name="customCartMessage" placeholder="Custom Cart Message - Leave empty to hide" rows="6">@if (!empty($data->customCartMessage)) {{ $data->customCartMessage }}@else{{ config('settings.customCartMessage') }}@endif
+                    </textarea>
+                    </div>
+                </div>
+
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label"><strong>Cart Title Text</strong></label>
                     <div class="col-lg-9">
@@ -996,6 +1016,13 @@
                             value="@if (!empty($data->cartItemNotAvailable)) {{ $data->cartItemNotAvailable }}@else{{ config('settings.cartItemNotAvailable') }}@endif" placeholder="Item Not Available Message">
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Order Total Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="orderTextTotal"
+                             value="@if (!empty($data->orderTextTotal)) {{ $data->orderTextTotal }}@else{{ config('settings.orderTextTotal') }}@endif"  placeholder="Order Total Text">
+                    </div>
+                </div>
                 <!-- END Cart Screen Settings -->
                 <!-- Checkout Screen Settings -->
                 <button class="btn btn-primary translation-section-btn mt-4" type="button"> <i class="icon-mobile mr-1"></i>Checkout Screen Settings </button> 
@@ -1067,6 +1094,12 @@
                     <div class="col-lg-9">
                         <input type="text" class="form-control form-control-lg" name="checkoutRazorpaySubText"
                             value="{{ $data->checkoutRazorpaySubText }}" placeholder="Razorpay Sub Text">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>User Banned Message</strong></label>
+                    <div class="col-lg-9">
+                        <textarea class="summernote-editor" name="userInActiveMessage" placeholder="User Banned Message" rows="6">@if(!empty($data->userInActiveMessage)){{ $data->userInActiveMessage }}@else{{ config('settings.userInActiveMessage') }}@endif</textarea>
                     </div>
                 </div>
                 <!-- END Checkout Screen Settings -->
@@ -1816,6 +1849,72 @@
                     </div>
                 </div>
                 <!--  END Delivery Screen Settings -->
+                <!-- InAppNotification Screen Setting -->
+                <button class="btn btn-primary translation-section-btn mt-4" type="button"> <i class="icon-mobile mr-1"></i>In App Notification Popup </button> 
+
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Notification Close Button Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="inAppCloseButton"
+                           value="@if (!empty($data->inAppCloseButton)) {{ $data->inAppCloseButton }}@else{{ config('settings.inAppCloseButton') }}@endif" placeholder="Notification Close Button Text">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Notification Open Link Button Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="inAppOpenLinkButton"
+                           value="@if (!empty($data->inAppOpenLinkButton)) {{ $data->inAppOpenLinkButton }}@else{{ config('settings.inAppOpenLinkButton') }}@endif" placeholder="Notification Open Link Button Text">
+                    </div>
+                </div>
+                <!-- END InAppNotification Screen Setting -->
+
+                <!-- iOSPWAPrompt Screen Setting -->
+                <button class="btn btn-primary translation-section-btn mt-4" type="button"> <i class="icon-mobile mr-1"></i>iOS PWA Custom Popup</button> 
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Popup Title</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="iOSPWAPopupTitle" value="@if (!empty($data->iOSPWAPopupTitle)) {{ $data->iOSPWAPopupTitle }}@else{{ config('settings.iOSPWAPopupTitle') }}@endif" placeholder="Popup Title">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Popup Message</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="iOSPWAPopupBody" value="@if (!empty($data->iOSPWAPopupBody)) {{ $data->iOSPWAPopupBody }}@else{{ config('settings.iOSPWAPopupBody') }}@endif" placeholder="Popup Message">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Popup Share Button Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="iOSPWAPopupShareButtonLabel" value="@if (!empty($data->iOSPWAPopupShareButtonLabel)) {{ $data->iOSPWAPopupShareButtonLabel }}@else{{ config('settings.iOSPWAPopupShareButtonLabel') }}@endif" placeholder="Popup Share Button Text">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Popup Add To HomeScreen Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="iOSPWAPopupAddButtonLabel" value="@if (!empty($data->iOSPWAPopupAddButtonLabel)) {{ $data->iOSPWAPopupAddButtonLabel }}@else{{ config('settings.iOSPWAPopupAddButtonLabel') }}@endif" placeholder="Popup Add To HomeScreen Text">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Popup Cancel Button Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="iOSPWAPopupCloseButtonLabel" value="@if (!empty($data->iOSPWAPopupCloseButtonLabel)) {{ $data->iOSPWAPopupCloseButtonLabel }}@else{{ config('settings.iOSPWAPopupCloseButtonLabel') }}@endif" placeholder="Popup Cancel Button Text">
+                    </div>
+                </div>
+                <!-- END iOSPWAPrompt Screen Setting -->
+                <!-- OfflineMode Screen Setting -->
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Offline Title Message</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="offlineTitleMessage" value="@if (!empty($data->offlineTitleMessage)) {{ $data->offlineTitleMessage }}@else{{ config('settings.offlineTitleMessage') }}@endif" placeholder="Offline Title Message">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Offline Sub-Title Message</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="offlineSubTitleMessage" value="@if (!empty($data->offlineSubTitleMessage)) {{ $data->offlineSubTitleMessage }}@else{{ config('settings.offlineSubTitleMessage') }}@endif" placeholder="Offline Sub-Title Message">
+                    </div>
+                </div>
+                <!-- END OfflineMode Screen Setting -->
                 <!-- END MOBILE -->
                 @csrf
                 <div class="text-right">

@@ -111,7 +111,7 @@
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>Addon's Category:</label>
                         <div class="col-lg-9">
-                            <select class="form-control select-search" name="addon_category_id" required>
+                            <select class="form-control select-search select" name="addon_category_id" required>
                                 @foreach ($addonCategories as $addonCategory)
                                 <option value="{{ $addonCategory->id }}" class="text-capitalize">{{ $addonCategory->name }}</option>
                                 @endforeach
@@ -131,6 +131,7 @@
 </div>
 <script>
     $(function () {
+        $('.select').select2();
          $('.price').numeric({allowThouSep:false, maxDecimalPlaces: 2 });
 
          //Switch Action Function

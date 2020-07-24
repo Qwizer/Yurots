@@ -100,7 +100,7 @@
                             </div>
                         </div>
                         @if($user->hasRole("Delivery Guy"))
-                            <legend class="font-weight-semibold text-uppercase font-size-sm">
+                            <legend class="font-weight-semibold text-uppercase font-size-sm" id="deliveryGuyDetails">
                                 <i class="icon-truck mr-2"></i> Delivery Guy Details
                             </legend>
                             <div class="form-group row">
@@ -177,6 +177,21 @@
                             </button>
                         </div>
                         @csrf
+                        <div class="text-left">
+                            <div class="btn-group btn-group-justified" style="width: 150px">
+                                @if($user->is_active)
+                                <a class="btn btn-danger" href="{{ route('admin.banUser', $user->id) }}" data-popup="tooltip" title="User will not be able to place orders if banned">
+                                    Ban User
+                                    <i class="icon-switch2 ml-1"></i>
+                                </a>
+                                @else
+                                <a class="btn btn-primary" href="{{ route('admin.banUser', $user->id) }}" data-popup="tooltip" title="Currently, {{ $user->name }} is banned from placing any orders">
+                                    Reactivate User
+                                    <i class="icon-switch2 ml-1"></i>
+                                </a>
+                                @endif
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>

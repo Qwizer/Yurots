@@ -207,7 +207,7 @@
                                             <option></option>
                                             @foreach ($users as $user)
                                             @if ($user->hasRole('Delivery Guy'))
-                                            <option value="{{$user->id}}">{{$user->name}}</option>
+                                            <option value="{{$user->id}}" @if(!$user->delivery_guy_detail) disabled="disabled" @endif>{{$user->name}}</option>
                                             @endif
                                             @endforeach
                                         </select>
@@ -215,7 +215,6 @@
                                     <div class="col-lg-6">
                                         <button type="submit" class="btn btn-secondary mr-2">
                                         Assign Delivery
-                                        <i class="icon-database-insert ml-1"></i>
                                         </button>
                                     </div>
                                 </div>

@@ -34,7 +34,7 @@
             <div class="card-body">
                 <form action="{{ route('admin.updateRestaurant') }}" method="POST" enctype="multipart/form-data">
                     <legend class="font-weight-semibold text-uppercase font-size-sm">
-                        <i class="icon-address-book mr-2"></i> Store Details
+                        <i class="icon-store2 mr-2"></i> Store Details
                     </legend>
                     <input type="hidden" name="id" value="{{ $restaurant->id }}">
                     <div class="form-group row">
@@ -588,6 +588,45 @@
         </div>
     </div>
     @endif
+    </div>
+
+    <div class="row">
+        <div class="col-md-7">
+            <div class="card">
+                <div class="card-body">
+                    <form action="{{ route('admin.updateSlug') }}" method="POST" enctype="multipart/form-data">
+                        <legend class="font-weight-semibold text-uppercase font-size-sm">
+                            <i class="icon-link mr-2"></i> Store URL
+                        </legend>
+                        <input type="hidden" name="id" value="{{ $restaurant->id }}">
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>Store URL</label>
+                            <div class="col-lg-9">
+                                <input value="{{ $restaurant->slug }}" type="text" class="form-control form-control-lg" name="store_url"
+                                    placeholder="Store URL" required>
+                            </div>
+                        </div>
+                        <p onclick="copyURL()">https://{{ request()->getHttpHost() }}/stores/<strong><span id="storeURL">{{ $restaurant->slug }}</span></strong></p>
+                        <script>
+                            $('input[name=store_url]').keyup(function(event) {
+                                let slug = $(this).val();
+                                slug = slug.toLowerCase();
+                                slug = slug.replace(/[^a-zA-Z0-9]+/g,'-');
+                                $(this).val(slug);
+                                $('#storeURL').html(slug);
+                            });
+                        </script>
+                        @csrf
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-primary">
+                            UPDATE
+                            <i class="icon-database-insert ml-1"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <script>

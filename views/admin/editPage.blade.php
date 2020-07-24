@@ -99,11 +99,20 @@
     
        $('.form-control-uniform').uniform();
        $('.summernote-editor').summernote({
-               height: 200,
+               height: 300,
                popover: {
-                   image: [],
-                   link: [],
-                   air: []
+                   image: [
+                      ['image', ['resizeFull', 'resizeHalf', 'resizeQuarter', 'resizeNone']],
+                      ['float', ['floatLeft', 'floatRight', 'floatNone']],
+                      ['remove', ['removeMedia']]
+                    ],
+                   link: [
+                      ['link', ['linkDialogShow', 'unlink']]
+                    ],
+                   table: [
+                      ['add', ['addRowDown', 'addRowUp', 'addColLeft', 'addColRight']],
+                      ['delete', ['deleteRow', 'deleteCol', 'deleteTable']],
+                    ]
                  }
         });
     });

@@ -114,7 +114,7 @@
         </div>
     </div>
 </div>
-<div id="addNewItemModal" class="modal fade" tabindex="-1">
+<div id="addNewItemModal" class="modal fade">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -176,7 +176,7 @@
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>{{__('storeDashboard.ipmLabelItemRestaurant')}}:</label>
                         <div class="col-lg-9">
-                            <select class="form-control select-search" name="restaurant_id" required>
+                            <select class="form-control select-search select" name="restaurant_id" required>
                                 @foreach ($restaurants as $restaurant)
                                 <option value="{{ $restaurant->id }}" class="text-capitalize">{{ $restaurant->name }}
                                 </option>
@@ -332,13 +332,7 @@
                      }
             });
         
-        $('.select').select2({
-        minimumResultsForSearch: Infinity,
-        placeholder: 'Select addons categories if applicable',
-        });
-       $('.select-search').select2({
-           minimumResultsForSearch: Infinity,
-       });
+        $('.select').select2();
     
        var recommendeditem = document.querySelector('.recommendeditem');
        new Switchery(recommendeditem, { color: '#f44336' });

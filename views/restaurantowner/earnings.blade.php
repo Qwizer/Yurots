@@ -67,7 +67,7 @@
         <div class="col-xl-12">
             <div class="panel panel-flat">
                 <div class="panel-body">
-                    <div class="chart-container">
+                    <div class="chart-container hidden">
                         <div class="chart has-fixed-height has-minimum-width" id="basic_area"></div>
                     </div>
                 </div>

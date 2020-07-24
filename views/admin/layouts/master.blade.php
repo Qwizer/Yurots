@@ -92,5 +92,17 @@
             </div>
         </div>
         @include('admin.includes.notification')
+        <script>
+            $(function() {
+                $('form').submit(function(){
+                    $(this).find(':input[type=submit]').prop('disabled', true);
+                });
+                $('.note-codable').on('blur', function() {
+                  var codeviewHtml        = $(this).val();
+                  var $summernoteTextarea = $(this).closest('.note-editor').siblings('textarea');
+                  $summernoteTextarea.val(codeviewHtml);
+                 });
+            });
+        </script>
     </body>
 </html>

@@ -61,10 +61,15 @@
                     </div>
                     @endif
                 </div>
+                @if(!$user->delivery_guy_detail)
+                    <p>All details for {{ $user->name }} are not filled. Please fill all the mandatory details to assign stores to {{ $user->name }}</p>
+                    <strong><a href="{{ route('admin.get.editUser', $user->id) }}#deliveryGuyDetails">Click Here </a></strong> to Edit the Details
+                @else
                 <button type="submit" class="btn btn-primary btn-labeled btn-labeled-left btn-lg" id="manageRestaurants">
                 <b><i class="icon-gear ml-1"></i></b>
                 MANAGE
                 </button>
+                @endif
             </div>
         </div>
     </div>

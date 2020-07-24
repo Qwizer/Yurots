@@ -66,7 +66,7 @@
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>Coupon Discount:</label>
                         <div class="col-lg-9">
-                            <input value="{{ $coupon->discount }}" type="text" class="form-control form-control-lg" name="discount"
+                            <input value="{{ $coupon->discount }}" type="text" class="form-control form-control-lg discount" name="discount"
                                 placeholder="Coupon Discount" required>
                         </div>
                     </div>
@@ -93,7 +93,7 @@
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>Max number of use:</label>
                         <div class="col-lg-9">
-                            <input value="{{ $coupon->max_count }}" type="text" class="form-control form-control-lg" name="max_count"
+                            <input value="{{ $coupon->max_count }}" type="text" class="form-control form-control-lg max_count" name="max_count"
                                 placeholder="Max number of use" required>
                         </div>
                     </div>
@@ -178,6 +178,8 @@
         });
         $('.min_subtotal').numeric({ allowThouSep:false, maxDecimalPlaces: 2, allowMinus: false });
         $('.max_discount').numeric({ allowThouSep:false, maxDecimalPlaces: 2, allowMinus: false });
+        $('.max_count').numeric({ allowThouSep:false, maxDecimalPlaces: 0, allowMinus: false });
+        $('.discount').numeric({ allowThouSep:false, maxDecimalPlaces: 2, allowMinus: false });
     });
 </script>
 @endsection
