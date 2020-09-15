@@ -7,8 +7,8 @@
         <div class="page-title d-flex">
             <h4><i class="icon-circle-right2 mr-2"></i>
                 <span class="font-weight-bold mr-2">{{__('storeDashboard.ipeEditing')}}</span>
-                <span class="badge badge-primary badge-pill animated flipInX">"{{ $item->name }} ->
-                    {{ $item->restaurant->name }}"</span>
+                <span class="badge badge-primary badge-pill animated flipInX">{{ $item->name }} <i class="icon-circle-right2 mx-1"></i>
+                    {{ $item->restaurant->name }}</span>
             </h4>
             <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
         </div>
@@ -100,7 +100,7 @@
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>{{__('storeDashboard.ipmLabelItemRestaurant')}}:</label>
                         <div class="col-lg-9">
-                            <select class="form-control select-search select" name="restaurant_id" required>
+                            <select class="form-control select" name="restaurant_id" required>
                                 @foreach ($restaurants as $restaurant)
                                 <option value="{{ $restaurant->id }}" class="text-capitalize" @if($item->restaurant_id
                                     == $restaurant->id) selected="selected" @endif>{{ $restaurant->name }}</option>
@@ -111,7 +111,7 @@
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>{{__('storeDashboard.ipmLabelItemCategory')}}:</label>
                         <div class="col-lg-9">
-                            <select class="form-control select-search" name="item_category_id" required>
+                            <select class="form-control select" name="item_category_id" required>
                                 @foreach ($itemCategories as $itemCategory)
                                 <option value="{{ $itemCategory->id }}" class="text-capitalize" @if($item->
                                     item_category_id == $itemCategory->id) selected="selected"
@@ -169,7 +169,7 @@
                                 name="addon_category_item[]">
                                 @foreach($addonCategories as $addonCategory)
                                 <option value="{{ $addonCategory->id }}" class="text-capitalize">
-                                    {{ $addonCategory->name }}</option>
+                                    {{ $addonCategory->name }} @if($addonCategory->description != null)-> {{ $addonCategory->description }} @endif</option>
                                 @endforeach
                             </select>
                         </div>

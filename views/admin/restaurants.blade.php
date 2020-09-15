@@ -79,8 +79,11 @@
                         <tr>
                             <th>ID</th>
                             <th>Image</th>
-                            <th>Name</th>
-                            <th>Owner</th>
+                            <th style="width: 13%">Name</th>
+                            <th style="width: 13%">Owner</th>
+                            @if($dapCheck)
+                            <th>Operational Areas</th>
+                            @endif
                             <th style="width: 15%">Created At</th>
                             <th class="text-center" style="width: 10%;"><i class="
                                 icon-circle-down2"></i></th>
@@ -94,7 +97,7 @@
                                     alt="{{ $restaurant->name }}" height="80" width="80"
                                     style="border-radius: 0.275rem;"></td>
                             <td>{{ $restaurant->name }}</td>
-
+                            <td>
                             @if(count($restaurant->users))
                             @php
                                 $resUsercount = 0
@@ -104,30 +107,37 @@
                                     @php
                                         $resUsercount++;
                                     @endphp
-                                    <td>
+                                        <div>
+                                            <a href="{{ route('admin.impersonate', $restaurantUser->id) }}"
+                                                        class="mr-1" data-popup="tooltip"
+                                            data-placement="left" title="Login as {{ $restaurantUser->name }}" style="border: 1px solid #E0E0E0; border-radius: 0.275rem; padding: 1.5px 4px;"> <i class="icon-redo2 text-warning"></i></a>
                                         <a href="{{ route('admin.get.editUser', $restaurantUser->id) }}">{{ $restaurantUser->name }}</a>
-                                        <a href="{{ route('admin.impersonate', $restaurantUser->id) }}"
-                                                    class="badge badge-default badge-icon ml-2"  data-popup="tooltip"
-                                        data-placement="left" title="Login as {{ $restaurantUser->name }}" style="border: 1px solid #BDBDBD;"> <i
-                                                    class="icon-arrow-right15"></i></a>
-                                    </td>
+                                        </div>
                                     @endif
                                 @endforeach
                             @if($resUsercount == 0)
-                                <td>
-                                    <span class="badge badge-flat border-grey-800 text-default text-capitalize">
-                                        UNASSIGNED
-                                    </span>
-                                </td>
-                            @endif
-                            @else
-                            <td>
                                 <span class="badge badge-flat border-grey-800 text-default text-capitalize">
                                     UNASSIGNED
                                 </span>
+                            @endif
+                            @else
+                                <span class="badge badge-flat border-grey-800 text-default text-capitalize">
+                                    UNASSIGNED
+                                </span>
+                            @endif
+                            </td>
+                            @if($dapCheck)
+                            <td>
+                            
+                            @if(count($restaurant->delivery_areas) === 0)
+                              <span class="badge badge-flat border-grey-800 mr-1 mb-2" style="font-size: 0.9rem;">  NA </span>
+                            @else
+                                @foreach($restaurant->delivery_areas as $deliveryArea)
+                                <span class="badge badge-flat border-grey-800 mr-1 mb-2" style="font-size: 0.9rem;">{{ $deliveryArea->name }}</span>
+                                @endforeach
+                            @endif
                             </td>
                             @endif
-
                             <td>{{ $restaurant->created_at->diffForHumans() }}</td>
                             <td class="text-center">
                                 <div class="btn-group btn-group-justified align-items-center">

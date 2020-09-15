@@ -19,11 +19,10 @@
         </div>
         <div class="header-elements d-none py-0 mb-3 mb-md-0">
             <div class="breadcrumb">
-                <button type="button" class="btn btn-secondary btn-labeled btn-labeled-left mr-2" id="addNewAddonCategory"
-                    data-toggle="modal" data-target="#addNewAddonCategoryModal">
-                <b><i class="icon-plus2"></i></b>
-                {{ __('storeDashboard.btnAddNewCat')}} 
-                </button>
+                <a class="btn btn-secondary btn-labeled btn-labeled-left" href="{{route('restaurant.newAddonCategory')}}">
+                    <b><i class="icon-plus2"></i></b>
+                     {{ __('storeDashboard.btnAddNewCat')}} 
+                </a>
             </div>
         </div>
     </div>
@@ -85,42 +84,6 @@
                 <div class="mt-3">
                     {{ $addonCategories->links() }}
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div id="addNewAddonCategoryModal" class="modal fade" tabindex="-1">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title"><span class="font-weight-bold">{{ __('storeDashboard.btnAddNewCat')}}</span></h5>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <form action="{{ route('restaurant.saveNewAddonCategory') }}" method="POST" enctype="multipart/form-data" enctype="multipart/form-data">
-                    <div class="form-group row">
-                        <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>{{ __('storeDashboard.acpInputName')}}:</label>
-                        <div class="col-lg-9">
-                            <input type="text" class="form-control form-control-lg" name="name"
-                                placeholder="{{ __('storeDashboard.acpInputName')}}" required>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>{{ __('storeDashboard.acpTableType')}}:</label>
-                        <div class="col-lg-9">
-                            <select name="type" class="form-control form-control-lg">
-                                <option value="SINGLE"> {{ __('storeDashboard.acpRowSingleSelection')}}  </option>
-                                <option value="MULTI"> {{ __('storeDashboard.acpRowMultipleSelection')}} </option>
-                            </select>
-                        </div>
-                    </div>
-                    @csrf
-                    <div class="text-right">
-                        <button type="submit" class="btn btn-primary">
-                        {{ __('storeDashboard.save')}}
-                        <i class="icon-database-insert ml-1"></i></button>
-                    </div>
-                </form>
             </div>
         </div>
     </div>

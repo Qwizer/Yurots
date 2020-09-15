@@ -613,6 +613,13 @@
                            value="{{ config('settings.restaurantNotActiveMsg') }}" placeholder="Restaurant Not Active Message">
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Homepage SearchBar Placeholder</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="mockSearchPlaceholder"
+                           value="{{ config('settings.mockSearchPlaceholder') }}" placeholder="Homepage SearchBar Placeholder">
+                    </div>
+                </div>
                 <!--END HomePage Screen Settings -->
                 <!-- Alerts Screen Settings -->
                 <button class="btn btn-primary translation-section-btn mt-4" type="button"> <i class="icon-mobile mr-1"></i>Alerts Screen Settings </button>
@@ -1111,6 +1118,151 @@
                         <textarea class="summernote-editor" name="userInActiveMessage" placeholder="User Banned Message" rows="6">{{ config('settings.userInActiveMessage') }}</textarea>
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Too many requests message</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="tooManyApiCallMessage"
+                            value="{{ config('settings.tooManyApiCallMessage') }}" placeholder="Too many requests message">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Ideal Stripe Checkout Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="checkoutStripeIdealText"
+                            value="{{ config('settings.checkoutStripeIdealText') }}" placeholder="Ideal Stripe Checkout Text">
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Ideal Stripe Checkout Sub Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="checkoutStripeIdealSubText"
+                            value="{{ config('settings.checkoutStripeIdealSubText') }}" placeholder="Ideal Stripe Checkout Sub Text">
+                    </div>
+                </div>
+
+                
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>FPX Stripe Checkout Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="checkoutStripeFpxText"
+                            value="{{ config('settings.checkoutStripeFpxText') }}" placeholder="FPX Stripe Checkout Text">
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>FPX Stripe Checkout SubText</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="checkoutStripeFpxSubText"
+                            value="{{ config('settings.checkoutStripeFpxSubText') }}" placeholder="FPX Stripe Checkout SubText">
+                    </div>
+                </div>
+
+                
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>MercadoPago Checkout Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="checkoutMercadoPagoText"
+                            value="{{ config('settings.checkoutMercadoPagoText') }}" placeholder="MercadoPago Checkout Text">
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>MercadoPago Checkout Sub Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="checkoutMercadoPagoSubText"
+                            value="{{ config('settings.checkoutMercadoPagoSubText') }}" placeholder="MercadoPago Checkout Sub Text">
+                    </div>
+                </div>
+
+                
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>PayMongo Checkout Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="checkoutPayMongoText"
+                            value="{{ config('settings.checkoutPayMongoText') }}" placeholder="PayMongo Checkout Text">
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>PayMongo Checkout Sub Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="checkoutPayMongoSubText"
+                            value="{{ config('settings.checkoutPayMongoSubText') }}" placeholder="PayMongo Checkout Sub Text">
+                    </div>
+                </div>
+
+                
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Checkout Pay Button Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="checkoutPayText"
+                            value="{{ config('settings.checkoutPayText') }}" placeholder="Checkout Pay Button Text">
+                    </div>
+                </div>
+
+                
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Checkout Card Number Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="checkoutCardNumber"
+                            value="{{ config('settings.checkoutCardNumber') }}" placeholder="Checkout Card Number Text">
+                    </div>
+                </div>
+
+                
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Checkout Expiration Date Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="checkoutCardExpiration"
+                            value="{{ config('settings.checkoutCardExpiration') }}" placeholder="Checkout Expiration Date Text">
+                    </div>
+                </div>
+
+                
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Checkout CVV Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="checkoutCardCvv"
+                            value="{{ config('settings.checkoutCardCvv') }}" placeholder="Checkout CVV Text">
+                    </div>
+                </div>
+
+                
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Checkout Postal Code Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="checkoutCardPostalCode"
+                            value="{{ config('settings.checkoutCardPostalCode') }}" placeholder="Checkout Postal Code Text">
+                    </div>
+                </div>
+
+                
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Checkout Full Name Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="checkoutCardFullname"
+                            value="{{ config('settings.checkoutCardFullname') }}" placeholder="Checkout Full Name Text">
+                    </div>
+                </div>
+
+                
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Checkout Ideal Select Bank Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="checkoutIdealSelectBankText"
+                            value="{{ config('settings.checkoutIdealSelectBankText') }}" placeholder="Checkout Ideal Select Bank Text">
+                    </div>
+                </div>
+ 
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Checkout FPX Select Bank Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="checkoutFpxSelectBankText"
+                            value="{{ config('settings.checkoutFpxSelectBankText') }}" placeholder="Checkout FPX Select Bank Text">
+                    </div>
+                </div>
                 <!-- END Checkout Screen Settings -->
                 <!-- Running Order Screen Settings -->
                 <button class="btn btn-primary translation-section-btn mt-4" type="button"> <i class="icon-mobile mr-1"></i>Running Order Screen Settings </button> 
@@ -1304,6 +1456,20 @@
                     </div>
                 </div>
                 <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Awaiting Payment Status Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="awaitingPaymentStatusText"
+                            value="{{ config('settings.awaitingPaymentStatusText') }}" placeholder="Awaiting Payment Status Text">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Payment Failed Status Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="paymentFailedStatusText"
+                            value="{{ config('settings.paymentFailedStatusText') }}" placeholder="Payment Failed Status Text">
+                    </div>
+                </div>
+                <div class="form-group row">
                     <label class="col-lg-3 col-form-label"><strong>Delivery Guy New Order Notification Message</strong></label>
                     <div class="col-lg-9">
                         <input type="text" class="form-control form-control-lg" name="deliveryGuyNewOrderNotificationMsg"
@@ -1322,6 +1488,20 @@
                     <div class="col-lg-9">
                         <input type="text" class="form-control form-control-lg" name="runningOrderDeliveryPin"
                             value="{{ config('settings.runningOrderDeliveryPin') }}" placeholder="Delivery Pin Text">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Awaiting Payment Title</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="awaitingPaymentTitle"
+                            value="{{ config('settings.awaitingPaymentTitle') }}" placeholder="waiting Payment Title">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Awaiting Payment Sub Title</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="awaitingPaymentSubTitle"
+                            value="{{ config('settings.awaitingPaymentSubTitle') }}" placeholder="Awaiting Payment Sub Title">
                     </div>
                 </div>
                 <!-- END Running Order Screen Settings -->
@@ -1397,6 +1577,7 @@
                         value="{{ config('settings.chooseAvatarText') }}" placeholder="Choose Avatar Text">
                     </div>
                 </div>
+
                 <!-- END Account Screen Settings -->
                 <!-- Search Location Screen Settings -->
                 <button class="btn btn-primary translation-section-btn mt-4" type="button"> <i class="icon-mobile mr-1"></i>Search Location Screen Settings </button>

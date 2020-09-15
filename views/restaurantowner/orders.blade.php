@@ -54,6 +54,7 @@
                                     @if ($order->orderstatus_id == 5) {{__('storeDashboard.opOrderStatus5')}} @endif
                                     @if ($order->orderstatus_id == 6) {{__('storeDashboard.opOrderStatus6')}} @endif
                                     @if ($order->orderstatus_id == 7) {{__('storeDashboard.opOrderStatus7')}} @endif
+
                                     @if($order->accept_delivery !== null)
                                     @if($order->orderstatus_id > 2 && $order->orderstatus_id  < 6)
                                     {{__('storeDashboard.opDeliveryBy')}}: <b>{{ $order->accept_delivery->user->name }}</b>

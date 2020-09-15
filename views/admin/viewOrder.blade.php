@@ -2,6 +2,11 @@
 @section("title") Order - Dashboard
 @endsection
 @section('content')
+<style>
+    .content-wrapper {
+        overflow: hidden;
+    }
+</style>
 <div class="content">
     <div class="row">
         <div class="col-md-8 mt-4" id="printThis">
@@ -37,6 +42,9 @@
                         @if ($order->orderstatus_id == 5) Completed @endif
                         @if ($order->orderstatus_id == 6) Canceled @endif
                         @if ($order->orderstatus_id == 7) Ready to Pickup @endif
+                        @if ($order->orderstatus_id == 8) Awaiting Payment @endif
+                        @if ($order->orderstatus_id == 9) Payment Failed @endif
+                        
                         </span>
                         @if($order->accept_delivery !== null)
                         @if($order->orderstatus_id > 2 && $order->orderstatus_id  < 6)
@@ -162,7 +170,7 @@
                                 class="icon-checkmark3 ml-1"></i> </b> Accept Order </button>
                         </form>
                         @endif  
-                        @if($order->orderstatus_id == 1 || $order->orderstatus_id == 2 || $order->orderstatus_id == 3 || $order->orderstatus_id == 4 || $order->orderstatus_id == 7) 
+                        @if($order->orderstatus_id == 1 || $order->orderstatus_id == 2 || $order->orderstatus_id == 3 || $order->orderstatus_id == 4 || $order->orderstatus_id == 7 || $order->orderstatus_id == 8) 
                         <a href="javascript:void(0)" class="btn btn-danger btn-labeled dropdown-toggle" data-toggle="dropdown">
                         Cancel Order
                         </a>

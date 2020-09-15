@@ -91,8 +91,6 @@
                             @if($slider->size == 5)
                             <td>Extra Large</td>
                             @endif
-
-                            <td>{{ $slider->size }}</td>
                             <td>{{ $slider->created_at->diffForHumans() }}</td>
                             <td class="text-center">
                                 <div class="btn-group btn-group-justified">

@@ -19,6 +19,7 @@
     </div>
     <script>
         $(function(){
+            $('.select').select2(); 
           // bind change event to select
           $('#dynamic_select').on('change', function () {
               var url = $(this).val(); // get selected value
@@ -285,7 +286,4 @@
     </script>
     @endif
 </div>
-<script>    
-    $('.select').select2(); 
-</script>
 @endsection

@@ -2,6 +2,11 @@
 @section("title") {{__('storeDashboard.ovTitle')}}
 @endsection
 @section('content')
+<style>
+    .content-wrapper {
+        overflow: hidden;
+    }
+</style>
 <div class="content">
     <div class="row">
         <div class="col-xl-8" id="printThis">
@@ -37,9 +42,13 @@
                             @if ($order->orderstatus_id == 4) {{__('storeDashboard.opOrderStatus4')}} @endif
                             @if ($order->orderstatus_id == 5) {{__('storeDashboard.opOrderStatus5')}} @endif
                             @if ($order->orderstatus_id == 6) {{__('storeDashboard.opOrderStatus6')}} @endif
-                             @if ($order->orderstatus_id == 7) {{__('storeDashboard.opOrderStatus7')}} @endif
-                                 </span>
-
+                            @if ($order->orderstatus_id == 7) {{__('storeDashboard.opOrderStatus7')}} @endif
+                            </span>
+                            @if($order->delivery_type == 2)
+                            <span class="badge badge-flat border-grey-800 text-default text-capitalize">
+                            Self-pickup
+                            </span>
+                            @endif
                             @if($order->accept_delivery !== null)
                             @if($order->orderstatus_id > 2 && $order->orderstatus_id  < 6)
                             <span class="badge badge-flat border-grey-800 text-default text-capitalize">
@@ -142,13 +151,22 @@
                                 @endif
                             </div>
                             <hr>
-                            <div class="form-group">
-                                <h3>
-                                    <label class="control-label no-margin text-semibold mr-2"><strong>{{__('storeDashboard.ovTotal')}}</strong></label>
-                                    <strong> {{ config('settings.currencyFormat') }} {{ $order->total }} </strong>
-                                </h3>
+                            <div class="text-right">
+                                <div class="form-group">
+                                    <h3>
+                                        <label class="control-label no-margin text-semibold mr-2"><strong>{{__('storeDashboard.ovTotal')}}</strong></label>
+                                        <strong> {{ config('settings.currencyFormat') }} {{ $order->total }} </strong>
+                                    </h3>
+                                </div>
+                                @if($order->delivery_type == 2)
+                                <div class="form-group">
+                                    <h3>
+                                        <label class="control-label no-margin text-semibold mr-2"><strong>Payable: </strong></label>
+                                        <strong> {{ config('settings.currencyFormat') }} {{ $order->payable }} </strong>
+                                    </h3>
+                                </div>
+                                @endif
                             </div>
-                            <hr>
                         </div>
                     </div>
                 </div>

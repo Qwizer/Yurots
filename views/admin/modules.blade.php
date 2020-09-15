@@ -5,11 +5,12 @@
 <div class="page-header">
     <div class="page-header-content header-elements-md-inline">
         <div class="page-title d-flex">
-            <h4><i class="icon-circle-right2 mr-2"></i>
-                <span class="font-weight-bold mr-2">Modules</span>
+            <h4>
+                <span class="font-weight-bold mr-2">Modules </span>
             </h4>
             <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
         </div>
+        @if($checkZipExtension)
         <div class="header-elements d-none py-0 mb-3 mb-md-0">
             <div class="breadcrumb">
                 <button type="button" class="btn btn-secondary btn-labeled btn-labeled-left" id="uploadNewModuleBtn">
@@ -18,6 +19,7 @@
                 </button>
             </div>
         </div>
+        @endif
     </div>
 </div>
 <script>
@@ -26,6 +28,16 @@
     });
 </script>
 <div class="content">
+  @if(!$checkZipExtension)
+  <div class="col-md-12">
+    <p class="text-danger font-weight-bold"><b>Zip PHP Extension</b> is not enabled.
+      <br>
+      Therefore, you will not be able to upload any Premium Modules.
+      <br>
+      <span class="font-weight-normal">Kindly contact your hosting provider to enable the <b>Zip PHP Extension</b> for your server.</span>
+    </p>
+  </div>
+  @else
     <div class="col-md-12" id="moduleUploadBlock" style="display: none;">
         <div class="card">
             <div class="card-body">
@@ -55,25 +67,25 @@
                                     <small>{{ $module->getDescription() }}</small>
                                 </td>
                                 <td class="text-center">
-                                    <div class="btn-group btn-group-justified align-items-center">
+                                    <div class="btn-group btn-group-justified align-items-center" @if(!$module->isEnabled()) style="flex-direction: row-reverse;" @endif>
                                         @if($module->isEnabled())
                                         <a href="{{ route('admin.disableModule', $module->getStudlyName()) }}"
                                             class="btn btn-primary btn-labeled btn-labeled-left btn-sm enDisBtn"  data-popup="tooltip" title="Double Click to Disable" data-placement="left">
                                         <b><i class="icon-checkmark3 ml-1"></i></b>
                                         Enabled
                                         </a>
-                                        @else
-                                        <a href="{{ route('admin.enableModule', $module->getStudlyName()) }}"
-                                            class="btn btn-danger btn-labeled btn-labeled-left btn-sm enDisBtn"  data-popup="tooltip" title="Double Click to Enable" data-placement="left">
-                                        <b><i class="icon-cross2 ml-1"></i></b>
-                                        Disabled
-                                        </a>
-                                        @endif
                                         <a href="{{ url($module->getLowerName()) }}/settings"
                                             class="btn btn-secondary btn-labeled btn-labeled-left btn-sm ml-2" data-placement="left">
                                         <b><i class="icon-gear ml-1"></i>  </b>
                                         Settings
                                         </a>
+                                        @else
+                                        <a href="{{ route('admin.enableModule', $module->getStudlyName()) }}"
+                                            class="btn btn-danger btn-labeled btn-labeled-left btn-sm enDisBtn"  data-popup="tooltip" title="Double Click to Enable" data-placement="left" style="max-width: 138px;">
+                                        <b><i class="icon-cross2 ml-1"></i></b>
+                                        Disabled
+                                        </a>
+                                        @endif
                                     </div>
                                 </td>
                             </tr>
@@ -290,4 +302,5 @@
     });
     
 </script>
+@endif
 @endsection

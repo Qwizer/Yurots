@@ -610,6 +610,13 @@
                            value="@if (!empty($data->restaurantNotActiveMsg)) {{ $data->restaurantNotActiveMsg }}@else{{ config('settings.restaurantNotActiveMsg') }}@endif" placeholder="Restaurant Not Active Message">
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Homepage SearchBar Placeholder</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="mockSearchPlaceholder"
+                           value="@if (!empty($data->mockSearchPlaceholder)) {{ $data->mockSearchPlaceholder }}@else{{ config('settings.mockSearchPlaceholder') }}@endif" placeholder="Homepage SearchBar Placeholder">
+                    </div>
+                </div>
                 <!--END HomePage Screen Settings -->
                 <!-- Alerts Screen Settings -->
                 <button class="btn btn-primary translation-section-btn mt-4" type="button"> <i class="icon-mobile mr-1"></i>Alerts Screen Settings </button>
@@ -1102,6 +1109,140 @@
                         <textarea class="summernote-editor" name="userInActiveMessage" placeholder="User Banned Message" rows="6">@if(!empty($data->userInActiveMessage)){{ $data->userInActiveMessage }}@else{{ config('settings.userInActiveMessage') }}@endif</textarea>
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Too many requests message</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="tooManyApiCallMessage" value="@if(!empty($data->tooManyApiCallMessage)){{ $data->tooManyApiCallMessage }}@else{{ config('settings.tooManyApiCallMessage') }}@endif" placeholder="Too many requests message">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Ideal Stripe Checkout Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="checkoutStripeIdealText" value="@if(!empty($data->checkoutStripeIdealText)){{ $data->checkoutStripeIdealText }}@else{{ config('settings.checkoutStripeIdealText') }}@endif" placeholder="Ideal Stripe Checkout Text">
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Ideal Stripe Checkout Sub Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="checkoutStripeIdealSubText" value="@if(!empty($data->checkoutStripeIdealSubText)){{ $data->checkoutStripeIdealSubText }}@else{{ config('settings.checkoutStripeIdealSubText') }}@endif" placeholder="Ideal Stripe Checkout Sub Text">
+                    </div>
+                </div>
+
+                
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>FPX Stripe Checkout Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="checkoutStripeFpxText" value="@if(!empty($data->checkoutStripeFpxText)){{ $data->checkoutStripeFpxText }}@else{{ config('settings.checkoutStripeFpxText') }}@endif" placeholder="FPX Stripe Checkout Text">
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>FPX Stripe Checkout SubText</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="checkoutStripeFpxSubText" value="@if(!empty($data->checkoutStripeFpxSubText)){{ $data->checkoutStripeFpxSubText }}@else{{ config('settings.checkoutStripeFpxSubText') }}@endif" placeholder="FPX Stripe Checkout SubText">
+                    </div>
+                </div>
+
+                
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>MercadoPago Checkout Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="checkoutMercadoPagoText" value="@if(!empty($data->checkoutMercadoPagoText)){{ $data->checkoutMercadoPagoText }}@else{{ config('settings.checkoutMercadoPagoText') }}@endif" placeholder="MercadoPago Checkout Text">
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>MercadoPago Checkout Sub Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="checkoutMercadoPagoSubText" value="@if(!empty($data->checkoutMercadoPagoSubText)){{ $data->checkoutMercadoPagoSubText }}@else{{ config('settings.checkoutMercadoPagoSubText') }}@endif" placeholder="MercadoPago Checkout Sub Text">
+                    </div>
+                </div>
+
+                
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>PayMongo Checkout Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="checkoutPayMongoText" value="@if(!empty($data->checkoutPayMongoText)){{ $data->checkoutPayMongoText }}@else{{ config('settings.checkoutPayMongoText') }}@endif" placeholder="PayMongo Checkout Text">
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>PayMongo Checkout Sub Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="checkoutPayMongoSubText" value="@if(!empty($data->checkoutPayMongoSubText)){{ $data->checkoutPayMongoSubText }}@else{{ config('settings.checkoutPayMongoSubText') }}@endif" placeholder="PayMongo Checkout Sub Text">
+                    </div>
+                </div>
+
+                
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Checkout Pay Button Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="checkoutPayText" value="@if(!empty($data->checkoutPayText)){{ $data->checkoutPayText }}@else{{ config('settings.checkoutPayText') }}@endif" placeholder="Checkout Pay Button Text">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Checkout Card Number Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="checkoutCardNumber"
+                            value="@if(!empty($data->checkoutCardNumber)){{ $data->checkoutCardNumber }}@else{{ config('settings.checkoutCardNumber') }}@endif" placeholder="Checkout Card Number Text">
+                    </div>
+                </div>
+
+                
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Checkout Expiration Date Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="checkoutCardExpiration"
+                            value="@if(!empty($data->checkoutCardExpiration)){{ $data->checkoutCardExpiration }}@else{{ config('settings.checkoutCardExpiration') }}@endif" placeholder="Checkout Expiration Date Text">
+                    </div>
+                </div>
+
+                
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Checkout CVV Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="checkoutCardCvv"
+                           value="@if(!empty($data->checkoutCardCvv)){{ $data->checkoutCardCvv }}@else{{ config('settings.checkoutCardCvv') }}@endif" placeholder="Checkout CVV Text">
+                    </div>
+                </div>
+
+                
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Checkout Postal Code Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="checkoutCardPostalCode"
+                            value="@if(!empty($data->checkoutCardPostalCode)){{ $data->checkoutCardPostalCode }}@else{{ config('settings.checkoutCardPostalCode') }}@endif" placeholder="Checkout Postal Code Text">
+                    </div>
+                </div>
+
+                
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Checkout Full Name Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="checkoutCardFullname"
+                            value="@if(!empty($data->checkoutCardFullname)){{ $data->checkoutCardFullname }}@else{{ config('settings.checkoutCardFullname') }}@endif" placeholder="Checkout Full Name Text">
+                    </div>
+                </div>
+
+                
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Checkout Ideal Select Bank Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="checkoutIdealSelectBankText"
+                            value="@if(!empty($data->checkoutIdealSelectBankText)){{ $data->checkoutIdealSelectBankText }}@else{{ config('settings.checkoutIdealSelectBankText') }}@endif" placeholder="Checkout Ideal Select Bank Text">
+                    </div>
+                </div>
+ 
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Checkout FPX Select Bank Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="checkoutFpxSelectBankText"
+                            value="@if(!empty($data->checkoutFpxSelectBankText)){{ $data->checkoutFpxSelectBankText }}@else{{ config('settings.checkoutFpxSelectBankText') }}@endif" placeholder="Checkout FPX Select Bank Text">
+                    </div>
+                </div>
                 <!-- END Checkout Screen Settings -->
                 <!-- Running Order Screen Settings -->
                 <button class="btn btn-primary translation-section-btn mt-4" type="button"> <i class="icon-mobile mr-1"></i>Running Order Screen Settings </button> 
@@ -1187,6 +1328,18 @@
                     <div class="col-lg-9">
                         <input type="text" class="form-control form-control-lg" name="runningOrderReadyForPickupSub"
                             value="{{ $data->runningOrderReadyForPickupSub }}" placeholder="Order Ready for Pickup Sub Text">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Awaiting Payment Status Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="awaitingPaymentStatusText" value="@if(!empty($data->awaitingPaymentStatusText)){{ $data->awaitingPaymentStatusText }}@else{{ config('settings.awaitingPaymentStatusText') }}@endif" placeholder="Awaiting Payment Status Text">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Payment Failed Status Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="paymentFailedStatusText" value="@if(!empty($data->paymentFailedStatusText)){{ $data->paymentFailedStatusText }}@else{{ config('settings.paymentFailedStatusText') }}@endif" placeholder="Payment Failed Status Text">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -1313,6 +1466,18 @@
                     <div class="col-lg-9">
                         <input type="text" class="form-control form-control-lg" name="runningOrderDeliveryPin"
                             value="{{ $data->runningOrderDeliveryPin }}" placeholder="Delivery Pin Text">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Awaiting Payment Title</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="awaitingPaymentTitle" value="@if (!empty($data->awaitingPaymentTitle)) {{ $data->awaitingPaymentTitle }}@else{{ config('settings.awaitingPaymentTitle') }}@endif" placeholder="waiting Payment Title">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Awaiting Payment Sub Title</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="awaitingPaymentSubTitle" value="@if (!empty($data->awaitingPaymentSubTitle)) {{ $data->awaitingPaymentSubTitle }}@else{{ config('settings.awaitingPaymentSubTitle') }}@endif" placeholder="Awaiting Payment Sub Title">
                     </div>
                 </div>
                 <!-- END Running Order Screen Settings -->

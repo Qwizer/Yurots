@@ -60,10 +60,9 @@ Store Owners | Dashboard
                                     class="badge bg-secondary badge-icon ml-2"> EDIT <i
                                     class="icon-database-edit2 ml-1"></i></a>
                                     @if($user->hasRole('Store Owner'))
-                                <a href="{{ route('admin.impersonate', $user->id) }}"
-                                class="badge badge-default badge-icon ml-2"  data-popup="tooltip"
-                    data-placement="left" title="Login as {{ $user->name }}" style="border: 1px solid #BDBDBD;"> <i
-                                class="icon-arrow-right15"></i></a>
+                                    <a href="{{ route('admin.impersonate', $user->id) }}"
+                                                class="ml-2" data-popup="tooltip"
+                                    data-placement="left" title="Login as {{ $user->name }}" style="border: 1px solid #E0E0E0; border-radius: 0.275rem; padding: 1.5px 4px;"> <i class="icon-redo2 text-warning"></i></a>
                                 @endif
                                 </div>
                             </td>

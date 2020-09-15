@@ -7,8 +7,8 @@
         <div class="page-title d-flex">
             <h4><i class="icon-circle-right2 mr-2"></i>
                 <span class="font-weight-bold mr-2">Editing</span>
-                <span class="badge badge-primary badge-pill animated flipInX">"{{ $item->name }} ->
-                    {{ $item->restaurant->name }}"</span>
+                <span class="badge badge-primary badge-pill animated flipInX">{{ $item->name }} <i class="icon-circle-right2 mx-1"></i>
+                    {{ $item->restaurant->name }}</span>
             </h4>
             <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
         </div>
@@ -101,7 +101,7 @@
                         <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>Item's
                             Restaurant:</label>
                         <div class="col-lg-9">
-                            <select class="form-control select-search select" name="restaurant_id" required>
+                            <select class="form-control select" name="restaurant_id" required>
                                 @foreach ($restaurants as $restaurant)
                                 <option value="{{ $restaurant->id }}" class="text-capitalize" @if($item->restaurant_id
                                     == $restaurant->id) selected="selected" @endif>{{ $restaurant->name }}</option>
@@ -113,7 +113,7 @@
                         <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>Item's
                             Category:</label>
                         <div class="col-lg-9">
-                            <select class="form-control select-search" name="item_category_id" required>
+                            <select class="form-control select" name="item_category_id" required>
                                 @foreach ($itemCategories as $itemCategory)
                                 <option value="{{ $itemCategory->id }}" class="text-capitalize" @if($item->
                                     item_category_id == $itemCategory->id) selected="selected"
@@ -123,7 +123,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-3 col-form-label">Item's Addons:</label>
+                        <label class="col-lg-3 col-form-label">Item's Addon Categories:</label>
                         <div class="col-lg-9">
                             @foreach($item->addon_categories as $addonCategory)
                             <span class="badge badge-flat border-grey-800"
@@ -171,7 +171,7 @@
                                 name="addon_category_item[]">
                                 @foreach($addonCategories as $addonCategory)
                                 <option value="{{ $addonCategory->id }}" class="text-capitalize">
-                                    {{ $addonCategory->name }}</option>
+                                    {{ $addonCategory->name }} @if($addonCategory->description != null)-> {{ $addonCategory->description }} @endif</option>
                                 @endforeach
                             </select>
                         </div>
@@ -284,6 +284,7 @@
                        air: []
                      }
             });
+
         $('.select').select2();
     
          var recommendeditem = document.querySelector('.recommendeditem');

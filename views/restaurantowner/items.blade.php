@@ -44,6 +44,7 @@
         </div>
         @csrf
     </form>
+    @if($agent->isDesktop())
     <div class="card">
         <div class="card-body">
             <div class="table-responsive">
@@ -113,6 +114,70 @@
             </div>
         </div>
     </div>
+    @else
+    @foreach ($items as $item)
+    <div class="card">
+        <div class="card-header pb-0">
+            <div class="d-flex">
+                <div>
+                    <img src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}{{ $item->image }}" alt="{{ $item->name }}" height="80" width="80" style="border-radius: 0.275rem;">
+                </div>
+                <div class="ml-3">
+                    <h4 class="mb-0"><strong>{{ $item->name }}</strong></h4>
+                    <span>{{ $item->restaurant->name }}</span><br>
+                    <span>{{ $item->item_category->name }}</span>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="card-body pt-0 pb-2">
+            <div class="d-flex justify-content-between">
+                <div>
+                    <h4 class="mb-0"><strong>{{ config('settings.currencyFormat') }}{{ $item->price }}</strong></h4>
+                </div>
+                <div>
+                    @if($item->is_recommended)
+                    <span class="badge badge-flat border-grey-800 text-danger text-capitalize mr-1">
+                        {{__('storeDashboard.ipRowRecommended')}}
+                    </span>
+                    @endif
+                    @if($item->is_popular)
+                    <span class="badge badge-flat border-grey-800 text-primary text-capitalize mr-1">
+                        {{__('storeDashboard.ipRowPopular')}}
+                    </span>
+                    @endif
+                    @if($item->is_new)
+                    <span class="badge badge-flat border-grey-800 text-default text-capitalize mr-1">
+                        {{__('storeDashboard.ipRowNew')}}
+                    </span>
+                    @endif
+                </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <a href="{{ route('restaurant.get.editItem', $item->id) }}"
+                        class="btn btn-secondary btn-labeled btn-labeled-left">
+                    <b><i class="icon-database-edit2"></i></b>
+                    {{__('storeDashboard.edit')}}
+                    </a>
+                </div>
+                <div>
+                    <div class="checkbox checkbox-switchery" style="padding-top: 0.93rem;">
+                        <label>
+                        <input value="true" type="checkbox" class="action-switch-mobile"
+                        @if($item->is_active) checked="checked" @endif data-id="{{ $item->id }}">
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
+
+    <div class="mt-4">
+        {{ $items->appends($_GET)->links() }}
+    </div>
+    @endif
 </div>
 <div id="addNewItemModal" class="modal fade">
     <div class="modal-dialog modal-lg">
@@ -176,7 +241,7 @@
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>{{__('storeDashboard.ipmLabelItemRestaurant')}}:</label>
                         <div class="col-lg-9">
-                            <select class="form-control select-search select" name="restaurant_id" required>
+                            <select class="form-control select" name="restaurant_id" required>
                                 @foreach ($restaurants as $restaurant)
                                 <option value="{{ $restaurant->id }}" class="text-capitalize">{{ $restaurant->name }}
                                 </option>
@@ -187,7 +252,7 @@
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>{{__('storeDashboard.ipmLabelItemCategory')}}:</label>
                         <div class="col-lg-9">
-                            <select class="form-control select-search" name="item_category_id" required>
+                            <select class="form-control select" name="item_category_id" required>
                                 @foreach ($itemCategories as $itemCategory)
                                 <option value="{{ $itemCategory->id }}" class="text-capitalize">
                                     {{ $itemCategory->name }}</option>
@@ -202,7 +267,7 @@
                                 name="addon_category_item[]">
                                 @foreach($addonCategories as $addonCategory)
                                 <option value="{{ $addonCategory->id }}" class="text-capitalize">
-                                    {{ $addonCategory->name }}</option>
+                                    {{ $addonCategory->name }} @if($addonCategory->description != null)-> {{ $addonCategory->description }} @endif</option>
                                 @endforeach
                             </select>
                         </div>
@@ -354,24 +419,45 @@
        });
         $('.price').numeric({allowThouSep:false, maxDecimalPlaces: 2 });
 
-        //Switch Action Function
-        if (Array.prototype.forEach) {
-               var elems = Array.prototype.slice.call(document.querySelectorAll('.action-switch'));
-               elems.forEach(function(html) {
-                   var switchery = new Switchery(html, { color: '#8360c3' });
-               });
-           }
-           else {
-               var elems = document.querySelectorAll('.action-switch');
-               for (var i = 0; i < elems.length; i++) {
-                   var switchery = new Switchery(elems[i], { color: '#8360c3' });
-               }
-           }
+        //Switch Action Function  
+         var elems = document.querySelectorAll('.action-switch');
+         for (var i = 0; i < elems.length; i++) {
+             var switchery = new Switchery(elems[i], { color: '#8360c3' });
+         }
+         var elemsmb = document.querySelectorAll('.action-switch-mobile');
+         for (var i = 0; i < elemsmb.length; i++) {
+             var switchery = new Switchery(elemsmb[i], { color: '#8360c3' });
+         }     
 
-         $('.action-switch').click(function(event) {
+         $('.action-switch, .action-switch-mobile').click(function(event) {
+           console.log("Clicked");
             let id = $(this).attr("data-id")
             let url = "{{ url('/store-owner/item/disable/') }}/"+id;
-            window.location.href = url;
+            let self = $(this);
+           $.ajax({
+               url: url,
+               type: 'GET',
+               dataType: 'JSON',
+           })
+           .done(function(data) {
+               console.log(data);
+               console.log(self);
+               $.jGrowl("", {
+                   position: 'bottom-center',
+                   header: 'Operation Successful ✅',
+                   theme: 'bg-success',
+                   life: '1800'
+               }); 
+           })
+           .fail(function(data) {
+               console.log(data);
+               $.jGrowl("", {
+                   position: 'bottom-center',
+                   header: 'Something went wrong, please try again.',
+                   theme: 'bg-danger',
+                   life: '1800'
+               }); 
+           })            
          });
     });
 </script>

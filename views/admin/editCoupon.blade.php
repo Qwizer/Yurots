@@ -81,7 +81,7 @@
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>Coupon's Restaurant:</label>
                         <div class="col-lg-9">
-                            <select class="form-control select-search" name="restaurant_id" required>
+                            <select class="form-control select-search select" name="restaurant_id" required>
                                 <option value="0" class="text-capitalize" selected="selected">ALL RESTAURANTS</option>
                                 @foreach ($restaurants as $restaurant)
                                 <option value="{{ $restaurant->id }}" class="text-capitalize" @if($coupon->restaurant_id == $restaurant->id) selected="selected" @endif>{{ $restaurant->name }}</option>

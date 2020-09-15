@@ -78,7 +78,6 @@
         @endif
         
         <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/js/bootstrap-material-datetimepicker.js"></script>
-
         <!-- /theme JS files -->
         <link rel="manifest" href="{{ URL::asset('backend-manifest.json') }}">
     </head>

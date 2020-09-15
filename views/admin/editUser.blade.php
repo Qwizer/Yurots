@@ -302,7 +302,7 @@
                                         {{ $transaction->meta["description"] }}
                                     </td>
                                     <td>
-                                        {{ $transaction->created_at->diffForHumans() }}
+                                       {{ $transaction->created_at->diffForHumans() }} || {{ $transaction->created_at }}
                                     </td>
                                 </tr>
                                 @endforeach
@@ -311,6 +311,87 @@
                     </div>
                     @else
                     <p class="text-muted text-center mb-0">No transactions have been made from {{ config('settings.walletName') }}</p>
+                    @endif   
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" id="ordersDiv">
+             <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                         <legend class="font-weight-semibold text-uppercase font-size-sm">
+                                <i class="icon-transmission mr-2"></i> Orders from user <strong>{{ $user->name }}</strong>
+                        </legend>
+                        @if(count($orders) > 0)
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Order ID
+                                        </th>
+                                        <th width="20%">
+                                            Order Status
+                                        </th>
+                                        <th>
+                                            Order Date
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($orders->reverse() as $order)
+                                    <tr>
+                                    <td>
+                                    <a href="{{ route('admin.viewOrder', $order->unique_order_id ) }}">{{$order->unique_order_id}}</a>
+                                    
+                                    </td>
+                                        <td>
+                                            @if($order->orderstatus_id == "1")
+                                            <span class="badge badge-flat border-grey-800 text-danger text-capitalize">Order Placed</span>
+                                            @endif
+    
+                                            @if($order->orderstatus_id == "2")
+                                            <span class="badge badge-flat border-grey-800 text-danger text-capitalize">Preparing Order</span>
+                                            @endif
+    
+                                            @if($order->orderstatus_id == "3")
+                                            <span class="badge badge-flat border-grey-800 text-danger text-capitalize">Delivery Guy Assigned</span>
+                                            @endif
+    
+                                            @if($order->orderstatus_id == "4")
+                                            <span class="badge badge-flat border-grey-800 text-danger text-capitalize">Order Picked Up</span>
+                                            @endif
+    
+                                            @if($order->orderstatus_id == "5")
+                                            <span class="badge badge-flat border-grey-800 text-success text-capitalize">Deliverd</span>
+                                            @endif
+    
+                                            @if($order->orderstatus_id == "6")
+                                            <span class="badge badge-flat border-grey-800 text-danger text-capitalize">Canceled</span>
+                                            @endif
+                                            @if($order->orderstatus_id == "7")
+                                            <span class="badge badge-flat border-grey-800 text-danger text-capitalize">Ready For Pick Up</span>
+                                            @endif
+                                            @if($order->orderstatus_id == "8")
+                                            <span class="badge badge-flat border-grey-800 text-danger text-capitalize">Awaiting Payment</span>
+                                            @endif
+                                            @if($order->orderstatus_id == "9")
+                                            <span class="badge badge-flat border-grey-800 text-danger text-capitalize">Payment Failed</span>
+                                            @endif
+                                        </td>
+                                      
+                                        <td>
+                                          {{ $order->created_at->diffForHumans() }} || {{ $order->created_at }} 
+                                        </td>
+                                 </tr>
+                                    @endforeach
+                            </tbody>
+                            </table>
+                    </div>
+                     @else
+                    <p class="text-muted text-center mb-0">No Orders Placed From This User</p>
                     @endif   
                 </div>
             </div>

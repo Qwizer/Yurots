@@ -64,7 +64,7 @@
     <div class="row pt-4 p-0">
         <div class="col-xl-12">
             <div class="panel panel-flat dashboard-main-col mt-4">
-                <button class="btn btn-default btn-labeled btn-lg mr-2 mt-2 stopSound float-right" data-popup="tooltip" data-placement="right" title="{{ __('storeDashboard.dashboardStopSound') }}" style="background-color: #F5F5F5;"><i class="icon-volume-mute5"></i></button>
+                {{-- <button class="btn btn-default btn-labeled btn-lg mr-2 mt-2 stopSound float-right" data-popup="tooltip" data-placement="right" title="{{ __('storeDashboard.dashboardStopSound') }}" style="background-color: #F5F5F5;"><i class="icon-volume-mute5"></i></button> --}}
                 <div class="panel-heading">
                     <h4 class="panel-title pl-3 pt-3"><strong>{{__('storeDashboard.dashboardNewOrders')}}</strong></h4>
                     <hr>
@@ -333,11 +333,11 @@
                     <h3 class="text-muted"> {{__('storeDashboard.dashboardNoOrders')}} </h3>
                 </div>
             </div>
-            <div class="modal-footer">
+            {{-- <div class="modal-footer">
                 <button class="btn btn-default btn-labeled btn-lg mr-2 stopSound" data-popup="tooltip" data-placement="right" title="{{ __('storeDashboard.dashboardStopSound') }}" style="background-color: #F5F5F5;">
                 <i class="icon-volume-mute5"></i>
                 </button>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>
@@ -348,7 +348,7 @@
         let notificationFileRoute = '{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/tones/{{ config('settings.restaurantNotificationAudioTrack') }}.mp3';
            notification.setAttribute('src', notificationFileRoute);
            notification.setAttribute('type', 'audio/mp3');
-           notification.setAttribute('muted', 'muted');
+           // notification.setAttribute('muted', 'muted');
            notification.setAttribute('loop', 'true');
         
         $(".stopSound").click(function(event) {

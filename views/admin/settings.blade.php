@@ -1507,6 +1507,16 @@
                                             placeholder="Google Map API Key which has IP Restrictions">
                                     </div>
                                 </div>
+
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label"><strong>Google Map API Key: </strong> <br>
+                                                    (with no IP/HTTP Restriction)</label>
+                                    <div class="col-lg-9">
+                                        <input type="text" class="form-control form-control-lg" name="googleApiKeyNoRestriction" placeholder="Google Map API Key which has no IP & HTTP Restrictions"
+                                            value="{{ config('settings.googleApiKeyNoRestriction') }}">
+                                    </div>
+                                </div>
+
                                 <hr>
                                 <a href="https://stackcanyon.com/docs/foodomaa/admin-google-maps-api" target="_blank" rel="nofollow">Click Here</a>
                                 to learn how to setup Google API Keys.<br>
@@ -1520,7 +1530,7 @@
                                 @endphp
                                 @foreach($paymentGateways as $paymentGateway)
                                 <div class="form-group row" id="paymentGatewaysData">
-                                    <label class="col-lg-5 col-form-label"><strong>{{ $paymentGateway->name }}
+                                    <label class="col-lg-6 col-form-label"><strong>{{ $paymentGateway->name }}
                                     </strong>({{ $paymentGateway->description }})</label>
                                     <div class="col-lg-6 mt-2">
                                         <label>
@@ -1539,7 +1549,7 @@
                                 </div>
                                 @endforeach
                                 <hr>
-                                <h2>Stripe</h2>
+                                <h2> <img src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/img/various/stripe.png" alt="Stripe" style="width: 35px"> Stripe</h2>
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label"><strong>Stripe Public Key:</strong></label>
                                     <div class="col-lg-9">
@@ -1596,32 +1606,46 @@
                                         </select>
                                     </div>
                                 </div>
+                                
                                 <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label"><strong>Accept AliPay on Stripe</strong></label>
+                                    <label class="col-lg-3 col-form-label"><strong>Show Stripe Postal Code Input</strong></label>
                                     <div class="col-lg-9">
                                         <div class="checkbox checkbox-switchery mt-2">
                                             <label>
                                             <input value="true" type="checkbox" class="switchery-primary"
-                                            @if(config('settings.stripeAcceptAliPay')=="true" ) checked="checked" @endif
-                                            name="stripeAcceptAliPay">
+                                            @if(config('settings.stripeCheckoutPostalCode')=="true" ) checked="checked" @endif
+                                            name="stripeCheckoutPostalCode">
                                             </label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label"><strong>Accept BitCoin on Stripe</strong></label>
+                                    <label class="col-lg-3 col-form-label"><strong>Stripe Ideal Payment</strong></label>
                                     <div class="col-lg-9">
                                         <div class="checkbox checkbox-switchery mt-2">
                                             <label>
                                             <input value="true" type="checkbox" class="switchery-primary"
-                                            @if(config('settings.stripeAcceptBitCoin')=="true" ) checked="checked" @endif
-                                            name="stripeAcceptBitCoin">
+                                            @if(config('settings.stripeAcceptIdealPayment')=="true" ) checked="checked" @endif
+                                            name="stripeAcceptIdealPayment">
                                             </label>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label"><strong>Stripe FPX Payment</strong></label>
+                                    <div class="col-lg-9">
+                                        <div class="checkbox checkbox-switchery mt-2">
+                                            <label>
+                                            <input value="true" type="checkbox" class="switchery-primary"
+                                            @if(config('settings.stripeAcceptFpxPayment')=="true" ) checked="checked" @endif
+                                            name="stripeAcceptFpxPayment">
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
                                 <hr>
-                                <h2>PayPal</h2>
+                                <h2> <img src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/img/various/paypal.png" alt="PayPal" style="width: 35px"> PayPal</h2>
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label"><strong>Paypal Environment:</strong></label>
                                     <div class="col-lg-9">
@@ -1652,7 +1676,7 @@
                                     </div>
                                 </div>
                                 <hr>
-                                <h2>PayStack</h2>
+                                <h2> <img src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/img/various/paystack.png" alt="PayStack" style="width: 35px"> PayStack</h2>
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label"><strong>PayStack Public Key:</strong></label>
                                     <div class="col-lg-9">
@@ -1672,7 +1696,7 @@
                                     </div>
                                 </div>
                                 <hr>
-                                <h2>Razorpay</h2>
+                                <h2> <img src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/img/various/razorpay.png" alt="Razorpay" style="width: 35px"> Razorpay</h2>
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label"><strong>Razorpay Key Id:</strong></label>
                                     <div class="col-lg-9">
@@ -1687,6 +1711,36 @@
                                         <input type="text" class="form-control form-control-lg" name="razorpayKeySecret"
                                             value="{{ config('settings.razorpayKeySecret') }}"
                                             placeholder="Razorpay Secret Key (Leave blank if not using Razorpay)">
+                                    </div>
+                                </div>
+                                <hr>
+                                <h2> <img src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/img/various/paymongo.png" alt="PayMongo" style="width: 35px"> PayMongo</h2>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label"><strong>PayMongo Public Key:</strong></label>
+                                    <div class="col-lg-9">
+                                        <input type="text" class="form-control form-control-lg" name="paymongoPK"
+                                            value="{{ config('settings.paymongoPK') }}"
+                                            placeholder="PayMongo Public Key (Leave blank if not using PayMongo)">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label"><strong>PayMongo Secret Key:</strong></label>
+                                    <div class="col-lg-9">
+                                        <input type="text" class="form-control form-control-lg" name="paymongoSK"
+                                            value="{{ config('settings.paymongoSK') }}"
+                                            placeholder="PayMongo Secret Key (Leave blank if not using PayMongo)">
+                                    </div>
+                                </div>
+                                <hr>
+                                
+                                <h2> <img src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/img/various/mercadopago.png" alt="MercadoPago" style="width: 35px"> MercadoPago</h2>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label"><strong>MercadoPago Access Token:</strong></label>
+                                    <div class="col-lg-9">
+                                        <input type="text" class="form-control form-control-lg" name="mercadopagoAccessToken"
+                                            value="{{ config('settings.mercadopagoAccessToken') }}"
+                                            placeholder="MercadoPago Access Token">
+                                            <span class="text-muted">Get Access token from here: <a href="https://www.mercadopago.com.br/developers/panel/credentials" target="_blank">https://www.mercadopago.com.br/developers/panel/credentials</a></span>
                                     </div>
                                 </div>
                             </div>
@@ -2099,8 +2153,55 @@
         <legend class="font-weight-semibold text-uppercase font-size-sm">
         Customer App Settings
         </legend>
+        
+        
         <div class="form-group row">
-        <label class="col-lg-3 col-form-label"><strong>Show Custom iOS Add To Homescreen Popup <span class="badge badge-flat border-grey-800 text-danger text-capitalize mx-1">NEW</span> <i class="icon-question3 ml-1" data-popup="tooltip" title="Enabling this will display a custom popup on iOS device for Add To Homescreen once per user, 3 seconds after page is loaded." data-placement="top"></i>
+        <label class="col-lg-3 col-form-label"><strong>Auto Full Address on Location Selection Page <span class="badge badge-flat border-grey-800 text-danger text-capitalize mx-1">NEW</span> <i class="icon-question3 ml-1" data-popup="tooltip" title="Disabling this will only show locality, city, country and pincode on the auto address box" data-placement="top"></i>
+        </strong></label>
+        <div class="col-lg-9">
+        <div class="checkbox checkbox-switchery mt-2">
+        <label>
+        <input value="true" type="checkbox" class="switchery-primary"
+        @if(config('settings.googleFullAddress')=="true" ) checked="checked"
+        @endif name="googleFullAddress">
+        </label>
+        </div>
+        </div>
+        </div>
+
+        <div class="form-group row">
+        <label class="col-lg-3 col-form-label"><strong>Search Bar on Homepage <span class="badge badge-flat border-grey-800 text-danger text-capitalize mx-1">NEW</span> <i class="icon-question3 ml-1" data-popup="tooltip" title="This will override the default coupon success message" data-placement="top"></i>
+        </strong></label>
+        <div class="col-lg-9">
+        <div class="checkbox checkbox-switchery mt-2">
+        <label>
+        <input value="true" type="checkbox" class="switchery-primary"
+        @if(config('settings.mockSearchOnHomepage')=="true" ) checked="checked"
+        @endif name="mockSearchOnHomepage">
+        </label>
+        </div>
+        </div>
+        </div>
+
+        <div class="form-group row">
+        <label class="col-lg-3 col-form-label"><strong>Footer Navigation Type <span class="badge badge-flat border-grey-800 text-danger text-capitalize mx-1">NEW</span>
+        </strong></label>
+        <div class="col-lg-9">
+        <select name="footerStyleType" class="form-control form-control-lg select">
+        <option value="FIXED"
+        @if(config('settings.footerStyleType')=="FIXED" )
+        selected="selected" @endif>Fixed Style
+        </option>
+        <option value="FLOAT"
+        @if(config('settings.footerStyleType')=="FLOAT"
+        ) selected="selected" @endif>Float Style
+        </option>
+        </select>
+        </div>
+        </div>
+        
+        <div class="form-group row">
+        <label class="col-lg-3 col-form-label"><strong>Show Custom iOS Add To Homescreen Popup  <i class="icon-question3 ml-1" data-popup="tooltip" title="Enabling this will display a custom popup on iOS device for Add To Homescreen once per user, 3 seconds after page is loaded." data-placement="top"></i>
         </strong></label>
         <div class="col-lg-9">
         <div class="checkbox checkbox-switchery mt-2">
@@ -2112,8 +2213,9 @@
         </div>
         </div>
         </div>
+
         <div class="form-group row">
-        <label class="col-lg-3 col-form-label"><strong>Show Coupon Desctiption on Coupon Success <span class="badge badge-flat border-grey-800 text-danger text-capitalize mx-1">NEW</span> <i class="icon-question3 ml-1" data-popup="tooltip" title="This will override the default coupon success message" data-placement="top"></i>
+        <label class="col-lg-3 col-form-label"><strong>Show Coupon Desctiption on Coupon Success  <i class="icon-question3 ml-1" data-popup="tooltip" title="This will override the default coupon success message" data-placement="top"></i>
         </strong></label>
         <div class="col-lg-9">
         <div class="checkbox checkbox-switchery mt-2">
@@ -2126,7 +2228,7 @@
         </div>
         </div>
         <div class="form-group row">
-        <label class="col-lg-3 col-form-label"><strong>Use Google Distance Matrix API <span class="badge badge-flat border-grey-800 text-danger text-capitalize mx-1">NEW</span> <i class="icon-question3 ml-1" data-popup="tooltip" title="Google APIs will be used for calculating the delivery charge if the store has enabled Dynamic Delivery charge" data-placement="top"></i>
+        <label class="col-lg-3 col-form-label"><strong>Use Google Distance Matrix API  <i class="icon-question3 ml-1" data-popup="tooltip" title="Google APIs will be used for calculating the delivery charge if the store has enabled Dynamic Delivery charge" data-placement="top"></i>
         </strong></label>
         <div class="col-lg-9">
         <div class="checkbox checkbox-switchery mt-2">
@@ -2134,14 +2236,14 @@
         <input value="true" type="checkbox" class="switchery-primary"
         @if(config('settings.enGDMA')=="true" ) checked="checked"
         @endif name="enGDMA"> 
-        <span>To learn how Google Distance Matrix API works </span><a href="https://docs.foodomaa.com/configurations/google-distance-matrix-api" target="_blank">Click Here</a>
+        <b><span class="mt-1"><span class="text-danger"> IMPORTANT: </span>Donot enable Google Distance Matrix API without first follow </span> <a href="https://docs.foodomaa.com/configurations/google-distance-matrix-api" target="_blank"> this documentation.</a><br>You will get a loading screen on the Cart page if this documentation is not followed.</b>
         </label>
         </div>
         </div>
         </div>
         <div class="form-group row">
         <label class="col-lg-3 col-form-label"><strong>Randomize Stores
-        <span class="badge badge-flat border-grey-800 text-danger text-capitalize mx-1">NEW</span> <i class="icon-question3 ml-1" data-popup="tooltip" title="Delivery and Selfpickup stores will be randomized (Sorting order will be ignored)" data-placement="left"></i>
+        <i class="icon-question3 ml-1" data-popup="tooltip" title="Delivery and Selfpickup stores will be randomized (Sorting order will be ignored)" data-placement="left"></i>
         </strong></label>
         <div class="col-lg-9">
         <div class="checkbox checkbox-switchery mt-2">
@@ -2155,7 +2257,7 @@
         </div>
         <div class="form-group row">
         <label class="col-lg-3 col-form-label"><strong>Show Inactive Items
-        <span class="badge badge-flat border-grey-800 text-danger text-capitalize mx-1">NEW</span> <i class="icon-question3 ml-1" data-popup="tooltip" title="Inactive items will be displayed but Add to Cart button will not be shown" data-placement="left"></i>
+        <i class="icon-question3 ml-1" data-popup="tooltip" title="Inactive items will be displayed but Add to Cart button will not be shown" data-placement="left"></i>
         </strong></label>
         <div class="col-lg-9">
         <div class="checkbox checkbox-switchery mt-2">
@@ -2487,11 +2589,11 @@
         <span
             class="col-md-6 col-xs-12" id="settingsVersion">{{ implode('-', str_split($versionJson->forceNewSettingsVersion, 5)) }}</span>
         </div>
-        <div class="row">
+        {{-- <div class="row">
         <p class="col-md-3 col-xs-12"><strong>Logout Hash: </strong></p>
         <span
             class="col-md-6 col-xs-12" id="logoutVersion">{{ implode('-', str_split($versionJson->forceLogoutAllCustomers, 5)) }}</span>
-        </div>
+        </div> --}}
         <hr>
         <h4 class="font-weight-bold">Force Clear Cache</h4>
         <p>This will force clear the
@@ -2509,14 +2611,14 @@
             class="btn btn-secondary btn-labeled btn-labeled-left" id="forceClearSettings">
         <b><i class="icon-arrow-right7"></i></b> Force New Settings</a>
         <hr>
-        <h4 class="font-weight-bold">Force Logout Customers </h4>
+        {{-- <h4 class="font-weight-bold">Force Logout Customers </h4>
         <p>This will logout all the users on the application (Not for Admin and Store Owners) <br>
         <b class="text-danger">Proceed with caution</b></p>
         <a href="javascript:void(0)" data-type="LOGOUT" data-popup="tooltip"
             title="Double Click to Execute" data-placement="right"
             class="btn btn-secondary btn-labeled btn-labeled-left" id="forceLogoutAllCustomers">
         <b><i class="icon-arrow-right7"></i></b> Force logout customers</a>
-        <hr>
+        <hr> --}}
         <p class="text-danger">
         The customer app needs to reload the page for these settings to take affect.
         </p>
@@ -2726,14 +2828,14 @@ Save Settings
         
         $(".timezone-select").val("{{ config('app.timezone') }}").change();
     
-        $('#forceClearCache, #forceClearSettings, #forceLogoutAllCustomers').dblclick(function(event) {
+        $('#forceClearCache, #forceClearSettings').dblclick(function(event) {
             event.preventDefault();
             let type = $(this).attr("data-type")
             let csrf = $('#csrf').val();
     
             $('#forceClearCache').addClass('disable-switch');
             $('#forceClearSettings').addClass('disable-switch');
-            $('#forceLogoutAllCustomers').addClass('disable-switch');
+            // $('#forceLogoutAllCustomers').addClass('disable-switch');
     
             $.ajax({
                 url: '{{ route('admin.forceClear') }}',
@@ -2744,11 +2846,11 @@ Save Settings
             .done(function(data) {
                 $('#cacheVersion').html(data.newVersion.forceCacheClearVersion.match(/.{1,5}/g).join("-"))
                 $('#settingsVersion').html(data.newVersion.forceNewSettingsVersion.match(/.{1,5}/g).join("-"))
-                $('#logoutVersion').html(data.newVersion.forceLogoutAllCustomers.match(/.{1,5}/g).join("-"))
+                // $('#logoutVersion').html(data.newVersion.forceLogoutAllCustomers.match(/.{1,5}/g).join("-"))
                 
                 $('#forceClearCache').removeClass('disable-switch');
                 $('#forceClearSettings').removeClass('disable-switch');
-                $('#forceLogoutAllCustomers').removeClass('disable-switch');
+                // $('#forceLogoutAllCustomers').removeClass('disable-switch');
     
                 $.jGrowl("Operation Successful ✅", {
                     position: 'bottom-center',

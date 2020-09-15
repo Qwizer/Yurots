@@ -99,9 +99,10 @@
                                     @if ($order->orderstatus_id == 5) Completed @endif
                                     @if ($order->orderstatus_id == 6) Canceled @endif
                                     @if ($order->orderstatus_id == 7) Ready to Pickup @endif
+                                    @if ($order->orderstatus_id == 8) Awaiting Payment @endif
+                                    @if ($order->orderstatus_id == 9) Payment Failed @endif
                                     
                                     @if($order->orderstatus_id > 2 && $order->orderstatus_id  < 6)
-                                    
                                     @if($order->accept_delivery !== null)
                                     @if($order->orderstatus_id > 2 && $order->orderstatus_id  < 6)
                                     Delivery by: <b>{{ $order->accept_delivery->user->name }}</b>

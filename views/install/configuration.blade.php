@@ -12,12 +12,12 @@ Configuration
 <form method="POST" action="{{ url('install/configuration') }}" class="form-horizontal">
     {{ csrf_field() }}
     <div class="box">
-        <div class="text-danger">
+        <div style="padding: 10px; background-color: #F44336; margin-bottom: 1rem; border-radius: 0.275rem;">
             @if(Session::has('message'))
-                {{ Session::get('message') }}
+               <p style="color: #fff"> {{ Session::get('message') }} </p>
             @endif
             @if($errors->any())
-                {{ implode('', $errors->all(':message')) }}
+              <p style="color: #fff"> {{ implode('', $errors->all(':message')) }} </p>
             @endif
         </div>
         <div class="configure-form">

@@ -103,6 +103,8 @@ Dashboard
                                     @if ($order->orderstatus_id == 5) Completed @endif
                                     @if ($order->orderstatus_id == 6) Canceled @endif
                                     @if ($order->orderstatus_id == 7) Ready for Pickup @endif
+                                    @if ($order->orderstatus_id == 8) Awaiting Payment @endif
+                                    @if ($order->orderstatus_id == 9) Payment Failed @endif
                                     </span>
                                 </td>
                                 <td>
@@ -134,7 +136,7 @@ Dashboard
                     <h4 class="panel-title pl-3 pt-3"><strong>New Users</strong></h4>
                     <hr>
                 </div>
-                <div class="table-responsive">
+                <div class="table-responsive" style="overflow-y: hidden;">
                     <table class="table text-nowrap">
                         <thead>
                             <tr>
