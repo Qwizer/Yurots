@@ -9,15 +9,16 @@
 </style>
 <div class="content">
     <div class="row">
-        <div class="col-md-8 mt-4" id="printThis">
-            <div class="card">
-                <div href="#" class="btn btn-block content-group" style="text-align: left; background-color: #8360c3; color: #fff; border-radius: 0;"><strong style="font-size: 1.3rem;">{{ $order->unique_order_id }}</strong>
-                    <a href="javascript:void(0)" id="printButton" class="btn btn-sm" style="color: #fff; border: 1px solid #ccc; float: right;">Print</a>
+        <div class="col-md-8 mt-4">
+            <a href="javascript:void(0)" id="printButton" class="btn btn-sm btn-primary my-2" style="color: #fff; border: 1px solid #ccc; float: right;"><i class="icon-printer mr-1"></i> Print Bill</a>
+            <div class="clearfix"></div>
+            <div class="card" id="printThis">
+                <div href="#" class="btn btn-block content-group" style="text-align: left; background-color: #8360c3; color: #fff; border-radius: 0;"><strong style="font-size: 1.2rem;">{{ $order->unique_order_id }}</strong>
                 </div>
                 <div class="p-3">
                     <div class="form-group">
                         <label class="control-label no-margin text-semibold mr-2"><strong>Order Placed: </strong></label>
-                        {{ $order->created_at}}  ( {{ $order->created_at->diffForHumans() }} )
+                        {{ $order->created_at->format('Y-m-d  - h:i A')}} 
                     </div>
                     <hr>
                     <div class="form-group">
@@ -170,7 +171,7 @@
                                 class="icon-checkmark3 ml-1"></i> </b> Accept Order </button>
                         </form>
                         @endif  
-                        @if($order->orderstatus_id == 1 || $order->orderstatus_id == 2 || $order->orderstatus_id == 3 || $order->orderstatus_id == 4 || $order->orderstatus_id == 7 || $order->orderstatus_id == 8) 
+                        @if($order->orderstatus_id == 1 || $order->orderstatus_id == 2 || $order->orderstatus_id == 3 || $order->orderstatus_id == 4 || $order->orderstatus_id == 7 || $order->orderstatus_id == 8 || $order->orderstatus_id == 9) 
                         <a href="javascript:void(0)" class="btn btn-danger btn-labeled dropdown-toggle" data-toggle="dropdown">
                         Cancel Order
                         </a>
@@ -179,15 +180,15 @@
                                 <input type="hidden" name="order_id" value="{{ $order->id }}">
                                 <input type="hidden" name="refund_type" value="NOREFUND">
                                 @csrf
-                                <button class="dropdown-item" type="submit">
-                                Cancel With No Refund
+                                <button class="dropdown-item" @if($order->wallet_amount) type="submit" data-popup="tooltip" data-placement="bottom" title="{{ config('settings.currencyFormat') }}{{ $order->wallet_amount }} will be refunded as user has paid @if($order->payment_mode != "WALLET") partially @endif with Wallet" @endif>
+                                Cancel Order
                                 </button>
                             </form>
                             <form action="{{ route('admin.cancelOrderFromAdmin') }}" method="POST">
                                 <input type="hidden" name="order_id" value="{{ $order->id }}">
                                 <input type="hidden" name="refund_type" value="FULL">
                                 @csrf
-                                <button class="dropdown-item" type="submit">
+                                <button class="dropdown-item" type="submit" data-popup="tooltip" data-placement="bottom" title="Full refund of {{ config('settings.currencyFormat') }}{{ $order->total }} will be refunded to users wallet. (Even if user has not made any payment)">
                                 Cancel With Full Refund
                                 </button>
                             </form>
@@ -195,11 +196,16 @@
                                 <input type="hidden" name="order_id" value="{{ $order->id }}">
                                 <input type="hidden" name="refund_type" value="HALF">
                                 @csrf
-                                <button class="dropdown-item" type="submit">
+                                <button class="dropdown-item" type="submit" data-popup="tooltip" data-placement="bottom" title="Half refund of {{ config('settings.currencyFormat') }}{{ $order->total/2 }} will be refunded to users wallet. (Even if user has not made any payment)">
                                 Cancel With Half Refund
                                 </button>
                             </form>
                         </div>
+                        @endif
+                        @if($order->orderstatus_id == 8)
+                        <a href="{{ route('admin.approvePaymentOfOrder', $order->id) }}" class="btn btn-secondary ml-2 approvePayment" data-popup="tooltip" data-placement="bottom" title="Double Click to Approve Payment">
+                            Approve Payment
+                        </a>
                         @endif
                     </div>
                     @if($order->delivery_type==1)
@@ -269,5 +275,13 @@
          placeholder: 'Select Delivery Guy',
         allowClear: true,
      }); 
+
+     $('body').on("click", ".approvePayment", function(e) {
+         return false;
+     });
+     $('body').on("dblclick", ".approvePayment", function(e) {
+         window.location = this.href;
+         return false;
+     });
 </script>
 @endsection

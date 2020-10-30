@@ -70,6 +70,12 @@
                                 </a>
                             </li>
                             <li class="nav-item">
+                                <a href="#paymentGatewaySettings" class="nav-link" data-toggle="tab">
+                                <i class="icon-coin-dollar mr-2"></i>
+                                Payment Gateways
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a href="#commissionSettings" class="nav-link" data-toggle="tab">
                                 <i class="icon-percent mr-2"></i>
                                 Commissions
@@ -452,6 +458,31 @@
                                         @endif 
                                     </div>
                                     <p class="mt-2 text-muted">Manual intervention on Open/Close will disable Automatic Scheduling if it was previosuly enabled.</p>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="paymentGatewaySettings">
+                                <legend class="font-weight-semibold text-uppercase font-size-sm">
+                                    Payment Gateways
+                                </legend>
+
+                                @if(count($restaurant->payment_gateways) == 0)
+                                <p class="text-danger">
+                                    <strong>No Payment Gateways Active</strong>
+                                    <br>
+                                    Admin selected Payment Gateways will be inherited.
+                                </p>
+                                @endif
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label">Select Payment Gateways</label>
+                                    <div class="col-lg-8">
+                                         <select multiple="multiple" class="form-control select" name="store_payment_gateways[]">
+                                        @foreach($adminPaymentGateways as $adminPaymentGateway)
+                                            <option value="{{ $adminPaymentGateway->id }}" class="text-capitalize" {{ in_array($adminPaymentGateway->id, $restaurant->payment_gateways()->pluck('payment_gateway_id')->toArray()) ? 'selected' : '' }}>{{ $adminPaymentGateway->name }}
+                                            </option>
+                                        @endforeach
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
 

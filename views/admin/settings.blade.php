@@ -1135,6 +1135,18 @@
                                         <span class="help-text text-muted">Only for Items upload via Admin and Store Dashboard.</span>
                                     </div>
                                 </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label"><strong>Allow Payment Gateway Selection for Store Owners <span class="badge badge-flat border-grey-800 text-danger text-capitalize mx-1">NEW</span> <i class="icon-question3 ml-1" data-popup="tooltip" title="Enabling this will allow the Store Owners to enable payment gateways of their choice from the list of active payment gateways." data-placement="top"></i></strong> </label>
+                                    <div class="col-lg-9">
+                                        <div class="checkbox checkbox-switchery mt-2">
+                                            <label>
+                                            <input value="true" type="checkbox" class="switchery-primary"
+                                            @if(config('settings.allowPaymentGatewaySelection')=="true") checked="checked" @endif
+                                            name="allowPaymentGatewaySelection">
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
                                 <hr style="border-top: 3px dashed rgba(103, 58, 183, 0.20);">
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label"><strong>Development Mode
@@ -1741,6 +1753,59 @@
                                             value="{{ config('settings.mercadopagoAccessToken') }}"
                                             placeholder="MercadoPago Access Token">
                                             <span class="text-muted">Get Access token from here: <a href="https://www.mercadopago.com.br/developers/panel/credentials" target="_blank">https://www.mercadopago.com.br/developers/panel/credentials</a></span>
+                                    </div>
+                                </div>
+
+                                <hr>
+
+                                <h2> <img src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/img/various/paytm.png" alt="Paytm" style="width: 35px"> Paytm</h2>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label"><strong>Paytm Environment:</strong></label>
+                                    <div class="col-lg-9">
+                                        <select name="paytm_environment" class="form-control form-control-lg select">
+                                        <option @if(config('settings.paytm_environment') == "local" ) selected @endif value="local">Local</option>
+                                        <option @if(config('settings.paytm_environment') == "production" ) selected @endif value="production">Production</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label"><strong>Paytm Merchant ID:</strong></label>
+                                    <div class="col-lg-9">
+                                         <input type="text" class="form-control form-control-lg" name="paytm_merchant_id"
+                                            value="{{ config('settings.paytm_merchant_id') }}"
+                                            placeholder="Paytm Merchant ID">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label"><strong>Paytm Merchant Key:</strong></label>
+                                    <div class="col-lg-9">
+                                         <input type="text" class="form-control form-control-lg" name="paytm_merchant_key"
+                                            value="{{ config('settings.paytm_merchant_key') }}"
+                                            placeholder="Paytm Merchant Key">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label"><strong>Paytm Website:</strong></label>
+                                    <div class="col-lg-9">
+                                         <input type="text" class="form-control form-control-lg" name="paytm_merchant_website"
+                                            value="{{ config('settings.paytm_merchant_website') }}"
+                                            placeholder="Paytm Website">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label"><strong>Paytm Industry Type:</strong></label>
+                                    <div class="col-lg-9">
+                                         <input type="text" class="form-control form-control-lg" name="paytm_industry_type"
+                                            value="{{ config('settings.paytm_industry_type') }}"
+                                            placeholder="Paytm Industry Type">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label"><strong>Paytm Channel ID (For Website):</strong></label>
+                                    <div class="col-lg-9">
+                                         <input type="text" class="form-control form-control-lg" name="paytm_channel"
+                                            value="{{ config('settings.paytm_channel') }}"
+                                            placeholder="Paytm Channel ID (For Website)">
                                     </div>
                                 </div>
                             </div>
@@ -2526,6 +2591,19 @@
         <input value="true" type="checkbox" class="switchery-primary"
         @if(config('settings.showPriceAndOrderCommentsDelivery')=="true" ) checked="checked"
         @endif name="showPriceAndOrderCommentsDelivery">
+        </label>
+        </div>
+        </div>
+        </div>
+        <div class="form-group row">
+        <label class="col-lg-3 col-form-label"><strong>Show Delivery Guy's COD Collection 
+        </strong></label>
+        <div class="col-lg-9">
+        <div class="checkbox checkbox-switchery mt-2">
+        <label>
+        <input value="true" type="checkbox" class="switchery-primary"
+        @if(config('settings.showDeliveryCollection')=="true" )
+        checked="checked" @endif name="showDeliveryCollection">
         </label>
         </div>
         </div>

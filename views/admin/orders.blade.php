@@ -62,6 +62,7 @@
                             <th>Order ID</th>
                             <th>Store Name</th>
                             <th>Status</th>
+                            <th>Payment Mode</th>
                             <th>Total</th>
                             <th>Coupon</th>
                             <th>Order Placed At</th>
@@ -73,7 +74,7 @@
                         @foreach ($orders as $order)
                         <tr>
                             <td>
-                                {{ $order->unique_order_id }}
+                                <span style="font-size: 0.7rem; font-weight: 700;">{{ $order->unique_order_id }}</span>
                                 @if(config("settings.restaurantAcceptTimeThreshold") != NULL)
                                     @if ($order->orderstatus_id == 1)
                                         @if($order->created_at->diffInMinutes(\Carbon\Carbon::now()) >= (int) config("settings.restaurantAcceptTimeThreshold"))
@@ -111,7 +112,12 @@
                                     @endif
                                 </span>
                             </td>
-                            <td>{{ config('settings.currencyFormat') }} {{ $order->total }}</td>
+                            <td>
+                                <span class="badge badge-flat border-grey-800 text-default text-capitalize">
+                                {{ $order->payment_mode }}
+                                </span>
+                            </td>
+                            <td>{{ config('settings.currencyFormat') }}{{ $order->total }}</td>
                             <td>
                                 @if($order->coupon_name == NULL) NONE @else
                                 <span class="badge badge-flat border-grey-800 text-default text-capitalize">
@@ -119,7 +125,11 @@
                                 </span>
                                 @endif
                             </td>
-                            <td>{{ $order->created_at->diffForHumans() }}</td>
+                            <td>
+                                <span data-popup="tooltip" data-placement="bottom" title="{{ $order->created_at->format('Y-m-d  - h:i A') }}">
+                                {{ $order->created_at->diffForHumans() }}
+                                </span>
+                            </td>
                             <td class="text-center">
                                 <a href="{{ route('admin.viewOrder', $order->unique_order_id) }}"
                                     class="badge badge-primary badge-icon"> VIEW <i

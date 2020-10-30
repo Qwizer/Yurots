@@ -886,6 +886,13 @@
                     </div>
                 </div>
                 <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Coupon Not Logged In</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="couponNotLoggedin"
+                            value="{{ config('settings.couponNotLoggedin') }}" placeholder="Coupon Not Logged In">
+                    </div>
+                </div>
+                <div class="form-group row">
                     <label class="col-lg-3 col-form-label"><strong>Cart Bill Details Text</strong></label>
                     <div class="col-lg-9">
                         <input type="text" class="form-control form-control-lg" name="cartBillDetailsText"
@@ -1096,6 +1103,20 @@
                     <div class="col-lg-9">
                         <input type="text" class="form-control form-control-lg" name="paystackPayText"
                             value="{{ config('settings.paystackPayText') }}" placeholder="PayStack Payment Text">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Paytm Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="checkoutPaytmText"
+                            value="{{ config('settings.checkoutPaytmText') }}" placeholder="Paytm Text">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Paytm Sub Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="checkoutPaytmSubText"
+                            value="{{ config('settings.checkoutPaytmSubText') }}" placeholder="Paytm Sub Text">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -1975,6 +1996,13 @@
                     <div class="col-lg-9">
                         <input type="text" class="form-control form-control-lg" name="deliveryEarningsText"
                             value="{{ config('settings.deliveryEarningsText') }}" placeholder="Delivery Account Earnings Text">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Delivery Account COD Collection Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="deliveryCollectionText"
+                            value="{{ config('settings.deliveryCollectionText') }}" placeholder="Delivery Account COD Collection Text">
                     </div>
                 </div>
                 <div class="form-group row">

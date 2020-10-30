@@ -7,7 +7,7 @@
         <div class="page-title d-flex">
             <h4><i class="icon-circle-right2 mr-2"></i>
                 <span class="font-weight-bold mr-2">Editing</span>
-                <span class="badge badge-primary badge-pill animated flipInX">"{{ $coupon->name }} -> {{ $coupon->code }}"</span>
+                <span class="badge badge-primary badge-pill animated flipInX">{{ $coupon->name }} <i class="icon-circle-right2 mx-1"></i> {{ $coupon->code }}</span>
             </h4>
             <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
         </div>
@@ -79,22 +79,21 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>Coupon's Restaurant:</label>
+                        <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>Coupon Applicable Stores:</label>
                         <div class="col-lg-9">
-                            <select class="form-control select-search select" name="restaurant_id" required>
-                                <option value="0" class="text-capitalize" selected="selected">ALL RESTAURANTS</option>
+                            <select class="form-control select-search select" name="restaurant_id[]" required multiple="multiple">
                                 @foreach ($restaurants as $restaurant)
-                                <option value="{{ $restaurant->id }}" class="text-capitalize" @if($coupon->restaurant_id == $restaurant->id) selected="selected" @endif>{{ $restaurant->name }}</option>
+                                <option value="{{ $restaurant->id }}" class="text-capitalize" {{ isset($coupon) && in_array($restaurant->id, $coupon->restaurants()->pluck('restaurant_id')->toArray()) ? 'selected' : '' }}>{{ $restaurant->name }}</option>
                                 @endforeach
                             </select>
-                            <span class="help-text text-muted">Select the first option <b>"ALL RESTAURANTS"</b> if the coupon can be applied to all restaurants.</span>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>Max number of use:</label>
+                        <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>Max number of
+                            use in total:</label>
                         <div class="col-lg-9">
                             <input value="{{ $coupon->max_count }}" type="text" class="form-control form-control-lg max_count" name="max_count"
-                                placeholder="Max number of use" required>
+                                placeholder="Max number of use in total" required>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -112,12 +111,49 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-3 col-form-label">Is Active?</label>
+                        <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>Coupon User Type</label>
                         <div class="col-lg-9">
+                        <select class="form-control select-search select" name="user_type" required>
+                            <option value="ALL" class="text-capitalize" @if($coupon->user_type == "ALL") selected="selected" @endif>
+                                Unlimited times for all users
+                            </option>
+                            <option value="ONCENEW" class="text-capitalize" @if($coupon->user_type == "ONCENEW") selected="selected" @endif>
+                                Once for new user for first order
+                            </option>
+                            <option value="ONCE" class="text-capitalize" @if($coupon->user_type == "ONCE") selected="selected" @endif>
+                                Once per user
+                            </option>
+                            <option value="CUSTOM" class="text-capitalize" @if($coupon->user_type == "CUSTOM") selected="selected" @endif>
+                                Define custom limit per user
+                            </option>
+                         </select>
+                     </div>
+                    </div>
+                    <div class="form-group row @if($coupon->user_type != "CUSTOM") hidden @endif" id="maxUsePerUser">
+                        <label class="col-lg-3 col-form-label">Max number of
+                            use per user:</label>
+                        <div class="col-lg-9">
+                            <input type="text" class="form-control form-control-lg max_count_per_user" name="max_count_per_user"
+                                placeholder="Max number of use per user" @if($coupon->user_type != "CUSTOM") required="required" @endif value="{{ $coupon->max_count_per_user }}">
+                        </div>
+                    </div>
+                    <script>
+                        $("[name='user_type']").change(function() {
+                            let selectedUserType = $(this).val();
+                            if (selectedUserType == "CUSTOM") {
+                                 $("[name='max_count_per_user']").attr('required', 'required');
+                                $('#maxUsePerUser').removeClass('hidden');
+                            } else {
+                               $("[name='max_count_per_user']").removeAttr('required')
+                               $('#maxUsePerUser').addClass('hidden');
+                            }
+                        });
+                    </script>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label">Is Active?</label>
+                        <div class="col-lg-9 d-flex align-items-center">
                             <div class="checkbox checkbox-switchery">
-                                <label>
                                 <input value="true" type="checkbox" class="switchery-primary isactive" @if($coupon->is_active) checked="checked" @endif name="is_active">
-                                </label>
                             </div>
                         </div>
                     </div>
@@ -147,8 +183,8 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-                <div class="modal-footer mt-4">
-                    <a href="{{ route('admin.deleteCoupon', $coupon->id) }}" class="btn btn-primary">Yes</a>
+                <div class="mt-4 d-flex justify-content-center align-items-center">
+                    <a href="{{ route('admin.deleteCoupon', $coupon->id) }}" class="btn btn-primary mr-2">Yes</a>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
                 </div>
             </div>
@@ -160,7 +196,7 @@
          $('.select').select2();
     
         var isactive = document.querySelector('.isactive');
-        new Switchery(isactive, { color: '#f44336' });
+        new Switchery(isactive, { color: '#2196f3' });
         
         $('.form-control-uniform').uniform();
         
@@ -179,6 +215,7 @@
         $('.min_subtotal').numeric({ allowThouSep:false, maxDecimalPlaces: 2, allowMinus: false });
         $('.max_discount').numeric({ allowThouSep:false, maxDecimalPlaces: 2, allowMinus: false });
         $('.max_count').numeric({ allowThouSep:false, maxDecimalPlaces: 0, allowMinus: false });
+        $('.max_count_per_user').numeric({ allowThouSep:false, maxDecimalPlaces: 0, allowMinus: false, max: 99999999 });
         $('.discount').numeric({ allowThouSep:false, maxDecimalPlaces: 2, allowMinus: false });
     });
 </script>

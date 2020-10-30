@@ -61,7 +61,7 @@
                             <th style="width: 30%">Email</th>
                             <th style="width: 15%;">Created</th>
                             <th style="width: 10%;">Role</th>
-                            <th style="width: 15%;">{{ config('settings.walletName') }}</th>
+                            <th style="width: 15%; text-align: center;">{{ config('settings.walletName') }}</th>
                             <th class="text-center" style="width: 10%;"><i class="
                                 icon-circle-down2"></i></th>
                         </tr>
@@ -79,7 +79,7 @@
                                 </span> @endforeach
                             </td>
                             <td class="text-center">
-                               {{ config('settings.currencyFormat') }} {{ $user->balanceFloat }}
+                               {{ config('settings.currencyFormat') }}{{ $user->balanceFloat }}
                             </td>
                             <td class="text-center">
                                 <div class="btn-group btn-group-justified">

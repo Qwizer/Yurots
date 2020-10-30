@@ -30,7 +30,7 @@
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Store</th>
+                            <th>Coupon Applicable Store</th>
                             <th>Code</th>
                             <th>Type</th>
                             <th>Discount</th>
@@ -47,13 +47,17 @@
                         @foreach ($coupons as $coupon)
                         <tr>
                             <td>{{ $coupon->name }}</td>
-                            @if($coupon->restaurant_id == 0 || $coupon->restaurant_id == NULL)
-                            <td><span class="badge badge-flat border-grey-800 text-default text-capitalize">ALL
-                                    STORES</span></td>
-                            @else
-                            <td>{{ $coupon->restaurant->name }}</td>
-                            @endif
-                            <td>{{ $coupon->code }}</td>
+                            <td>
+                            @if(count($coupon->restaurants) > 1)
+                           <span class="badge badge-flat border-grey-800 text-default text-capitalize">MULTIPLE
+                               STORES</span>
+                           @else
+                           @foreach($coupon->restaurants as $couponRestaurant)
+                                <span class="badge badge-flat border-grey-800 text-default text-capitalize">{{ $couponRestaurant->name }}</span>
+                           @endforeach
+                           @endif
+                           </td>
+                            <td><b>{{ $coupon->code }}</b></td>
                             <td>
                                 <span class="badge badge-flat border-grey-800 text-default text-capitalize">
                                     {{ $coupon->discount_type }}
@@ -168,22 +172,19 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>Coupon's Store:</label>
+                        <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>Coupon Applicable Stores:</label>
                         <div class="col-lg-9">
-                            <select class="form-control select-search select" name="restaurant_id" required>
-                                <option value="0" class="text-capitalize" selected="selected">ALL STORES</option>
+                            <select multiple="multiple" class="form-control select-search select" name="restaurant_id[]" required>
                                 @foreach ($restaurants as $restaurant)
                                 <option value="{{ $restaurant->id }}" class="text-capitalize">{{ $restaurant->name }}
                                 </option>
                                 @endforeach
                             </select>
-                            <span class="help-text text-muted">Select the first option <b>"ALL STORES"</b> if the coupon
-                                can be applied to all stores.</span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>Max number of
-                            use:</label>
+                            use in total</label>
                         <div class="col-lg-9">
                             <input type="text" class="form-control form-control-lg max_count" name="max_count"
                                 placeholder="Max number of use" required>
@@ -203,11 +204,49 @@
                                 placeholder="Subtotal not reached message">
                         </div>
                     </div>
+                     <div class="form-group row">
+                        <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>Coupon User Type</label>
+                        <div class="col-lg-9">
+                    <select class="form-control select-search select" name="user_type" required>
+                        <option value="ALL" class="text-capitalize">
+                            Unlimited times for all users
+                        </option>
+                        <option value="ONCENEW" class="text-capitalize">
+                            Once for new user for first order
+                        </option>
+                        <option value="ONCE" class="text-capitalize">
+                            Once per user
+                        </option>
+                        <option value="CUSTOM" class="text-capitalize">
+                            Define custom limit per user
+                        </option>
+                     </select>
+                     </div>
+                    </div>
+                    <div class="form-group row hidden" id="maxUsePerUser">
+                        <label class="col-lg-3 col-form-label">Max number of
+                            use per user:</label>
+                        <div class="col-lg-9">
+                            <input type="text" class="form-control form-control-lg max_count_per_user" name="max_count_per_user"
+                                placeholder="Max number of use per user">
+                        </div>
+                    </div>
+                    <script>
+                        $("[name='user_type']").change(function() {
+                            let selectedUserType = $(this).val();
+                            if (selectedUserType == "CUSTOM") {
+                                 $("[name='max_count_per_user']").attr('required', 'required');
+                                $('#maxUsePerUser').removeClass('hidden');
+                            } else {
+                               $("[name='max_count_per_user']").removeAttr('required')
+                               $('#maxUsePerUser').addClass('hidden');
+                            }
+                        });
+                    </script>
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label">Is Active?</label>
-                        <div class="col-lg-9">
+                        <div class="col-lg-9 d-flex align-items-center">
                             <div class="checkbox checkbox-switchery">
-                                <label>
                                     <input value="true" type="checkbox" class="switchery-primary isactive"
                                         checked="checked" name="is_active">
                                 </label>
@@ -231,7 +270,7 @@
            $('.select').select2();
     
            var isactive = document.querySelector('.isactive');
-           new Switchery(isactive, { color: '#f44336' });
+           new Switchery(isactive, { color: '#2196f3' });
            
            $('.form-control-uniform').uniform();
     
@@ -249,6 +288,7 @@
            $('.min_subtotal').numeric({ allowThouSep:false, maxDecimalPlaces: 2, allowMinus: false });
            $('.max_discount').numeric({ allowThouSep:false, maxDecimalPlaces: 2, allowMinus: false });
            $('.max_count').numeric({ allowThouSep:false, maxDecimalPlaces: 0, allowMinus: false });
+           $('.max_count_per_user').numeric({ allowThouSep:false, maxDecimalPlaces: 0, allowMinus: false, max: 99999999 });
            $('.discount').numeric({ allowThouSep:false, maxDecimalPlaces: 2, allowMinus: false });
        });    
 </script>

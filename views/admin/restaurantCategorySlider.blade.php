@@ -52,6 +52,7 @@
                     <label class="col-lg-3 col-form-label">Slider Position:</label>
                     <div class="col-lg-9">
                         <select name="restaurantCategorySliderPosition" class="form-control form-control-lg" required="required">
+                            <option @if(config('settings.restaurantCategorySliderPosition') == "0") selected="selected" @endif value="0">Before 1st Store</option>
                             <option @if(config('settings.restaurantCategorySliderPosition') == "1") selected="selected" @endif value="1">After 1st Store</option>
                             <option @if(config('settings.restaurantCategorySliderPosition') == "2") selected="selected" @endif value="2">After 2nd Store</option>
                             <option @if(config('settings.restaurantCategorySliderPosition') == "3") selected="selected" @endif value="3">After 3rd Store</option>

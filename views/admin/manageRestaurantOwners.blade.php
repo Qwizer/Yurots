@@ -35,6 +35,7 @@ Store Owners | Dashboard
                             <th style="width: 50%">Email</th>
                             <th style="width: 20%;">Created</th>
                             <th style="width: 10%;">Role</th>
+                            <th style="width: 15%; text-align: center;">{{ config('settings.walletName') }}</th>
                             <th class="text-center" style="width: 10%;"><i class="
                                 icon-circle-down2"></i></th>
                         </tr>
@@ -50,6 +51,9 @@ Store Owners | Dashboard
                                 <span class="badge badge-flat border-grey-800 text-default text-capitalize">
                                 {{ $role->name }}
                                 </span> @endforeach
+                            </td>
+                            <td class="text-center">
+                               {{ config('settings.currencyFormat') }}{{ $user->balanceFloat }}
                             </td>
                             <td class="text-center">
                                 <div class="btn-group btn-group-justified">
