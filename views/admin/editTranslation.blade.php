@@ -883,6 +883,13 @@
                     </div>
                 </div>
                 <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Apply Coupon Button Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="applyCouponButtonText" value="@if (!empty($data->applyCouponButtonText)) {{ $data->applyCouponButtonText }}@else{{ config('settings.applyCouponButtonText') }}@endif"  placeholder="Apply Coupon Button Text">
+                    </div>
+                </div>
+
+                <div class="form-group row">
                     <label class="col-lg-3 col-form-label"><strong>Cart Bill Details Text</strong></label>
                     <div class="col-lg-9">
                         <input type="text" class="form-control form-control-lg" name="cartBillDetailsText"
@@ -1036,6 +1043,56 @@
                              value="@if (!empty($data->orderTextTotal)) {{ $data->orderTextTotal }}@else{{ config('settings.orderTextTotal') }}@endif"  placeholder="Order Total Text">
                     </div>
                 </div>
+
+                <div class="form-group row">
+                   <label class="col-lg-3 col-form-label"><strong>Bill Detail Delivery Tip Text</strong></label>
+                   <div class="col-lg-9">
+                       <input type="text" class="form-control form-control-lg" name="tipText" value="@if (!empty($data->tipText)) {{ $data->tipText }}@else {{ config('settings.tipText') }} @endif" placeholder="Bill Detail Delivery Tip Text">
+                   </div>
+               </div>
+               <div class="form-group row">
+                   <label class="col-lg-3 col-form-label"><strong>Delivery Tip Header Text</strong></label>
+                   <div class="col-lg-9">
+                       <input type="text" class="form-control form-control-lg" name="tipsForDeliveryText" value="@if (!empty($data->tipsForDeliveryText)) {{ $data->tipsForDeliveryText }}@else {{ config('settings.tipsForDeliveryText') }} @endif" placeholder="Delivery Tip Header Text">
+                   </div>
+               </div>
+               <div class="form-group row">
+                   <label class="col-lg-3 col-form-label"><strong>Delivery Tip Thank You Text</strong></label>
+                   <div class="col-lg-9">
+                       <input type="text" class="form-control form-control-lg" name="tipsThanksText" value="@if (!empty($data->tipsThanksText)) {{ $data->tipsThanksText }}@else {{ config('settings.tipsThanksText') }} @endif" placeholder="Delivery Tip Thank You Text">
+                   </div>
+               </div>
+               <div class="form-group row">
+                   <label class="col-lg-3 col-form-label"><strong>Tip Other Text</strong></label>
+                   <div class="col-lg-9">
+                       <input type="text" class="form-control form-control-lg" name="tipsOtherText" value="@if (!empty($data->tipsOtherText)) {{ $data->tipsOtherText }}@else {{ config('settings.tipsOtherText') }} @endif" placeholder="Tip Other Text">
+                   </div>
+               </div>
+               <div class="form-group row">
+                   <label class="col-lg-3 col-form-label"><strong>Delivery tip transaction Text</strong></label>
+                   <div class="col-lg-9">
+                       <input type="text" class="form-control form-control-lg" name="deliveryTipTransactionMessage" value="@if (!empty($data->deliveryTipTransactionMessage)) {{ $data->deliveryTipTransactionMessage }}@else  {{ config('settings.deliveryTipTransactionMessage') }}@endif" placeholder="Delivery tip transaction Text">
+                   </div>
+               </div>
+               <div class="form-group row">
+                   <label class="col-lg-3 col-form-label"><strong>Tip Remove Button Text</strong></label>
+                   <div class="col-lg-9">
+                       <input type="text" class="form-control form-control-lg" name="cartRemoveTipText" value="@if (!empty($data->cartRemoveTipText)) {{ $data->cartRemoveTipText }}@else  {{ config('settings.cartRemoveTipText') }}@endif" placeholder="Tip Remove Button Text">
+                   </div>
+               </div>
+               <div class="form-group row">
+                   <label class="col-lg-3 col-form-label"><strong>Tip Amount Placeholder Text</strong></label>
+                   <div class="col-lg-9">
+                       <input type="text" class="form-control form-control-lg" name="cartTipAmountPlaceholderText" value="@if (!empty($data->cartTipAmountPlaceholderText)) {{ $data->cartTipAmountPlaceholderText }}@else  {{ config('settings.cartTipAmountPlaceholderText') }}@endif" placeholder="Tip Amount Placeholder Text">
+                   </div>
+               </div>
+               <div class="form-group row">
+                   <label class="col-lg-3 col-form-label"><strong>Tip Percentage Placeholder Text</strong></label>
+                   <div class="col-lg-9">
+                       <input type="text" class="form-control form-control-lg" name="cartTipPercentagePlaceholderText" value="@if (!empty($data->cartTipPercentagePlaceholderText)) {{ $data->cartTipPercentagePlaceholderText }}@else  {{ config('settings.cartTipPercentagePlaceholderText') }}@endif" placeholder="Tip Percentage Placeholder Text">
+                   </div>
+               </div>
+
                 <!-- END Cart Screen Settings -->
                 <!-- Checkout Screen Settings -->
                 <button class="btn btn-primary translation-section-btn mt-4" type="button"> <i class="icon-mobile mr-1"></i>Checkout Screen Settings </button> 
@@ -1498,6 +1555,13 @@
                         <input type="text" class="form-control form-control-lg" name="awaitingPaymentSubTitle" value="@if (!empty($data->awaitingPaymentSubTitle)) {{ $data->awaitingPaymentSubTitle }}@else{{ config('settings.awaitingPaymentSubTitle') }}@endif" placeholder="Awaiting Payment Sub Title">
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Order Payment Mode Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="orderDetailsPaymentMode"
+                            value="@if (!empty($data->orderDetailsPaymentMode)) {{ $data->orderDetailsPaymentMode }}@else{{ config('settings.orderDetailsPaymentMode') }}@endif" placeholder="Order Payment Mode Text">
+                    </div>
+                </div>
                 <!-- END Running Order Screen Settings -->
                 <!-- Account Screen Settings -->
                 <button class="btn btn-primary translation-section-btn mt-4" type="button"> <i class="icon-mobile mr-1"></i>Account Screen Settings </button> 
@@ -1823,6 +1887,20 @@
                     </div>
                 </div>
                 <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Pickedup Orders Title</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="deliveryPickedupOrdersTitle"
+                            value="@if (!empty($data->deliveryPickedupOrdersTitle)) {{ $data->deliveryPickedupOrdersTitle }}@else{{ config('settings.deliveryPickedupOrdersTitle') }}@endif" placeholder="Pickedup Orders Title">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>No Pickedup Orders Message</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="deliveryNoPickedupOrdersMsg"
+                            value="@if (!empty($data->deliveryNoPickedupOrdersMsg)) {{ $data->deliveryNoPickedupOrdersMsg }}@else{{ config('settings.deliveryNoPickedupOrdersMsg') }}@endif" placeholder="No Pickedup Orders Message">
+                    </div>
+                </div>
+                <div class="form-group row">
                     <label class="col-lg-3 col-form-label"><strong>Order Items</strong></label>
                     <div class="col-lg-9">
                         <input type="text" class="form-control form-control-lg" name="deliveryOrderItems"
@@ -1956,6 +2034,13 @@
                     </div>
                 </div>
                 <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Delivery Footer Pickedup</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="deliveryFooterPickedup"
+                            value="@if (!empty($data->deliveryFooterPickedup)) {{ $data->deliveryFooterPickedup }}@else{{ config('settings.deliveryFooterPickedup') }}@endif" placeholder="Delivery Footer Pickedup">
+                    </div>
+                </div>
+                <div class="form-group row">
                     <label class="col-lg-3 col-form-label"><strong>Delivery Footer My Account</strong></label>
                     <div class="col-lg-9">
                         <input type="text" class="form-control form-control-lg" name="deliveryFooterAccount"
@@ -2036,6 +2121,31 @@
                     <div class="col-lg-9">
                         <input type="text" class="form-control form-control-lg" name="deliveryMaxOrderReachedMsg"
                            value="@if (!empty($data->deliveryMaxOrderReachedMsg)) {{ $data->deliveryMaxOrderReachedMsg }}@else{{ config('settings.deliveryMaxOrderReachedMsg') }}@endif" placeholder="Delivery Max Order Reached">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Delivery Guy Earnings Commission Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="deliveryEarningCommissionText" value="@if (!empty($data->deliveryEarningCommissionText)) {{ $data->deliveryEarningCommissionText }}@else{{ config('settings.deliveryEarningCommissionText') }}@endif" placeholder="Delivery Guy Earnings Commission Text">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Delivery Guy Earnings Tip Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="deliveryEarningTipText" value="@if (!empty($data->deliveryEarningTipText)) {{ $data->deliveryEarningTipText }}@else{{ config('settings.deliveryEarningTipText') }}@endif" placeholder="Delivery Guy Earnings Tip Text">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Delivery Guy Earnings Total Earning Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="deliveryEarningTotalEarningText" value="@if (!empty($data->deliveryEarningTotalEarningText)) {{ $data->deliveryEarningTotalEarningText }}@else{{ config('settings.deliveryEarningTotalEarningText') }}@endif" placeholder="Delivery Guy Earnings Total Earning Text">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Delivery Guy Last 7 Days Earning Chart Title</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="deliveryLastSevenDaysEarningTitle"
+                            value="@if (!empty($data->deliveryLastSevenDaysEarningTitle)) {{ $data->deliveryLastSevenDaysEarningTitle }}@else{{ config('settings.deliveryLastSevenDaysEarningTitle') }}@endif" placeholder="Delivery Guy Last 7 Days Earning Chart Title">
                     </div>
                 </div>
                 <!--  END Delivery Screen Settings -->

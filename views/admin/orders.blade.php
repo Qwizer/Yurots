@@ -3,155 +3,179 @@
 @endsection
 @section('content')
 <style>
-.pulse {
-    display: inline-block;
-    width: 12.5px;
-    height: 12.5px;
-    border-radius: 50%;
-    animation: pulse 1.2s infinite;
-    vertical-align: middle;
-    margin: -3px 0 0 3px;
-}
-.pulse-warning {
-    background: #ffc107;
-}
-.pulse-danger {
-    background: #ff5722;
-}
-
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(255,87,34, 0.5);
-  }
-  50% {
-      box-shadow: 0 0 0 26px rgba(255,87,34, 0);
-  }
-  100% {
-      box-shadow: 0 0 0 0 rgba(255,87,34, 0);
-  }
-}
+    .pulse {
+        display: inline-block;
+        width: 12.5px;
+        height: 12.5px;
+        border-radius: 50%;
+        animation: pulse 1.2s infinite;
+        vertical-align: middle;
+        margin: -3px 5px 0 0;
+    }
+    .pulse-warning {
+        background: #ffc107;
+    }
+    .pulse-danger {
+        background: #ff5722;
+    }
+    @keyframes pulse {
+        0% {
+        box-shadow: 0 0 0 0 rgba(255,87,34, 0.5);
+        }
+        50% {
+        box-shadow: 0 0 0 26px rgba(255,87,34, 0);
+        }
+        100% {
+        box-shadow: 0 0 0 0 rgba(255,87,34, 0);
+        }
+    }
+    .linked-item {
+        color: #4e535a;
+    }
+    .linked-item:hover {
+        color: #8360c3;
+        text-decoration: underline;
+        opacity: 1;
+    }
 </style>
-<div class="page-header">
-    <div class="page-header-content header-elements-md-inline">
-        <div class="page-title d-flex">
-            <h4><i class="icon-circle-right2 mr-2"></i>
-                <span class="font-weight-bold mr-2">TOTAL</span>
-                <span class="badge badge-primary badge-pill animated flipInX">{{ $count }}</span>
-            </h4>
-            <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+
+<div class="content mt-2">
+    <div class="d-flex justify-content-between my-2">
+        <h3><strong>  <i class="icon-basket mr-1"></i> Order Management</strong></h3>
+        <div>
+            <button type="button" class="btn btn-secondary btn-labeled btn-labeled-left" id="clearFilterAndState"> <b><i class=" icon-reload-alt"></i></b> Reset All Filters</button>
         </div>
     </div>
-</div>
-<div class="content">
-    <form action="{{ route('admin.post.searchOrders') }}" method="GET">
-        <div class="form-group form-group-feedback form-group-feedback-right search-box">
-            <input type="text" class="form-control form-control-lg search-input"
-                placeholder="Search with order id..." name="query">
-            <div class="form-control-feedback form-control-feedback-lg">
-                <i class="icon-search4"></i>
-            </div>
-        </div>
-        @csrf
-    </form>
     <div class="card">
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Order ID</th>
-                            <th>Store Name</th>
-                            <th>Status</th>
-                            <th>Payment Mode</th>
-                            <th>Total</th>
-                            <th>Coupon</th>
-                            <th>Order Placed At</th>
-                            <th class="text-center" style="width: 10%;"><i class="
-                                icon-circle-down2"></i></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($orders as $order)
-                        <tr>
-                            <td>
-                                <span style="font-size: 0.7rem; font-weight: 700;">{{ $order->unique_order_id }}</span>
-                                @if(config("settings.restaurantAcceptTimeThreshold") != NULL)
-                                    @if ($order->orderstatus_id == 1)
-                                        @if($order->created_at->diffInMinutes(\Carbon\Carbon::now()) >= (int) config("settings.restaurantAcceptTimeThreshold"))
-                                            <span class="pulse pulse-warning" data-popup="tooltip" title="" data-placement="bottom" data-original-title="Order not accepted by store. Late by {{ $order->created_at->diffInMinutes(\Carbon\Carbon::now()) - 5 }} mins."></span>
-                                        @endif
-                                    @endif
-                                @endif
-                                @if(config("settings.deliveryAcceptTimeThreshold") != NULL)
-                                     @if ($order->orderstatus_id == 2 && $order->delivery_type == 1) 
-                                       @if($order->created_at->diffInMinutes(\Carbon\Carbon::now()) >= (int) config("settings.deliveryAcceptTimeThreshold"))
-                                            <span class="pulse pulse-danger" data-popup="tooltip" title="" data-placement="bottom" data-original-title="Order not on accepted by delivery guy. Late by {{ $order->created_at->diffInMinutes(\Carbon\Carbon::now()) - 5 }} mins."></span>
-                                        @endif
-                                    @endif
-                                @endif
-                            </td>
-                            <td>{{ $order->restaurant->name }}</td>
-                            <td>
-                                <span class="badge badge-flat border-grey-800 text-default text-capitalize text-left">
-                                    @if ($order->orderstatus_id == 1) Order Placed @endif
-                                    @if ($order->orderstatus_id == 2) Order Accepted @endif
-                                    @if ($order->orderstatus_id == 3) Delivery Assigned @endif
-                                    @if ($order->orderstatus_id == 4) Picked Up @endif
-                                    @if ($order->orderstatus_id == 5) Completed @endif
-                                    @if ($order->orderstatus_id == 6) Canceled @endif
-                                    @if ($order->orderstatus_id == 7) Ready to Pickup @endif
-                                    @if ($order->orderstatus_id == 8) Awaiting Payment @endif
-                                    @if ($order->orderstatus_id == 9) Payment Failed @endif
-                                    
-                                    @if($order->orderstatus_id > 2 && $order->orderstatus_id  < 6)
-                                    @if($order->accept_delivery !== null)
-                                    @if($order->orderstatus_id > 2 && $order->orderstatus_id  < 6)
-                                    Delivery by: <b>{{ $order->accept_delivery->user->name }}</b>
-                                    @endif
-                                    @endif
-                                    @endif
-                                </span>
-                            </td>
-                            <td>
-                                <span class="badge badge-flat border-grey-800 text-default text-capitalize">
-                                {{ $order->payment_mode }}
-                                </span>
-                            </td>
-                            <td>{{ config('settings.currencyFormat') }}{{ $order->total }}</td>
-                            <td>
-                                @if($order->coupon_name == NULL) NONE @else
-                                <span class="badge badge-flat border-grey-800 text-default text-capitalize">
-                                {{ $order->coupon_name }}
-                                </span>
-                                @endif
-                            </td>
-                            <td>
-                                <span data-popup="tooltip" data-placement="bottom" title="{{ $order->created_at->format('Y-m-d  - h:i A') }}">
-                                {{ $order->created_at->diffForHumans() }}
-                                </span>
-                            </td>
-                            <td class="text-center">
-                                <a href="{{ route('admin.viewOrder', $order->unique_order_id) }}"
-                                    class="badge badge-primary badge-icon"> VIEW <i
-                                    class="icon-file-eye ml-1"></i></a>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-                <div class="mt-3">
-                    {{ $orders->links() }}
+                <div class="table-responsive">
+                    <table class="table table-striped" id="ordersDataTable" width="100%">
+                        <thead>
+                            <tr>
+                                <th class="hidden">ID</th>
+                                <th>Order ID</th>
+                                <th>Status</th>
+                                <th>Store Name</th>
+                                <th>Mode</th>
+                                <th>Total</th>
+                                <th>Order Placed At</th>
+                                <th class="text-center">Live Timer</th>
+                                <th class="text-center" style="width: 10%;"><i class="
+                                    icon-circle-down2"></i></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <script>
-    $(document).ready(function() {
-        // reload window every 10 mins to refresh order status...
-        setTimeout(function() {
-            window.location.reload(1);
-        }, 10 * 60 * 1000);
+    $(function() {
+    
+        $('body').tooltip({selector: '[data-popup="tooltip"]'});
+        
+         var datatable = $('#ordersDataTable').DataTable({
+            processing: true,
+            serverSide: true,
+            stateSave: true,
+            lengthMenu: [ 10, 25, 50, 100, 200, 500 ],
+            order: [[ 0, "desc" ]],
+            ajax: '{{ route('admin.ordersDataTable') }}',
+            columns: [
+                {data: 'id', visible: false, searchable: false},
+                {data: 'unique_order_id'},
+                {data: 'orderstatus_id', name: "orderstatus.name"},
+                {data: 'restaurant_name', name: "restaurant.name"},
+                {data: 'payment_mode'},
+                {data: 'total'},
+                {data: 'created_at'},
+                {data: 'live_timer', searchable: false, orderable: false},
+                {data: 'action', sortable: false, searchable: false, reorder: false},
+            ],
+            fixedColumns: {
+                leftColumns: 0,
+                rightColumns: 1
+            },
+            colReorder: {
+                   fixedColumnsRight: 1
+               },
+            drawCallback: function( settings ) {
+                $('select').select2({
+                   minimumResultsForSearch: Infinity,
+                   width: 'auto'
+                });
+                timer = setInterval(updateClock, 1000);
+
+                var newDate = new Date();
+                console.log(newDate)
+                var newStamp = newDate.getTime();
+
+                var timer; 
+
+                function updateClock() {
+
+                    $('.liveTimer').each(function(index, el) {
+                        var orderCreatedData = $(this).attr("title");
+                        var startDateTime = new Date(orderCreatedData); 
+                        var startStamp = startDateTime.getTime();
+                    
+
+                        newDate = new Date();
+                        newStamp = newDate.getTime();
+                        var diff = Math.round((newStamp-startStamp)/1000);
+                        
+                        var d = Math.floor(diff/(24*60*60));
+                        diff = diff-(d*24*60*60);
+                        var h = Math.floor(diff/(60*60));
+                        diff = diff-(h*60*60);
+                        var m = Math.floor(diff/(60));
+                        diff = diff-(m*60);
+                        var s = diff;
+                        var checkDay = d > 0 ? true : false;
+                        var checkHour = h > 0 ? true : false;
+                        var checkMin = m > 0 ? true : false;
+                        var checkSec = s > 0 ? true : false;
+                        var formattedTime = checkDay ? d+ " day" : "";
+                        formattedTime += checkHour ? " " +h+ " hour" : "";
+                        formattedTime += checkMin ? " " +m+ " minute" : "";
+                        formattedTime += checkSec ? " " +s+ " second" : "";
+
+                        $(this).text(formattedTime);
+                    });
+                }
+            },
+            scrollX: true,
+            scrollCollapse: true,
+            dom: '<"custom-processing-banner"r>flBtip',
+            language: {
+                search: '_INPUT_',
+                searchPlaceholder: 'Search with anything...',
+                lengthMenu: '_MENU_',
+                paginate: { 'first': 'First', 'last': 'Last', 'next': '&rarr;', 'previous': '&larr;' },
+                processing: '<i class="icon-spinner10 spinner position-left mr-1"></i>Waiting for server response...'
+            },
+           buttons: {
+                   dom: {
+                       button: {
+                           className: 'btn btn-default'
+                       }
+                   },
+                   buttons: [
+                       {extend: 'csv', filename: 'orders-'+ new Date().toISOString().slice(0,10), text: 'Export as CSV'},
+                   ]
+               }
+        });
+    
+         $('#clearFilterAndState').click(function(event) {
+            if (datatable) {
+                datatable.state.clear();
+                window.location.reload();
+            }
+         });
     });
 </script>
 @endsection

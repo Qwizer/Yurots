@@ -48,7 +48,7 @@
                             <th>{{__('storeDashboard.apTableName')}}</th>
                             <th>{{__('storeDashboard.apTablePrice')}}</th>
                             <th>{{__('storeDashboard.apTableAddonCategory')}}</th>
-                            <th style="width: 15%">{{__('storeDashboard.apTableCreatedAt')}}t</th>
+                            <th style="width: 15%">{{__('storeDashboard.apTableCreatedAt')}}</th>
                             <th class="text-center" style="width: 10%;"><i class="
                                 icon-circle-down2"></i></th>
                         </tr>

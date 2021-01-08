@@ -13,6 +13,7 @@
         z-index: 999;
     }
 </style>
+
 <div class="page-header">
     <div class="page-header-content header-elements-md-inline">
         <div class="page-title d-flex">
@@ -26,7 +27,7 @@
 </div>
 <div class="content">
     <div class="row">
-        <div class="col-md-7">
+        <div class="col-md-8">
             <div class="card">
                 <div class="card-body">
                     <form action="{{ route('restaurant.updateRestaurant') }}" method="POST" enctype="multipart/form-data">
@@ -130,6 +131,29 @@
                                     placeholder="{{__('storeDashboard.sePhStoreCharge')}} {{ config('settings.currencyFormat') }}">
                             </div>
                         </div>
+
+                        @if(config('settings.allowPaymentGatewaySelection') == "true")
+                        <div class="form-group row">
+                            <label class="col-lg-4 col-form-label">{{__('storeDashboard.seLblSelectPaymentGateways')}}
+
+                            @if(count($restaurant->payment_gateways) == 0)
+                            <p class="text-danger">
+                                <strong>{{__('storeDashboard.seNoStorePaymentGatewayMessage')}}</strong>
+                            </p>
+                            @endif
+                            </label>
+
+                            <div class="col-lg-8">
+                                <select multiple="multiple" class="form-control select" name="store_payment_gateways[]">
+                                @foreach($adminPaymentGateways as $adminPaymentGateway)
+                                    <option value="{{ $adminPaymentGateway->id }}" class="text-capitalize" {{ in_array($adminPaymentGateway->id, $restaurant->payment_gateways()->pluck('payment_gateway_id')->toArray()) ? 'selected' : '' }}>{{ $adminPaymentGateway->name }}
+                                    </option>
+                                @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        @endif
+
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label">{{__('storeDashboard.seLblPureVeg')}}</label>
                             <div class="col-lg-9">
@@ -187,6 +211,61 @@
                             <i class="icon-database-insert ml-1"></i>
                             </button>
                         </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <form action="{{ route('restaurant.updateStorePayoutDetails') }}" method="POST">
+                    <legend class="font-weight-semibold text-uppercase font-size-sm">
+                        <i class="icon-coin-dollar mr-2"></i> {{ __('storeDashboard.payoutAccountDetailsTitle') }}
+                    </legend>
+                    <input type="hidden" name="restaurant_id" value="{{ $restaurant->id }}">
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label"><strong>{{ __('storeDashboard.bankNameLabel') }}: </strong></label>
+                        <div class="col-lg-9">
+                             <input type="text" class="form-control form-control-lg" name="bankName" value="@if(!empty($payoutData->bankName)){{ $payoutData->bankName }}@endif">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label"><strong>{{ __('storeDashboard.bankCodeLabel') }}: </strong></label>
+                        <div class="col-lg-9">
+                             <input type="text" class="form-control form-control-lg" name="bankCode" value="@if(!empty($payoutData->bankCode)){{ $payoutData->bankCode }}@endif">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label"><strong>{{ __('storeDashboard.recipientNameLabel') }}: </strong></label>
+                        <div class="col-lg-9">
+                             <input type="text" class="form-control form-control-lg" name="recipientName" value="@if(!empty($payoutData->recipientName)){{ $payoutData->recipientName }}@endif">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label"><strong>{{ __('storeDashboard.accountNumberLabel') }}: </strong></label>
+                        <div class="col-lg-9">
+                             <input type="text" class="form-control form-control-lg" name="accountNumber" value="@if(!empty($payoutData->accountNumber)){{ $payoutData->accountNumber }}@endif">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label"><strong>{{ __('storeDashboard.paypalIdLabel') }}: </strong></label>
+                        <div class="col-lg-9">
+                             <input type="text" class="form-control form-control-lg" name="paypalId" value="@if(!empty($payoutData->paypalId)){{ $payoutData->paypalId }}@endif">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label"><strong>{{ __('storeDashboard.upiIDLabel') }}: </strong></label>
+                        <div class="col-lg-9">
+                             <input type="text" class="form-control form-control-lg" name="upiID" value="@if(!empty($payoutData->upiID)){{ $payoutData->upiID }}@endif">
+                        </div>
+                    </div>
+                    @csrf
+                    <div class="text-right">
+                        <button type="submit" class="btn btn-primary">
+                        {{__('storeDashboard.update')}}
+                        <i class="icon-database-insert ml-1"></i>
+                        </button>
+                    </div>
                     </form>
                 </div>
             </div>

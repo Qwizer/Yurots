@@ -40,9 +40,9 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>{{__('storeDashboard.spTableID')}}</th>
-                            <th>{{__('storeDashboard.spTableImage')}}</th>
-                            <th>{{__('storeDashboard.spTableName')}}</th>
+                            <th style="width: 5%;">{{__('storeDashboard.spTableID')}}</th>
+                            <th style="width: 10%;">{{__('storeDashboard.spTableImage')}}</th>
+                            <th style="width: 15%;">{{__('storeDashboard.spTableName')}}</th>
                             <th>{{__('storeDashboard.spTableAddress')}}</th>
                             <th>{{__('storeDashboard.spTableStatus')}}</th>
                             <th style="width: 15%">{{__('storeDashboard.spTableCA')}}</th>

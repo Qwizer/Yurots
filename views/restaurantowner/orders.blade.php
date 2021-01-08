@@ -33,6 +33,7 @@
                             <th>{{__('storeDashboard.opTableOrderId')}}</th>
                             <th>{{__('storeDashboard.opTableRestName')}}</th>
                             <th>{{__('storeDashboard.opTableStatus')}}</th>
+                            <th>{{__('storeDashboard.opPaymentMode')}}</th>
                             <th>{{__('storeDashboard.opTableTotal')}}</th>
                             <th>{{__('storeDashboard.opTableCoupon')}}</th>
                             <th>{{__('storeDashboard.opTableOrderPlacedAt')}}</th>
@@ -43,7 +44,7 @@
                     <tbody>
                         @foreach ($orders as $order)
                         <tr>
-                            <td>{{ $order->unique_order_id }}</td>
+                            <td><span style="font-size: 0.7rem; font-weight: 700;">{{ $order->unique_order_id }}</span></td>
                             <td>{{ $order->restaurant->name }}</td>
                             <td>
                                 <span class="badge badge-flat border-grey-800 text-default text-capitalize text-left">
@@ -62,7 +63,19 @@
                                     @endif
                                 </span>
                             </td>
-                            <td>{{ config('settings.currencyFormat') }} {{ $order->total }}</td>
+                            <td>
+                                <span class="badge badge-flat border-grey-800 text-default text-capitalize">
+                                {{ $order->payment_mode }}
+                                </span>
+                            </td>
+                            @php
+                               if(!is_null($order->tip_amount)) {
+                                   $total = $order->total - $order->tip_amount;
+                               } else {
+                                   $total = $order->total;
+                               }
+                             @endphp
+                            <td>{{ config('settings.currencyFormat') }} {{ $total }}</td>
                             <td>
                                 @if($order->coupon_name == NULL) {{__('storeDashboard.opNone')}} @else
                                 <span class="badge badge-flat border-grey-800 text-default text-capitalize">
@@ -70,7 +83,11 @@
                                 </span>
                                 @endif
                             </td>
-                            <td>{{ $order->created_at->diffForHumans() }}</td>
+                            <td>
+                                <span  data-popup="tooltip" data-placement="bottom" title="{{ $order->created_at->format('Y-m-d  - h:i A') }}">
+                                {{ $order->created_at->diffForHumans() }}
+                                </span>
+                            </td>
                             <td class="text-center">
                                 <a href="{{ route('restaurant.viewOrder', $order->unique_order_id) }}"
                                     class="badge badge-primary badge-icon"> {{__('storeDashboard.opView')}} <i
@@ -81,7 +98,7 @@
                     </tbody>
                 </table>
                 <div class="mt-3">
-                    {{ $orders->links() }}
+                    {{ $orders->appends($_GET)->links() }}
                 </div>
             </div>
         </div>

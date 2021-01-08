@@ -21,6 +21,9 @@
                     <thead>
                         <tr>
                             <th>
+                                Store
+                            </th>
+                            <th>
                                 Amount
                             </th>
                             <th>
@@ -45,6 +48,7 @@
                     <tbody>
                         @foreach($restaurantPayouts as $restaurantPayout)
                         <tr>
+                            <td>{{ $restaurantPayout->restaurant->name }}</td>
                             <td>{{ $restaurantPayout->amount }}</td>
                             <td><span class="badge badge-flat border-grey-800 text-default text-capitalize">{{ $restaurantPayout->status }}</span></td>
                             <td>

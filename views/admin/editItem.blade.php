@@ -125,55 +125,15 @@
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label">Item's Addon Categories:</label>
                         <div class="col-lg-9">
-                            @foreach($item->addon_categories as $addonCategory)
-                            <span class="badge badge-flat border-grey-800"
-                                style="font-size: 0.9rem;">{{ $addonCategory->name }}
-                            </span>
-                            @endforeach
 
-                            @if(count($item->addon_categories))
-                            <button class="btn btn-sm btn-danger badge badge-danger float-right" data-toggle="modal"
-                                data-target="#removeAllAddonConfirmation" type="button" id="removeAllAddons"
-                                style="font-size: 0.9rem;">Remove All Addons
-                            </button>
-                            <input type="hidden" name="remove_all_addons" value="0">
-
-                            <div id="removeAllAddonConfirmation" class="modal fade mt-5" tabindex="-1">
-                                <div class="modal-dialog modal-xs">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title"><span class="font-weight-bold">Are you sure?</span>
-                                            </h5>
-                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <span class="help-text">This action will remove all addons from this
-                                                item.</span>
-                                            <div class="modal-footer mt-4">
-                                                <button type="submit" class="btn btn-primary">Yes</button>
-                                                <button type="button" class="btn btn-danger"
-                                                    data-dismiss="modal">Cancel</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <script>
-                                $('#removeAllAddons').click(function(event) {
-                                        $("[name='remove_all_addons']").val(1);
-                                    });
-                                    $('#removeAllAddonConfirmation').on('hidden.bs.modal', function () {
-                                         $("[name='remove_all_addons']").val(0);
-                                    });
-                            </script>
-                            @endif
-                            <select multiple="multiple" class="form-control select" data-fouc
+                            <select multiple="multiple" class="form-control addonCategorySelect" data-fouc
                                 name="addon_category_item[]">
                                 @foreach($addonCategories as $addonCategory)
-                                <option value="{{ $addonCategory->id }}" class="text-capitalize">
+                                <option value="{{ $addonCategory->id }}" class="text-capitalize" {{isset($item) &&  in_array($item->id, $addonCategory->items()->pluck('item_id')->toArray()) ? 'selected' : '' }}>
                                     {{ $addonCategory->name }} @if($addonCategory->description != null)-> {{ $addonCategory->description }} @endif</option>
                                 @endforeach
                             </select>
+
                         </div>
                     </div>
                     <div class="form-group row">
@@ -286,6 +246,9 @@
             });
 
         $('.select').select2();
+        $('.addonCategorySelect').select2({
+            closeOnSelect: false
+        })
     
          var recommendeditem = document.querySelector('.recommendeditem');
         new Switchery(recommendeditem, { color: '#f44336' });

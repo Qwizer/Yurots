@@ -169,6 +169,12 @@
                                     <input type="text" class="form-control form-control-lg max_orders" name="max_accept_delivery_limit" placeholder="Max Orders in Queue" value="{{  !empty($user->delivery_guy_detail->max_accept_delivery_limit) ? $user->delivery_guy_detail->max_accept_delivery_limit : "100" }}" required="required">
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label">Tip Commission Rate %</label>
+                                    <div class="col-lg-9">
+                                        <input type="text" class="form-control form-control-lg commission_rate" name="tip_commission_rate" placeholder="Commission Rate %" value="{{  !empty($user->delivery_guy_detail->tip_commission_rate) ? $user->delivery_guy_detail->tip_commission_rate : "100" }}" required="required">
+                                    </div>
+                            </div>
                         @endif
                         <div class="text-right">
                             <button type="submit" class="btn btn-primary">
@@ -196,11 +202,12 @@
                 </div>
             </div>
         </div>
+
         <div class="col-md-5">
             <div class="card">
                 <div class="card-body">
                     <legend class="font-weight-semibold text-uppercase font-size-sm">
-                            <i class="icon-piggy-bank mr-2"></i> Current {{ config("settings.walletName") }} Balance:  <span style="font-size: 1rem;">{{ config('settings.currencyFormat') }} {{ $user->balanceFloat }}</span>
+                            <i class="icon-piggy-bank mr-2"></i> {{ config("settings.walletName") }} Balance:  <span style="font-size: 1rem;">{{ config('settings.currencyFormat') }}{{ $user->balanceFloat }}</span>
                             <button class="btn btn-md btn-default" id="viewTransactions" style="float: right; border: 1px solid #ccc; line-height: 10px;">View Transactions</button>
                     </legend>
                     <button class="btn btn-primary btn-labeled btn-labeled-left mr-2" id="addAmountButton"><b><i class="icon-plus2"></i></b> Add Amount</button>
@@ -302,7 +309,7 @@
                                         {{ $transaction->meta["description"] }}
                                     </td>
                                     <td>
-                                       {{ $transaction->created_at->diffForHumans() }} || {{ $transaction->created_at }}
+                                       {{ $transaction->created_at->format('Y-m-d  - h:i A')}}  ({{ $transaction->created_at->diffForHumans() }})
                                     </td>
                                 </tr>
                                 @endforeach
@@ -310,7 +317,7 @@
                         </table>
                     </div>
                     @else
-                    <p class="text-muted text-center mb-0">No transactions have been made from {{ config('settings.walletName') }}</p>
+                    <p class="text-muted text-center mb-0">No transactions has been made from {{ config('settings.walletName') }}</p>
                     @endif   
                 </div>
             </div>
@@ -322,7 +329,7 @@
                 <div class="card">
                     <div class="card-body">
                          <legend class="font-weight-semibold text-uppercase font-size-sm">
-                                <i class="icon-transmission mr-2"></i> Orders from user <strong>{{ $user->name }}</strong>
+                                <i class="icon-basket mr-2"></i> Orders from user <strong>{{ $user->name }}</strong>
                         </legend>
                         @if(count($orders) > 0)
                         <div class="table-responsive">
@@ -338,6 +345,9 @@
                                         <th>
                                             Order Date
                                         </th>
+                                        <th>
+                                            Order Total
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -348,49 +358,32 @@
                                     
                                     </td>
                                         <td>
-                                            @if($order->orderstatus_id == "1")
-                                            <span class="badge badge-flat border-grey-800 text-danger text-capitalize">Order Placed</span>
-                                            @endif
-    
-                                            @if($order->orderstatus_id == "2")
-                                            <span class="badge badge-flat border-grey-800 text-danger text-capitalize">Preparing Order</span>
-                                            @endif
-    
-                                            @if($order->orderstatus_id == "3")
-                                            <span class="badge badge-flat border-grey-800 text-danger text-capitalize">Delivery Guy Assigned</span>
-                                            @endif
-    
-                                            @if($order->orderstatus_id == "4")
-                                            <span class="badge badge-flat border-grey-800 text-danger text-capitalize">Order Picked Up</span>
-                                            @endif
-    
-                                            @if($order->orderstatus_id == "5")
-                                            <span class="badge badge-flat border-grey-800 text-success text-capitalize">Deliverd</span>
-                                            @endif
-    
-                                            @if($order->orderstatus_id == "6")
-                                            <span class="badge badge-flat border-grey-800 text-danger text-capitalize">Canceled</span>
-                                            @endif
-                                            @if($order->orderstatus_id == "7")
-                                            <span class="badge badge-flat border-grey-800 text-danger text-capitalize">Ready For Pick Up</span>
-                                            @endif
-                                            @if($order->orderstatus_id == "8")
-                                            <span class="badge badge-flat border-grey-800 text-danger text-capitalize">Awaiting Payment</span>
-                                            @endif
-                                            @if($order->orderstatus_id == "9")
-                                            <span class="badge badge-flat border-grey-800 text-danger text-capitalize">Payment Failed</span>
-                                            @endif
+                                            <span class="badge badge-flat border-grey-800 text-primary @if ($order->orderstatus_id == 6) text-danger @endif text-capitalize">
+                                            @if ($order->orderstatus_id == 1) Order Placed @endif
+                                            @if ($order->orderstatus_id == 2) Order Accepted @endif
+                                            @if ($order->orderstatus_id == 3) Delivery Assigned @endif
+                                            @if ($order->orderstatus_id == 4) Picked Up @endif
+                                            @if ($order->orderstatus_id == 5) Completed @endif
+                                            @if ($order->orderstatus_id == 6) Canceled @endif
+                                            @if ($order->orderstatus_id == 7) Ready to Pickup @endif
+                                            @if ($order->orderstatus_id == 8) Awaiting Payment @endif
+                                            @if ($order->orderstatus_id == 9) Payment Failed @endif
+                                            </span>
                                         </td>
                                       
                                         <td>
-                                          {{ $order->created_at->diffForHumans() }} || {{ $order->created_at }} 
+                                         {{ $order->created_at->format('Y-m-d  - h:i A')}}  ({{ $order->created_at->diffForHumans() }})
+                                        </td>
+
+                                        <td>
+                                          {{ config('settings.currencyFormat') }}{{ $order->total }} 
                                         </td>
                                  </tr>
                                     @endforeach
                             </tbody>
                             </table>
                     </div>
-                     @else
+                    @else
                     <p class="text-muted text-center mb-0">No Orders Placed From This User</p>
                     @endif   
                 </div>

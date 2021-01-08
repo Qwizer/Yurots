@@ -13,9 +13,11 @@
             <h4>
                 <span class="font-weight-bold mr-2">Total Users</span>
                 <span class="badge badge-primary badge-pill animated flipInX">{{ count($users) }}</span>
+                <i class="icon-question3 ml-1" data-popup="tooltip" title="These are total registered users on your websites who can receives only Alerts messages." data-placement="top"></i>
                 <br>
                 <span class="font-weight-bold mr-2">Total Subscribers</span>
                 <span class="badge badge-primary badge-pill animated flipInX">{{ $count }}</span>
+                <i class="icon-question3 ml-1" data-popup="tooltip" title="These are total registered push notification subscribed users on your websites who can receives only Alerts and Push Notifications messages." data-placement="top"></i>
             </h4>
             <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
         </div>
@@ -76,6 +78,20 @@
             </div>
         </div>
 
+        @if($countJunkData > 0)
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="text-muted mb-3"><strong>Junk data count <strong class="text-warning">{{ $countJunkData }}</strong></strong></h3>
+                    
+                    <p class="text-muted mb-3">Alters older than 7 days are not shown to the users and hence are of no use. Clicking on the below button will only delete <b>{{ $countJunkData }} Alerts data</b> which are older than 7 days.</p>
+
+                    <button class="btn btn-danger btn-md float-right" onclick="confirmDelete()">Delete Junk Data</button>
+                </div>
+            </div>
+        </div>
+        @endif
+
         <div class="col-md-8">
             <div class="card">
                 <div class="card-body">
@@ -98,7 +114,7 @@
                             <div class="col-lg-9">
                                 <select multiple="multiple" class="form-control select" data-fouc name="users[]" required="required">
                                     @foreach ($users as $user)
-                                    <option value="{{ $user->id }}" class="text-capitalize">{{ $user->name }}</option>
+                                    <option value="{{ $user->id }}" class="text-capitalize">{{ $user->name }} ({{ $user->email }})</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -202,5 +218,14 @@
            return false;
         }
     };
+
+    function confirmDelete()
+    {
+          var r = confirm("Are you sure? This action is irreversible!");
+          if (r == true) {
+            let url = "{{ url('admin/delete-alerts-junk') }}";
+            window.location.href = url;
+          }
+    }
 </script>
 @endsection

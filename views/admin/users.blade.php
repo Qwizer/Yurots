@@ -14,87 +14,40 @@
     color: #616161;
     }
 </style>
-<div class="page-header">
-    <div class="page-header-content header-elements-md-inline">
-        <div class="page-title d-flex">
-            <h4><i class="icon-circle-right2 mr-2"></i>
-                @if(empty($query))
-                <span class="font-weight-bold mr-2">TOTAL</span>
-                <span class="badge badge-primary badge-pill animated flipInX">{{ $count }}</span>
-                @else
-                <span class="font-weight-bold mr-2">TOTAL</span>
-                <span class="badge badge-primary badge-pill animated flipInX mr-2">{{ $count }}</span>
-                <span class="font-weight-bold mr-2">Results for "{{ $query }}"</span>
-                @endif
-            </h4>
-            <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
-        </div>
-        <div class="header-elements d-none py-0 mb-3 mb-md-0">
-            <div class="breadcrumb">
-                <button type="button" class="btn btn-secondary btn-labeled btn-labeled-left" id="addNewUser"
-                    data-toggle="modal" data-target="#addNewUserModal">
-                <b><i class="icon-plus2"></i></b>
-                Add New User
-                </button>
-            </div>
+
+
+<div class="content mt-2">
+    <div class="d-flex justify-content-between my-2">
+        <h3><strong>  <i class="icon-users4 mr-1"></i> All Users</strong></h3>
+        <div>
+            <button type="button" class="btn btn-secondary btn-labeled btn-labeled-left mr-2" id="addNewUser"
+                data-toggle="modal" data-target="#addNewUserModal">
+            <b><i class="icon-plus2"></i></b>
+            Add New User
+            </button>
+            <button type="button" class="btn btn-secondary btn-labeled btn-labeled-left" id="clearFilterAndState"> <b><i class=" icon-reload-alt"></i></b> Reset All Filters</button>
         </div>
     </div>
-</div>
-<div class="content">
-    <form action="{{ route('admin.post.searchUsers') }}" method="GET">
-        <div class="form-group form-group-feedback form-group-feedback-right search-box">
-            <input type="text" class="form-control form-control-lg search-input"
-                placeholder="Search with user name or email..." name="query">
-            <div class="form-control-feedback form-control-feedback-lg">
-                <i class="icon-search4"></i>
-            </div>
-        </div>
-        @csrf
-    </form>
+
     <div class="card">
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table">
+                    <table class="table table-striped" id="usersDatatable" width="100%">
                     <thead>
                         <tr>
-                            <th style="width: 30%;">Name</th>
-                            <th style="width: 30%">Email</th>
-                            <th style="width: 15%;">Created</th>
-                            <th style="width: 10%;">Role</th>
-                            <th style="width: 15%; text-align: center;">{{ config('settings.walletName') }}</th>
-                            <th class="text-center" style="width: 10%;"><i class="
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Role</th>
+                            <th>{{ config('settings.walletName') }}</th>
+                            <th>Created Date</th>                            
+                            <th class="text-center"><i class="
                                 icon-circle-down2"></i></th>
                         </tr>
                     </thead>
-                    <tbody>
-                        @foreach ($users as $user)
-                        <tr>
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->email }}</td>
-                            <td>{{ $user->created_at->diffForHumans() }}</td>
-                            <td>
-                                @foreach ($user->roles as $role)
-                                <span class="badge badge-flat border-grey-800 text-default text-capitalize">
-                                {{ $role->name }}
-                                </span> @endforeach
-                            </td>
-                            <td class="text-center">
-                               {{ config('settings.currencyFormat') }}{{ $user->balanceFloat }}
-                            </td>
-                            <td class="text-center">
-                                <div class="btn-group btn-group-justified">
-                                <a href="{{ route('admin.get.editUser', $user->id) }}"
-                                    class="badge badge-primary badge-icon"> EDIT <i
-                                    class="icon-database-edit2 ml-1"></i></a>
-                                </div>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
+                    <tbody></tbody>
                 </table>
-                <div class="mt-3">
-                    {{ $users->links() }}
-                </div>
             </div>
         </div>
     </div>
@@ -193,6 +146,12 @@
                                 <input type="text" class="form-control form-control-lg commission_rate" name="delivery_commission_rate" placeholder="Commission Rate % (By detault, it's set to 5%)" value="5" required="required">
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label">Tip Commission Rate %</label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control form-control-lg tip-commission_rate" name="tip_commission_rate" placeholder="Commission Rate % (By detault, it's set to 5%)" value="100" required="required">
+                            </div>
+                        </div>
                     </div>
                     <div class="text-right">
                         <button type="submit" class="btn btn-primary">
@@ -230,7 +189,61 @@
         });
         
         $('.commission_rate').numeric({ allowThouSep:false, maxDecimalPlaces: 2, max: 100, allowMinus: false });
+
+        $('body').tooltip({selector: '[data-popup="tooltip"]'});
+         var datatable = $('#usersDatatable').DataTable({
+            processing: true,
+            serverSide: true,
+            stateSave: true,
+            lengthMenu: [ 10, 25, 50, 100, 200, 500 ],
+            order: [[ 0, "desc" ]],
+            ajax: '{{ route('admin.usersDatatable') }}',
+            columns: [
+                {data: 'id', visible: false, searchable: false},
+                {data: 'name'},
+                {data: 'email'},
+                {data: 'phone'},
+                {data: 'role', sortable: false, name: 'roles.name'},
+                {data: 'wallet', sortable: false, searchable: false,},
+                {data: 'created_at'},
+                {data: 'action', sortable: false, searchable: false},
+            ],
+            colReorder: true,
+            drawCallback: function( settings ) {
+                $('select').select2({
+                   minimumResultsForSearch: Infinity,
+                   width: 'auto'
+                });
+            },
+            scrollX: true,
+            scrollCollapse: true,
+            dom: '<"custom-processing-banner"r>flBtip',
+            language: {
+                search: '_INPUT_',
+                searchPlaceholder: 'Search with anything...',
+                lengthMenu: '_MENU_',
+                paginate: { 'first': 'First', 'last': 'Last', 'next': '&rarr;', 'previous': '&larr;' },
+                processing: '<i class="icon-spinner10 spinner position-left mr-1"></i>Waiting for server response...'
+            },
+           buttons: {
+                   dom: {
+                       button: {
+                           className: 'btn btn-default'
+                       }
+                   },
+                   buttons: [
+                       {extend: 'csv', filename: 'users-'+ new Date().toISOString().slice(0,10), text: 'Export as CSV'},
+                   ]
+               }
+        });
+
+         $('#clearFilterAndState').click(function(event) {
+            if (datatable) {
+                datatable.state.clear();
+                window.location.reload();
+            }
+         });
     });
-    
+
 </script>
 @endsection

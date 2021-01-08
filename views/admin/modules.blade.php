@@ -56,6 +56,7 @@
                             <tr>
                                 <th>Name</th>
                                 <th>Description</th>
+                                <th>Status</th>
                                 <th class="text-center"><i class="icon-circle-down2"></i></th>
                             </tr>
                         </thead>
@@ -66,24 +67,35 @@
                                 <td>
                                     <small>{{ $module->getDescription() }}</small>
                                 </td>
+                                <td>
+                                  @if($module->isEnabled())
+                                    <span class="badge badge-flat border-grey-800 text-primary text-capitalize mr-1">
+                                        Enabled
+                                    </span>
+                                  @else
+                                    <span class="badge badge-flat border-grey-800 text-danger text-capitalize mr-1">
+                                        Disabled
+                                    </span>
+                                  @endif
+                                </td>
                                 <td class="text-center">
                                     <div class="btn-group btn-group-justified align-items-center" @if(!$module->isEnabled()) style="flex-direction: row-reverse;" @endif>
                                         @if($module->isEnabled())
-                                        <a href="{{ route('admin.disableModule', $module->getStudlyName()) }}"
-                                            class="btn btn-primary btn-labeled btn-labeled-left btn-sm enDisBtn"  data-popup="tooltip" title="Double Click to Disable" data-placement="left">
-                                        <b><i class="icon-checkmark3 ml-1"></i></b>
-                                        Enabled
-                                        </a>
                                         <a href="{{ url($module->getLowerName()) }}/settings"
-                                            class="btn btn-secondary btn-labeled btn-labeled-left btn-sm ml-2" data-placement="left">
+                                            class="btn btn-secondary btn-labeled btn-labeled-left btn-sm" data-placement="left">
                                         <b><i class="icon-gear ml-1"></i>  </b>
                                         Settings
                                         </a>
+                                        <a href="{{ route('admin.disableModule', $module->getStudlyName()) }}"
+                                            class="btn btn-danger btn-labeled btn-labeled-left btn-sm enDisBtn ml-2" data-popup="tooltip" title="Double Click to Disable" data-placement="left">
+                                        <b><i class="icon-cross2 ml-1"></i></b>
+                                        Disable
+                                        </a>
                                         @else
                                         <a href="{{ route('admin.enableModule', $module->getStudlyName()) }}"
-                                            class="btn btn-danger btn-labeled btn-labeled-left btn-sm enDisBtn"  data-popup="tooltip" title="Double Click to Enable" data-placement="left" style="max-width: 138px;">
-                                        <b><i class="icon-cross2 ml-1"></i></b>
-                                        Disabled
+                                            class="btn btn-primary btn-labeled btn-labeled-left btn-sm enDisBtn"  data-popup="tooltip" title="Double Click to Enable" data-placement="left" style="max-width: 125px;">
+                                        <b><i class="icon-checkmark3 ml-1"></i></b>
+                                        Enable
                                         </a>
                                         @endif
                                     </div>

@@ -12,14 +12,17 @@ Configuration
 <form method="POST" action="{{ url('install/configuration') }}" class="form-horizontal">
     {{ csrf_field() }}
     <div class="box">
+        @if(Session::has('message'))
         <div style="padding: 10px; background-color: #F44336; margin-bottom: 1rem; border-radius: 0.275rem;">
-            @if(Session::has('message'))
                <p style="color: #fff"> {{ Session::get('message') }} </p>
-            @endif
-            @if($errors->any())
-              <p style="color: #fff"> {{ implode('', $errors->all(':message')) }} </p>
-            @endif
         </div>
+        @endif
+
+        @if($errors->any())
+            <div style="padding: 10px; background-color: #F44336; margin-bottom: 1rem; border-radius: 0.275rem;">
+                <p style="color: #fff"> {{ implode('', $errors->all(':message')) }} </p>
+            </div>
+        @endif
         <div class="configure-form">
             <div class="form-group {{ $errors->has('db.purchase_code') ? 'has-error': '' }}">
                 <label class="control-label col-sm-3" for="host">Purchase Code <span>*</span></label>

@@ -29,6 +29,7 @@
                 @foreach($restaurantCategories as $rC)
                 <span class="badge @if($rC->is_active) badge-primary @else badge-warning @endif badge-pill animated">{{ $rC->name }}</span>
                 @endforeach
+                <div class="clearfix"></div>
                 <button class="btn btn-md btn-primary btn-labeled btn-labeled-left float-right"  data-toggle="modal" data-target="#manageRestaurantCategory"><b><i class="icon-grid52"></i></b> Manage Categories</button>
             </div>
         </div>

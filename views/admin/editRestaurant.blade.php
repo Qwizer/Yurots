@@ -25,7 +25,7 @@
                     <input type="hidden" name="id" value="{{ $restaurant->id }}">
 
                     <div class="text-right">
-                        <button type="submit" class="btn btn-primary btn-labeled btn-labeled-left btn-lg">
+                        <button type="submit" class="btn btn-primary btn-labeled btn-labeled-left btn-lg btnUpdateStore">
                         <b><i class="icon-database-insert ml-1"></i></b>
                         Update Store
                         </button>
@@ -142,13 +142,9 @@
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label">Store Categories: </label>
                                     <div class="col-lg-9">
-                                        @foreach($restaurant->restaurant_categories as $resCat)
-                                        <span class="badge badge-flat border-grey-800" style="font-size: 0.9rem;">{{ $resCat->name }}
-                                        </span>
-                                        @endforeach
-                                        <select multiple="multiple" class="form-control select" data-fouc name="restaurant_category_restaurant[]">
+                                        <select multiple="multiple" class="form-control selectRestaurantCategory" data-fouc name="restaurant_category_restaurant[]">
                                             @foreach($restaurantCategories as $rC)
-                                            <option value="{{ $rC->id }}" class="text-capitalize">{{ $rC->name }}</option>
+                                            <option value="{{ $rC->id }}" class="text-capitalize" {{isset($restaurant) &&  in_array($restaurant->id, $rC->restaurants()->pluck('restaurant_id')->toArray()) ? 'selected' : '' }}>{{ $rC->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -502,7 +498,7 @@
                     </div>
                     
                     <div class="text-right mt-5">
-                        <button type="submit" class="btn btn-primary btn-labeled btn-labeled-left btn-lg">
+                        <button type="submit" class="btn btn-primary btn-labeled btn-labeled-left btn-lg btnUpdateStore">
                         <b><i class="icon-database-insert ml-1"></i></b>
                         Update Store
                         </button>
@@ -830,6 +826,10 @@
         $('.select').select2({
             minimumResultsForSearch: Infinity,
         });
+        
+        $('.selectRestaurantCategory').select2({
+            closeOnSelect: false
+        })
     
       if (Array.prototype.forEach) {
                var elems = Array.prototype.slice.call(document.querySelectorAll('.switchery-primary'));
@@ -905,6 +905,24 @@
             $("[name='window_redirect_hash']").val(this.hash);
             $('html, body').scrollTop(scrollmem);
         });
+
+        $('.btnUpdateStore').click(function () {
+            $('input:invalid').each(function () {
+                // Find the tab-pane that this element is inside, and get the id
+                var $closest = $(this).closest('.tab-pane');
+                var id = $closest.attr('id');
+
+                // Find the link that corresponds to the pane and have it show
+                $('ul.nav a[href="#' + id + '"]').tab('show');
+
+                var hash = '#'+id;
+                window.location.hash = hash;
+                $("[name='window_redirect_hash']").val(hash);
+
+                return false;
+            });
+        });
+
      });
 </script>
 @endsection

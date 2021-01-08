@@ -109,7 +109,7 @@
                     </tbody>
                 </table>
                 <div class="mt-3">
-                    {{ $items->links() }}
+                    {{ $items->appends($_GET)->links() }}
                 </div>
             </div>
         </div>

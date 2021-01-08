@@ -32,115 +32,115 @@
                         <ul class="nav nav-pills flex-column mr-lg-3 wmin-lg-250 mb-lg-0">
                             <li class="nav-item">
                                 <a href="#generalSettings" class="nav-link active" data-toggle="tab">
-                                <i class="icon-gear mr-2"></i>
+                                <i class="icon-gear mr-2 custom-color-{{ rand(1,8) }} settings-icon"></i>
                                 General
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="#designSettings" class="nav-link" data-toggle="tab">
-                                <i class="icon-brush mr-2"></i>
+                                <i class="icon-brush mr-2 custom-color-{{ rand(1,8) }} settings-icon"></i>
                                 Design
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="#customerAppSettings" class="nav-link" data-toggle="tab">
-                                <i class="icon-users4 mr-2"></i>
+                                <i class="icon-users4 mr-2 custom-color-{{ rand(1,8) }} settings-icon"></i>
                                 Customer Application
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="#deliveryAppSettings" class="nav-link" data-toggle="tab">
-                                <i class="icon-truck mr-2"></i>
+                                <i class="icon-truck mr-2 custom-color-{{ rand(1,8) }} settings-icon"></i>
                                 Delivery Application
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="#restaurantDashboardSettings" class="nav-link" data-toggle="tab">
-                                <i class="icon-user-tie mr-2"></i>
+                                <i class="icon-user-tie mr-2 custom-color-{{ rand(1,8) }} settings-icon"></i>
                                 Store Dashboard
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="#seoSettings" class="nav-link" data-toggle="tab">
-                                <i class="icon-zoomin3 mr-2"></i>
+                                <i class="icon-zoomin3 mr-2 custom-color-{{ rand(1,8) }} settings-icon"></i>
                                 SEO
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="#pushNotificationSettings" class="nav-link" data-toggle="tab">
-                                <i class="icon-bubble-dots4 mr-2"></i>
+                                <i class="icon-bubble-dots4 mr-2 custom-color-{{ rand(1,8) }} settings-icon"></i>
                                 Push Notifications
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="#socialLoginSettings" class="nav-link" data-toggle="tab">
-                                <i class="icon-feed2 mr-2"></i>
+                                <i class="icon-feed2 mr-2 custom-color-{{ rand(1,8) }} settings-icon"></i>
                                 Social Login
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="#mapSettings" class="nav-link" data-toggle="tab">
-                                <i class="icon-location4 mr-2"></i>
+                                <i class="icon-location4 mr-2 custom-color-{{ rand(1,8) }} settings-icon"></i>
                                 Google Maps
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="#paymentGatewaySettings" class="nav-link" data-toggle="tab">
-                                <i class="icon-coin-dollar mr-2"></i>
+                                <i class="icon-coin-dollar mr-2 custom-color-{{ rand(1,8) }} settings-icon"></i>
                                 Payment Gateways
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="#smsGatewaySettings" class="nav-link" data-toggle="tab">
-                                <i class="icon-bubble-lines4 mr-2"></i>
+                                <i class="icon-bubble-lines4 mr-2 custom-color-{{ rand(1,8) }} settings-icon"></i>
                                 SMS Settings
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="#emailSettings" class="nav-link" data-toggle="tab">
-                                <i class="icon-envelop3 mr-2"></i>
+                                <i class="icon-envelop3 mr-2 custom-color-{{ rand(1,8) }} settings-icon"></i>
                                 Email Settings 
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="#googleAnalyticsSettings" class="nav-link" data-toggle="tab">
-                                <i class="icon-graph mr-2"></i>
+                                <i class="icon-graph mr-2 custom-color-{{ rand(1,8) }} settings-icon"></i>
                                 Google Analytics
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="#taxSettings" class="nav-link" data-toggle="tab">
-                                <i class="icon-percent mr-2"></i>
+                                <i class="icon-percent mr-2 custom-color-{{ rand(1,8) }} settings-icon"></i>
                                 Tax Settings
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('admin.translations') }}" class="nav-link">
-                                <i class="icon-font-size2 mr-2"></i>
+                                <i class="icon-font-size2 mr-2 custom-color-{{ rand(1,8) }} settings-icon"></i>
                                 Translations
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="#customCSS" class="nav-link" data-toggle="tab">
-                                <i class="icon-file-css mr-2"></i>
+                                <i class="icon-file-css mr-2 custom-color-{{ rand(1,8) }} settings-icon"></i>
                                 Custom CSS
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="#cacheSettings" class="nav-link" data-toggle="tab">
-                                <i class="icon-database-refresh mr-2"></i>
+                                <i class="icon-database-refresh mr-2 custom-color-{{ rand(1,8) }} settings-icon"></i>
                                 Cache Settings
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="#fixUpdateIssues" class="nav-link" data-toggle="tab">
-                                <i class="icon-magic-wand2 mr-2"></i>
+                                <i class="icon-magic-wand2 mr-2 custom-color-{{ rand(1,8) }} settings-icon"></i>
                                 Fix Update Issues
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="#advanceSettings" class="nav-link" data-toggle="tab">
-                                <i class="icon-user-tie mr-2"></i>
+                                <i class="icon-user-tie mr-2 custom-color-{{ rand(1,8) }} settings-icon"></i>
                                 Advanced Settings <span class="badge badge-flat border-grey-800 text-danger text-capitalize mr-1 float-right">NEW</span>
                                 </a>
                             </li>
@@ -1357,7 +1357,7 @@
                             </div>
                             <div class="tab-pane fade" id="pushNotificationSettings">
                                 <legend class="font-weight-semibold text-uppercase font-size-sm">
-                                    Push Notification Settings
+                                    Customer/Delivery Application Push Notification (<b class="text-warning">Firebase</b>)
                                 </legend>
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label"><strong>Enable Push
@@ -1416,8 +1416,36 @@
                                     href="https://docs.foodomaa.com/configurations/push-notification-keys"
                                     target="_blank">How to configure Push Notifiactions? </a></span>
                                 <br>
+                                <span><strong class="text-danger">IMPORTANT</strong> To learn how Subscribers, Push Notifications, and Alerts work <a href="https://docs.foodomaa.com/faqs/push-notifications-and-alerts" target="_blank"><b>Click Here</b> </a></span>
                                 <hr>
-                                <span><strong class="text-danger">IMPORTANT</strong><br> <a href="https://docs.foodomaa.com/faqs/push-notifications-and-alerts" target="_blank">Click Here </a> to learn how Subscribers, Push Notifications, and Alerts work.</span>
+                                <div class="mt-4"></div>
+                                <legend class="font-weight-semibold text-uppercase font-size-sm">
+                                    Store Dashboard Push Notification (<b class="text-warning">OneSignal</b>)
+                                </legend>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label"><strong>OneSignal App ID:</strong></label>
+                                    <div class="col-lg-9">
+                                        <input type="text" class="form-control form-control-lg" name="oneSignalAppId"
+                                            value="{{ config('settings.oneSignalAppId') }}"
+                                            placeholder="Enter OneSignal App ID">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label"><strong>OneSignal Rest API Key:</strong></label>
+                                    <div class="col-lg-9">
+                                        <input type="text" class="form-control form-control-lg" name="oneSignalRestApiKey"
+                                            value="{{ config('settings.oneSignalRestApiKey') }}"
+                                            placeholder="Enter OneSignal Rest API Key">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label"><strong>New Order Push Notification Message:</strong></label>
+                                    <div class="col-lg-9">
+                                        <input type="text" class="form-control form-control-lg" name="restaurantNewOrderNotificationMsg"
+                                            value="{{ config('settings.restaurantNewOrderNotificationMsg') }}"
+                                            placeholder="New Order Push Notification Message">
+                                    </div>
+                                </div>
                             </div>
                             <div class="tab-pane fade" id="socialLoginSettings">
                                 <legend class="font-weight-semibold text-uppercase font-size-sm">
@@ -2021,798 +2049,919 @@
             </div>
             <hr>
             <div class="form-group row">
-            <label class="col-lg-3 col-form-label"><strong>Send Emails From "Email"</strong></label>
-            <div class="col-lg-9">
-            <input type="email" class="form-control form-control-lg" name="sendEmailFromEmailAddress"
-                value="{{ config('settings.sendEmailFromEmailAddress') }}"
-                placeholder="Enter an email like do-not-reply@mywebsite.com">
-            </div>
-            </div>
-            <div class="form-group row">
-            <label class="col-lg-3 col-form-label"><strong>Send Emails From "Name"</strong></label>
-            <div class="col-lg-9">
-            <input type="text" class="form-control form-control-lg" name="sendEmailFromEmailName"
-                value="{{ config('settings.sendEmailFromEmailName') }}"
-                placeholder="Enter the email address name (Ex: Your website name)">
-            </div>
+                <label class="col-lg-3 col-form-label"><strong>Send Emails From "Email"</strong></label>
+                <div class="col-lg-9">
+                    <input type="email" class="form-control form-control-lg" name="sendEmailFromEmailAddress"
+                        value="{{ config('settings.sendEmailFromEmailAddress') }}"
+                        placeholder="Enter an email like do-not-reply@mywebsite.com">
+                </div>
             </div>
             <div class="form-group row">
-            <label class="col-lg-3 col-form-label"><strong>Password Reset Email "Subject"</strong></label>
-            <div class="col-lg-9">
-            <input type="text" class="form-control form-control-lg" name="passwordResetEmailSubject"
-                value="{{ config('settings.passwordResetEmailSubject') }}"
-                placeholder="Enter the email subject for password recovery email (Ex: Password Reset)">
+                <label class="col-lg-3 col-form-label"><strong>Send Emails From "Name"</strong></label>
+                <div class="col-lg-9">
+                    <input type="text" class="form-control form-control-lg" name="sendEmailFromEmailName"
+                        value="{{ config('settings.sendEmailFromEmailName') }}"
+                        placeholder="Enter the email address name (Ex: Your website name)">
+                </div>
             </div>
+            <div class="form-group row">
+                <label class="col-lg-3 col-form-label"><strong>Password Reset Email "Subject"</strong></label>
+                <div class="col-lg-9">
+                    <input type="text" class="form-control form-control-lg" name="passwordResetEmailSubject"
+                        value="{{ config('settings.passwordResetEmailSubject') }}"
+                        placeholder="Enter the email subject for password recovery email (Ex: Password Reset)">
+                </div>
             </div>
             <div>
-            <p><strong class="text-danger">IMPORTANT:</strong> After saving the settings, send a test mail to your email
-            address before you enable the Password Reset Functionality
-            </p>
-            <button
-                type="button" class="btn btn-primary btn-md" id="toggleSendTestEmail" autocomplete="false"> Send Test
-            Email</button>
-            <div id="sendTestEmailBlock" style="display: none;">
-            <div class="form-group row">
-            <div class="col-lg-6">
-            <input type="email" class="form-control form-control-lg" id="testEmail"
-                placeholder="Enter your Email Address">
-            </div>
-            <button type="button"
-                class="btn btn-primary btn-labeled btn-labeled-left btn-md"
-                id="sendTestEmailNow">
-            <b><i class="icon-mail-read ml-1"></i></b>
-            Send Test Email
-            <i class="icon-spinner10 spinner ml-1" id="testMailSpinner"
-                style="display: none;"></i>
-            </button>
-            </div>
-            </div>
+                <p><strong class="text-danger">IMPORTANT:</strong> After saving the settings, send a test mail to your email
+                    address before you enable the Password Reset Functionality
+                </p>
+                <button
+                    type="button" class="btn btn-primary btn-md" id="toggleSendTestEmail" autocomplete="false"> Send Test
+                Email</button>
+                <div id="sendTestEmailBlock" style="display: none;">
+                    <div class="form-group row">
+                        <div class="col-lg-6">
+                            <input type="email" class="form-control form-control-lg" id="testEmail"
+                                placeholder="Enter your Email Address">
+                        </div>
+                        <button type="button"
+                            class="btn btn-primary btn-labeled btn-labeled-left btn-md"
+                            id="sendTestEmailNow">
+                        <b><i class="icon-mail-read ml-1"></i></b>
+                        Send Test Email
+                        <i class="icon-spinner10 spinner ml-1" id="testMailSpinner"
+                            style="display: none;"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
             <hr>
             <div class="form-group row">
-            <label class="col-lg-3 col-form-label"><strong>Enable Password Reset
-            Email?</strong></label>
-            <div class="col-lg-9">
-            <div class="checkbox checkbox-switchery mt-2">
-            <label>
-            <input value="true" type="checkbox" class="switchery-primary"
-            @if(config('settings.enPassResetEmail')=="true" ) checked="checked"
-            @endif name="enPassResetEmail">
-            </label>
-            </div>
-            </div>
+                <label class="col-lg-3 col-form-label"><strong>Enable Password Reset
+                Email?</strong></label>
+                <div class="col-lg-9">
+                    <div class="checkbox checkbox-switchery mt-2">
+                        <label>
+                        <input value="true" type="checkbox" class="switchery-primary"
+                        @if(config('settings.enPassResetEmail')=="true" ) checked="checked"
+                        @endif name="enPassResetEmail">
+                        </label>
+                    </div>
+                </div>
             </div>
             <div id="customSMTPDisclaimer" class="modal fade" tabindex="-1">
-            <div class="modal-dialog">
-            <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title"><span class="font-weight-bold text-danger"> <i class="icon-exclamation mr-2"></i> Important Disclaimer</span></h5>
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"><span class="font-weight-bold text-danger"> <i class="icon-exclamation mr-2"></i> Important Disclaimer</span></h5>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                You have selected to use <strong>Custom SMTP Gateway</strong>.
+                                <br><br>
+                                Only SendGrid API Email Gateway is officially supported. 
+                                <br><br>
+                                If you configure a Custom SMTP gateway, you will be on your own! 
+                                <br>
+                                Sending of emails cannot be guaranteed with the Custom SMTP Gateway settings as configurations may vary from server to server.
+                                <br><br>
+                                <strong>Any support tickets related to Custom SMTP Gateway issues will be <span class="text-danger">closed</span> automatically.</strong>
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="text-right">
+                                <button type="button" class="btn btn-primary btn-labeled btn-labeled-left btn-lg" data-dismiss="modal">
+                                <b><i class="icon-checkmark ml-1"></i></b>
+                                I Understand
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="modal-body">
-            <p>
-            You have selected to use <strong>Custom SMTP Gateway</strong>.
-            <br><br>
-            Only SendGrid API Email Gateway is officially supported. 
-            <br><br>
-            If you configure a Custom SMTP gateway, you will be on your own! 
-            <br>
-            Sending of emails cannot be guaranteed with the Custom SMTP Gateway settings as configurations may vary from server to server.
-            <br><br>
-            <strong>Any support tickets related to Custom SMTP Gateway issues will be <span class="text-danger">closed</span> automatically.</strong>
-            </p>
             </div>
-            <div class="modal-footer">
-            <div class="text-right">
-            <button type="button" class="btn btn-primary btn-labeled btn-labeled-left btn-lg" data-dismiss="modal">
-            <b><i class="icon-checkmark ml-1"></i></b>
-            I Understand
-            </button>
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
-        </div>
-        <script>
-            $('#toggleSendTestEmail').click(function(event) {
-                $(this).hide();
-                $('#sendTestEmailBlock').toggle(500);
-            });
-            $('#sendTestEmailNow').click(function(event) {
-                let testEmail = $('#testEmail').val();
-                let token = $("#csrf").val();
-                
-                if (testEmail.length) {
-                    $('#sendTestEmailNow').addClass('pointer-none');
-                    $('#testMailSpinner').toggle();
-                    $.ajax({
-                        url: '{{ route('admin.sendTestmail') }}',
-                        type: 'POST',
-                        dataType: 'JSON',
-                        data: {email: testEmail, _token: token},
-                    })
-                    .done(function(data) {
-                        $.jGrowl("Please check your inbox.", {
-                            position: 'bottom-center',
-                            header: 'Mail Sent ✅',
-                            theme: 'bg-success',
-                            life: '5000'
-                        }); 
-                        console.log("success");
-                        $('#sendTestEmailNow').removeClass('pointer-none');
+            <script>
+                $('#toggleSendTestEmail').click(function(event) {
+                    $(this).hide();
+                    $('#sendTestEmailBlock').toggle(500);
+                });
+                $('#sendTestEmailNow').click(function(event) {
+                    let testEmail = $('#testEmail').val();
+                    let token = $("#csrf").val();
+                    
+                    if (testEmail.length) {
+                        $('#sendTestEmailNow').addClass('pointer-none');
                         $('#testMailSpinner').toggle();
-                    })
-                    .fail(function(data) {
-                        console.log(data);
-                        $.jGrowl(data.responseJSON.message, {
+                        $.ajax({
+                            url: '{{ route('admin.sendTestmail') }}',
+                            type: 'POST',
+                            dataType: 'JSON',
+                            data: {email: testEmail, _token: token},
+                        })
+                        .done(function(data) {
+                            $.jGrowl("Please check your inbox.", {
+                                position: 'bottom-center',
+                                header: 'Mail Sent ✅',
+                                theme: 'bg-success',
+                                life: '5000'
+                            }); 
+                            console.log("success");
+                            $('#sendTestEmailNow').removeClass('pointer-none');
+                            $('#testMailSpinner').toggle();
+                        })
+                        .fail(function(data) {
+                            console.log(data);
+                            $.jGrowl(data.responseJSON.message, {
+                                position: 'bottom-center',
+                                header: 'Wooopsss ⚠️',
+                                theme: 'bg-warning',
+                                life: '999999'
+                            }); 
+                            $('#sendTestEmailNow').removeClass('pointer-none');
+                            $('#testMailSpinner').toggle();
+                        }) 
+                    } else {
+                        $.jGrowl("Please enter an email address in a correct format.", {
                             position: 'bottom-center',
                             header: 'Wooopsss ⚠️',
                             theme: 'bg-warning',
-                            life: '999999'
+                            life: '3500'
                         }); 
-                        $('#sendTestEmailNow').removeClass('pointer-none');
-                        $('#testMailSpinner').toggle();
-                    }) 
-                } else {
-                    $.jGrowl("Please enter an email address in a correct format.", {
-                        position: 'bottom-center',
-                        header: 'Wooopsss ⚠️',
-                        theme: 'bg-warning',
-                        life: '3500'
-                    }); 
-                }
-            });
-        </script>
-        <div class="tab-pane fade" id="googleAnalyticsSettings">
-        <legend class="font-weight-semibold text-uppercase font-size-sm">
-        Google Analytics Settings
-        </legend>
-        <div class="form-group row">
-        <label class="col-lg-3 col-form-label"><strong>Enable Google
-        Analytics</strong></label>
-        <div class="col-lg-9">
-        <div class="checkbox checkbox-switchery mt-2">
-        <label>
-        <input value="true" type="checkbox" class="switchery-primary"
-        @if(config('settings.enableGoogleAnalytics')=="true" )
-        checked="checked" @endif name="enableGoogleAnalytics">
-        </label>
-        </div>
-        </div>
-        </div>
-        <div class="form-group row">
-        <label class="col-lg-3 col-form-label"><strong>Analytics UA ID:</strong></label>
-        <div class="col-lg-9">
-        <input type="text" class="form-control form-control-lg" name="googleAnalyticsId"
-            value="{{ config('settings.googleAnalyticsId') }}"
-            placeholder="UA-00000000-00">
-        </div>
-        </div>
-        </div>
-        <div class="tab-pane fade" id="taxSettings">
-        <legend class="font-weight-semibold text-uppercase font-size-sm">
-        Tax Settings
-        </legend>
-        <div class="form-group row">
-        <label class="col-lg-3 col-form-label"><strong>Enable Tax:</strong></label>
-        <div class="col-lg-9">
-        <div class="checkbox checkbox-switchery mt-2">
-        <label>
-        <input value="true" type="checkbox" class="switchery-primary"
-        @if(config('settings.taxApplicable')=="true" ) checked="checked"
-        @endif name="taxApplicable">
-        </label>
-        </div>
-        </div>
-        </div>
-        <div class="form-group row">
-        <label class="col-lg-3 col-form-label"><strong>Tax Percentage:</strong></label>
-        <div class="col-lg-9">
-        <input type="text" class="form-control form-control-lg" name="taxPercentage"
-            value="{{ config('settings.taxPercentage') }}"
-            placeholder="Tax in Percentage">
-        </div>
-        </div>
-        </div>
-        <div class="tab-pane fade" id="customerAppSettings">
-        <legend class="font-weight-semibold text-uppercase font-size-sm">
-        Customer App Settings
-        </legend>
-        
-        
-        <div class="form-group row">
-        <label class="col-lg-3 col-form-label"><strong>Auto Full Address on Location Selection Page <span class="badge badge-flat border-grey-800 text-danger text-capitalize mx-1">NEW</span> <i class="icon-question3 ml-1" data-popup="tooltip" title="Disabling this will only show locality, city, country and pincode on the auto address box" data-placement="top"></i>
-        </strong></label>
-        <div class="col-lg-9">
-        <div class="checkbox checkbox-switchery mt-2">
-        <label>
-        <input value="true" type="checkbox" class="switchery-primary"
-        @if(config('settings.googleFullAddress')=="true" ) checked="checked"
-        @endif name="googleFullAddress">
-        </label>
-        </div>
-        </div>
-        </div>
-
-        <div class="form-group row">
-        <label class="col-lg-3 col-form-label"><strong>Search Bar on Homepage <span class="badge badge-flat border-grey-800 text-danger text-capitalize mx-1">NEW</span> <i class="icon-question3 ml-1" data-popup="tooltip" title="This will override the default coupon success message" data-placement="top"></i>
-        </strong></label>
-        <div class="col-lg-9">
-        <div class="checkbox checkbox-switchery mt-2">
-        <label>
-        <input value="true" type="checkbox" class="switchery-primary"
-        @if(config('settings.mockSearchOnHomepage')=="true" ) checked="checked"
-        @endif name="mockSearchOnHomepage">
-        </label>
-        </div>
-        </div>
-        </div>
-
-        <div class="form-group row">
-        <label class="col-lg-3 col-form-label"><strong>Footer Navigation Type <span class="badge badge-flat border-grey-800 text-danger text-capitalize mx-1">NEW</span>
-        </strong></label>
-        <div class="col-lg-9">
-        <select name="footerStyleType" class="form-control form-control-lg select">
-        <option value="FIXED"
-        @if(config('settings.footerStyleType')=="FIXED" )
-        selected="selected" @endif>Fixed Style
-        </option>
-        <option value="FLOAT"
-        @if(config('settings.footerStyleType')=="FLOAT"
-        ) selected="selected" @endif>Float Style
-        </option>
-        </select>
-        </div>
-        </div>
-        
-        <div class="form-group row">
-        <label class="col-lg-3 col-form-label"><strong>Show Custom iOS Add To Homescreen Popup  <i class="icon-question3 ml-1" data-popup="tooltip" title="Enabling this will display a custom popup on iOS device for Add To Homescreen once per user, 3 seconds after page is loaded." data-placement="top"></i>
-        </strong></label>
-        <div class="col-lg-9">
-        <div class="checkbox checkbox-switchery mt-2">
-        <label>
-        <input value="true" type="checkbox" class="switchery-primary"
-        @if(config('settings.enIOSPWAPopup')=="true" ) checked="checked"
-        @endif name="enIOSPWAPopup">
-        </label>
-        </div>
-        </div>
-        </div>
-
-        <div class="form-group row">
-        <label class="col-lg-3 col-form-label"><strong>Show Coupon Desctiption on Coupon Success  <i class="icon-question3 ml-1" data-popup="tooltip" title="This will override the default coupon success message" data-placement="top"></i>
-        </strong></label>
-        <div class="col-lg-9">
-        <div class="checkbox checkbox-switchery mt-2">
-        <label>
-        <input value="true" type="checkbox" class="switchery-primary"
-        @if(config('settings.showCouponDescriptionOnSuccess')=="true" ) checked="checked"
-        @endif name="showCouponDescriptionOnSuccess">
-        </label>
-        </div>
-        </div>
-        </div>
-        <div class="form-group row">
-        <label class="col-lg-3 col-form-label"><strong>Use Google Distance Matrix API  <i class="icon-question3 ml-1" data-popup="tooltip" title="Google APIs will be used for calculating the delivery charge if the store has enabled Dynamic Delivery charge" data-placement="top"></i>
-        </strong></label>
-        <div class="col-lg-9">
-        <div class="checkbox checkbox-switchery mt-2">
-        <label>
-        <input value="true" type="checkbox" class="switchery-primary"
-        @if(config('settings.enGDMA')=="true" ) checked="checked"
-        @endif name="enGDMA"> 
-        <b><span class="mt-1"><span class="text-danger"> IMPORTANT: </span>Donot enable Google Distance Matrix API without first follow </span> <a href="https://docs.foodomaa.com/configurations/google-distance-matrix-api" target="_blank"> this documentation.</a><br>You will get a loading screen on the Cart page if this documentation is not followed.</b>
-        </label>
-        </div>
-        </div>
-        </div>
-        <div class="form-group row">
-        <label class="col-lg-3 col-form-label"><strong>Randomize Stores
-        <i class="icon-question3 ml-1" data-popup="tooltip" title="Delivery and Selfpickup stores will be randomized (Sorting order will be ignored)" data-placement="left"></i>
-        </strong></label>
-        <div class="col-lg-9">
-        <div class="checkbox checkbox-switchery mt-2">
-        <label>
-        <input value="true" type="checkbox" class="switchery-primary"
-        @if(config('settings.randomizeStores')=="true" )
-        checked="checked" @endif name="randomizeStores">
-        </label>
-        </div>
-        </div>
-        </div>
-        <div class="form-group row">
-        <label class="col-lg-3 col-form-label"><strong>Show Inactive Items
-        <i class="icon-question3 ml-1" data-popup="tooltip" title="Inactive items will be displayed but Add to Cart button will not be shown" data-placement="left"></i>
-        </strong></label>
-        <div class="col-lg-9">
-        <div class="checkbox checkbox-switchery mt-2">
-        <label>
-        <input value="true" type="checkbox" class="switchery-primary"
-        @if(config('settings.showInActiveItemsToo')=="true" )
-        checked="checked" @endif name="showInActiveItemsToo">
-        </label>
-        </div>
-        </div>
-        </div>
-        <div class="form-group row">
-        <label class="col-lg-3 col-form-label"><strong>Flat/Apartment Mandatory in Address
-        </strong></label>
-        <div class="col-lg-9">
-        <div class="checkbox checkbox-switchery mt-2">
-        <label>
-        <input value="true" type="checkbox" class="switchery-primary"
-        @if(config('settings.flatApartmentAddressRequired')=="true" ) checked="checked"
-        @endif name="flatApartmentAddressRequired">
-        </label>
-        </div>
-        </div>
-        </div>
-        <div class="form-group row">
-        <label class="col-lg-3 col-form-label"><strong>Delivery Pin
-        </strong></label>
-        <div class="col-lg-9">
-        <div class="checkbox checkbox-switchery mt-2">
-        <label>
-        <input value="true" type="checkbox" class="switchery-primary"
-        @if(config('settings.enableDeliveryPin')=="true" ) checked="checked"
-        @endif name="enableDeliveryPin">
-        </label>
-        </div>
-        </div>
-        </div>
-        <div class="form-group row">
-        <label class="col-lg-3 col-form-label"><strong>Promo Slider </strong></label>
-        <div class="col-lg-9">
-        <div class="checkbox checkbox-switchery mt-2">
-        <label>
-        <input value="true" type="checkbox" class="switchery-primary"
-        @if(config('settings.showPromoSlider')=="true" ) checked="checked"
-        @endif name="showPromoSlider">
-        </label>
-        </div>
-        </div>
-        </div>
-        <div class="form-group row">
-        <label class="col-lg-3 col-form-label"><strong>Veg/Non-Veg Badge
-        </strong></label>
-        <div class="col-lg-9">
-        <div class="checkbox checkbox-switchery mt-2">
-        <label>
-        <input value="true" type="checkbox" class="switchery-primary"
-        @if(config('settings.showVegNonVegBadge')=="true" )
-        checked="checked" @endif name="showVegNonVegBadge">
-        </label>
-        </div>
-        </div>
-        </div>
-        <div class="form-group row">
-        <label class="col-lg-3 col-form-label"><strong>Beautify Date/Time
-        </strong></label>
-        <div class="col-lg-9">
-        <div class="checkbox checkbox-switchery mt-2">
-        <label>
-        <input value="true" type="checkbox" class="switchery-primary"
-        @if(config('settings.showFromNowDate')=="true" )
-        checked="checked" @endif name="showFromNowDate">
-        </label>
-        </div>
-        </div>
-        </div>
-        <div class="form-group row">
-        <label class="col-lg-3 col-form-label"><strong>Round up Dynamic Delivery Charge
-        </strong></label>
-        <div class="col-lg-9">
-        <div class="checkbox checkbox-switchery mt-2">
-        <label>
-        <input value="true" type="checkbox" class="switchery-primary"
-        @if(config('settings.enDelChrRnd')=="true" )
-        checked="checked" @endif name="enDelChrRnd">
-        </label>
-        </div>
-        </div>
-        </div>
-        <div class="form-group row">
-        <label class="col-lg-3 col-form-label"><strong>Recommended Item Slider
-        </strong></label>
-        <div class="col-lg-9">
-        <div class="checkbox checkbox-switchery mt-2">
-        <label>
-        <input value="true" type="checkbox" class="switchery-primary"
-        @if(config('settings.recommendedLayoutV2')=="true" )
-        checked="checked" @endif name="recommendedLayoutV2">
-        </label>
-        </div>
-        </div>
-        </div>
-        <div class="form-group row">
-        <label class="col-lg-3 col-form-label"><strong>Expand All Items Menu
-        </strong></label>
-        <div class="col-lg-9">
-        <div class="checkbox checkbox-switchery mt-2">
-        <label>
-        <input value="true" type="checkbox" class="switchery-primary"
-        @if(config('settings.expandAllItemMenu')=="true" )
-        checked="checked" @endif name="expandAllItemMenu">
-        </label>
-        </div>
-        </div>
-        </div>
-        <div class="form-group row">
-        <label class="col-lg-3 col-form-label"><strong>GDPR Checkbox</strong></label>
-        <div class="col-lg-9">
-        <div class="checkbox checkbox-switchery mt-2">
-        <label>
-        <input value="true" type="checkbox" class="switchery-primary"
-        @if(config('settings.showGdpr')=="true" ) checked="checked" @endif
-        name="showGdpr">
-        </label>
-        </div>
-        </div>
-        </div>
-        <div class="form-group row">
-        <label class="col-lg-3 col-form-label"><strong>Self Pickup </strong></label>
-        <div class="col-lg-9">
-        <div class="checkbox checkbox-switchery mt-2">
-        <label>
-        <input value="true" type="checkbox" class="switchery-primary"
-        @if(config('settings.enSPU')=="true" ) checked="checked" @endif
-        name="enSPU">
-        </label>
-        </div>
-        </div>
-        </div>
-        <div class="form-group row">
-        <label class="col-lg-3 col-form-label"><strong>Default Country Code on Phone field:
-        </strong></label>
-        <div class="col-lg-9">
-        <input type="text" class="form-control form-control-lg" name="phoneCountryCode"
-            value="{{ config('settings.phoneCountryCode') }}"
-            placeholder="Default Country Code on Phone field (Leave empty if not required)">
-        </div>
-        </div>
-        <div class="form-group row">
-        <label class="col-lg-3 col-form-label"><strong>Hide Item Price when Zero
-        </strong></label>
-        <div class="col-lg-9">
-        <div class="checkbox checkbox-switchery mt-2">
-        <label>
-        <input value="true" type="checkbox" class="switchery-primary"
-        @if(config('settings.hidePriceWhenZero')=="true" ) checked="checked"
-        @endif name="hidePriceWhenZero">
-        </label>
-        </div>
-        </div>
-        </div>
-        <div class="form-group row">
-        <label class="col-lg-3 col-form-label"><strong>Show Product Discount Percentage
-        </strong></label>
-        <div class="col-lg-9">
-        <div class="checkbox checkbox-switchery mt-2">
-        <label>
-        <input value="true" type="checkbox" class="switchery-primary"
-        @if(config('settings.showPercentageDiscount')=="true" )
-        checked="checked" @endif name="showPercentageDiscount">
-        </label>
-        </div>
-        </div>
-        </div>
-        <div class="form-group row">
-        <label class="col-lg-3 col-form-label"><strong>Use Simple Spinner for Loading Pages <span class="badge badge-flat border-grey-800 text-danger text-capitalize mx-1">NEW</span>
-        </strong></label>
-        <div class="col-lg-9">
-        <div class="checkbox checkbox-switchery mt-2">
-        <label>
-        <input value="true" type="checkbox" class="switchery-primary"
-        @if(config('settings.useSimpleSpinner')=="true" )
-        checked="checked" @endif name="useSimpleSpinner">
-        </label>
-        </div>
-        </div>
-        </div>
-        </div>
-        <div class="tab-pane fade" id="deliveryAppSettings">
-        <legend class="font-weight-semibold text-uppercase font-size-sm">
-        Delivery Settings
-        </legend>
-        <div class="form-group row">
-        <label class="col-lg-3 col-form-label"><strong>Enable Delivery Guy's Earnings
-        </strong></label>
-        <div class="col-lg-9">
-        <div class="checkbox checkbox-switchery mt-2">
-        <label>
-        <input value="true" type="checkbox" class="switchery-primary"
-        @if(config('settings.enableDeliveryGuyEarning')=="true" )
-        checked="checked" @endif name="enableDeliveryGuyEarning">
-        </label>
-        </div>
-        </div>
-        </div>
-        <div class="form-group row">
-        <label class="col-lg-3 col-form-label"><strong>Delivery Guy's Earning From
-        </strong></label>
-        <div class="col-lg-9">
-        <select name="deliveryGuyCommissionFrom" class="form-control form-control-lg select">
-        <option value="FULLORDER"
-        @if(config('settings.deliveryGuyCommissionFrom')=="FULLORDER" )
-        selected="selected" @endif>Commission from Full Order Value
-        </option>
-        <option value="DELIVERYCHARGE"
-        @if(config('settings.deliveryGuyCommissionFrom')=="DELIVERYCHARGE"
-        ) selected="selected" @endif>Commission from Delivery Charge
-        Value</option>
-        </select>
-        </div>
-        </div>
-        <div class="form-group row">
-        <label class="col-lg-3 col-form-label"><strong>Show full address on Order List
-        </strong></label>
-        <div class="col-lg-9">
-        <div class="checkbox checkbox-switchery mt-2">
-        <label>
-        <input value="true" type="checkbox" class="switchery-primary"
-        @if(config('settings.showDeliveryFullAddressOnList')=="true" ) checked="checked"
-        @endif name="showDeliveryFullAddressOnList">
-        </label>
-        </div>
-        </div>
-        </div>
-        <div class="form-group row">
-        <label class="col-lg-3 col-form-label"><strong>Show Customer Address
-        </strong></label>
-        <div class="col-lg-9">
-        <div class="checkbox checkbox-switchery mt-2">
-        <label>
-        <input value="true" type="checkbox" class="switchery-primary"
-        @if(config('settings.showUserInfoBeforePickup')=="true" ) checked="checked"
-        @endif name="showUserInfoBeforePickup">
-        </label>
-        </div>
-        </div>
-        </div>
-        <div class="form-group row">
-        <label class="col-lg-3 col-form-label"><strong>Show Order Addons
-        </strong></label>
-        <div class="col-lg-9">
-        <div class="checkbox checkbox-switchery mt-2">
-        <label>
-        <input value="true" type="checkbox" class="switchery-primary"
-        @if(config('settings.showOrderAddonsDelivery')=="true" ) checked="checked"
-        @endif name="showOrderAddonsDelivery">
-        </label>
-        </div>
-        </div>
-        </div>
-        <div class="form-group row">
-        <label class="col-lg-3 col-form-label"><strong>Show Item Price, Total & Comments <span class="badge badge-flat border-grey-800 text-danger text-capitalize mx-1">NEW</span>
-        </strong></label>
-        <div class="col-lg-9">
-        <div class="checkbox checkbox-switchery mt-2">
-        <label>
-        <input value="true" type="checkbox" class="switchery-primary"
-        @if(config('settings.showPriceAndOrderCommentsDelivery')=="true" ) checked="checked"
-        @endif name="showPriceAndOrderCommentsDelivery">
-        </label>
-        </div>
-        </div>
-        </div>
-        <div class="form-group row">
-        <label class="col-lg-3 col-form-label"><strong>Show Delivery Guy's COD Collection 
-        </strong></label>
-        <div class="col-lg-9">
-        <div class="checkbox checkbox-switchery mt-2">
-        <label>
-        <input value="true" type="checkbox" class="switchery-primary"
-        @if(config('settings.showDeliveryCollection')=="true" )
-        checked="checked" @endif name="showDeliveryCollection">
-        </label>
-        </div>
-        </div>
-        </div>
-        <p><strong class="text-danger">Important Note: </strong> You will need to logout of the delivery application and login again to get the updated congigs/settings.</p>
-        </div>
-        <div class="tab-pane fade" id="restaurantDashboardSettings">
-        <legend class="font-weight-semibold text-uppercase font-size-sm">
-        Store Dashboard Settings
-        </legend>
-        <div class="form-group row">
-        <label class="col-lg-3 col-form-label"><strong>New Order Fetch Rate:</strong></label>
-        <div class="col-lg-9">
-        <select name="restaurantNewOrderRefreshRate" class="form-control form-control-lg select">
-        <option value="5" @if(config('settings.restaurantNewOrderRefreshRate') == "5") selected @endif>Fetch Every 5 Seconds</option>
-        <option value="15" @if(config('settings.restaurantNewOrderRefreshRate') == "15") selected @endif>Fetch Every 15 Seconds</option>
-        <option value="25" @if(config('settings.restaurantNewOrderRefreshRate') == "25") selected @endif>Fetch Every 25 Seconds</option>
-        <option value="30" @if(config('settings.restaurantNewOrderRefreshRate') == "30") selected @endif>Fetch Every 30 Seconds</option>
-        </select>
-        <span class="help-text text-muted mt-2"> The lesser the value, the more load on the server. Recommended is <strong>15 Seconds </strong></span>
-        </div>
-        </div>
-        <div class="form-group row">
-        <label class="col-lg-3 col-form-label"><strong>Notification Tone:</strong></label>
-        <div class="col-lg-9">
-        <select name="restaurantNotificationAudioTrack" class="form-control form-control-lg select" id="restaurantNotificationTone">
-        @foreach($notificationAudioFileNames as $audioFileName)
-        <option value="{{ $audioFileName }}" @if(config('settings.restaurantNotificationAudioTrack') == $audioFileName) selected
-        @endif>{{ $audioFileName }}</option>
-        @endforeach
-        </select>
-        </div>
-        </div>
-        </div>
-        <div class="tab-pane fade" id="customCSS">
-        <legend class="font-weight-semibold text-uppercase font-size-sm">
-        Custom CSS
-        </legend>
-        <p>Below code will affect the styling for the Customer Application & the Delivery
-        Application
-        </p>
-        <div id="css_editor1">{{ config('settings.customCSS') }}</div>
-        <textarea style="display: none" class="form-control" name="customCSS" rows="5"
-            placeholder="Your CSS code goes here...">{{ config('settings.customCSS') }}</textarea>
-        </div>
-        <div class="tab-pane fade" id="cacheSettings">
-        <legend class="font-weight-semibold text-uppercase font-size-sm">
-        Cache Settings
-        </legend>
-        <div class="row">
-        <p class="col-md-3 col-xs-12"><strong>Application Version: </strong></p>
-        <span class="col-md-6 col-xs-12">{{ $versionMsg }}</span>
-        </div>
-        <div class="row">
-        <p class="col-md-3 col-xs-12"><strong>Cache Hash: </strong></p>
-        <span
-            class="col-md-6 col-xs-12" id="cacheVersion">{{ implode('-', str_split($versionJson->forceCacheClearVersion, 5)) }}</span>
-        </div>
-        <div class="row">
-        <p class="col-md-3 col-xs-12"><strong>Settings Hash: </strong></p>
-        <span
-            class="col-md-6 col-xs-12" id="settingsVersion">{{ implode('-', str_split($versionJson->forceNewSettingsVersion, 5)) }}</span>
-        </div>
-        {{-- <div class="row">
-        <p class="col-md-3 col-xs-12"><strong>Logout Hash: </strong></p>
-        <span
-            class="col-md-6 col-xs-12" id="logoutVersion">{{ implode('-', str_split($versionJson->forceLogoutAllCustomers, 5)) }}</span>
-        </div> --}}
-        <hr>
-        <h4 class="font-weight-bold">Force Clear Cache</h4>
-        <p>This will force clear the
-        cache on their devices and update the application on the user's device.
-        </p>
-        <a href="javascript:void(0)" data-type="CACHE" data-popup="tooltip"
-            title="Double Click to Execute" data-placement="right"
-            class="btn btn-secondary btn-labeled btn-labeled-left" id="forceClearCache"> <b><i
-            class="icon-arrow-right7"></i></b> Force Clear Cache</a>
-        <hr>
-        <h4 class="font-weight-bold">Force New Settings</h4>
-        <p>This will force update new settings for all the users and delivery guys.</p>
-        <a href="javascript:void(0)" data-type="SETTINGS" data-popup="tooltip"
-            title="Double Click to Execute" data-placement="right"
-            class="btn btn-secondary btn-labeled btn-labeled-left" id="forceClearSettings">
-        <b><i class="icon-arrow-right7"></i></b> Force New Settings</a>
-        <hr>
-        {{-- <h4 class="font-weight-bold">Force Logout Customers </h4>
-        <p>This will logout all the users on the application (Not for Admin and Store Owners) <br>
-        <b class="text-danger">Proceed with caution</b></p>
-        <a href="javascript:void(0)" data-type="LOGOUT" data-popup="tooltip"
-            title="Double Click to Execute" data-placement="right"
-            class="btn btn-secondary btn-labeled btn-labeled-left" id="forceLogoutAllCustomers">
-        <b><i class="icon-arrow-right7"></i></b> Force logout customers</a>
-        <hr> --}}
-        <p class="text-danger">
-        The customer app needs to reload the page for these settings to take affect.
-        </p>
-        </div>
-        <div class="tab-pane fade" id="fixUpdateIssues">
-        <legend class="font-weight-semibold text-uppercase font-size-sm">
-        Fix Update Issues
-        </legend>
-        <p>After an update, the front-facing app (for customer or delivery) will have
-        some issues.
-        <br> The issue may be because of:
-        </p>
-        <ol>
-        <li> Database error because of incorrect URL</li>
-        <li> Cross-Origin Error because of non HTTPS URL</li>
-        <li> Cache issues</li>
-        </ol>
-        <p><strong>Click the below button to fix these issues.</strong></p>
-        @if(Request::secure())
-        <a href="{{ route('admin.fixUpdateIssues') }}" class="btn btn-lg btn-primary" id="fixUpdateIssuesButton">Fix Issues Now</a>
-        @else
-        <a href="#" onclick="return false;" style="opacity: 0.6; cursor: not-allowed;"
-            data-popup="tooltip"
-            title="You need to use https version of URL for admin dashboard to proceed. Example: https://yourdomain.com/public/admin/settings"
-            data-placement="bottom" class="btn btn-lg btn-primary">Fix Issues Now</a>
-        @endif
-        </div>
-        <div class="tab-pane fade" id="advanceSettings">
-        <legend class="font-weight-semibold text-uppercase font-size-sm">
-        Advanced Settings
-        </legend>
-        <h2>Clean Everything</h2>
-        <p><strong>What will be removed?</strong></p>
-        <ul>
-        <li>All the users (including Store Owners and Delivery Guys) except for the Super Admin</li>
-        <li>All the restaurants</li>
-        <li>All the Item Categories, Items, Addon Categories, Addons</li>
-        <li>All the Orders</li>
-        <li>Store Categories & Category Sliders</li>
-        <li>Promo Sliders and all it's Slides</li>
-        <li>All the wallet and wallet transaction logs</li>
-        <li>All the Store Payouts and Store Payout Logs</li>
-        <li>All the Delivery Collections and Delivery Collection Logs</li>
-        <li>All the users addresses, Delivery Guy GPS Locations</li>
-        <li>Internal data that links to the orders</li>
-        </ul>
-        <p><strong>What will not be removed?</strong></p>
-        <ul>
-        <li>Website Settings</li>
-        <li>Translations data</li>
-        <li>Coupons</li>
-        <li>Pages</li>
-        <li>Popular Geo Locations</li>
-        </ul>
-        <button type="button" class="btn btn-danger btn-labeled btn-labeled-left"
-            data-toggle="modal" data-target="#cleanEverything">
-        <b><i class="icon-trash"></i></b>
-        Clean Everything
-        </button>
-        <div class="mt-4">
-        <p class="text-danger mb-2"><strong>EXPERIMENTAL FEATURES </strong> - no guarantee of work</p>
-        <a href="{{ route('admin.filesBackup') }}" class="btn btn-primary btn-labeled btn-labeled-left backupBtn mr-2">
-        <b><i class="icon-folder-download2"></i></b>
-        Files Backup
-        </a>
-        <a href="{{ route('admin.dbBackup') }}" class="btn btn-primary btn-labeled btn-labeled-left backupBtn">
-        <b><i class="icon-database-time2"></i></b>
-        Database Backup
-        </a>
-        <p class="mt-2"> Please note the backup feature is experimental and the backup doesn't work on all the servers (even if a success message is returned). We will be improving this in the future releases if feasible or this module could be removed in the future releases.</p>
-        </div>
-        </div>
-        <div id="cleanEverything" class="modal fade" tabindex="-1">
-        <div class="modal-dialog">
-        <div class="modal-content">
-        <div class="modal-header">
-        <h5 class="modal-title"><span class="font-weight-bold text-danger"> <i class="icon-exclamation mr-2"></i> This is an irreversible action.</span></h5>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div class="modal-body">
-        <div class="form-group row">
-        <label class="col-lg-12 col-form-label">Type <b>CONFIRM</b> to proceed.</label>
-        <div class="col-lg-12">
-        <input type="text" name="clear_confirmation" class="form-control form-control-lg">
-        </div>
-        </div>
-        <i class="icon-spinner10 spinner text-warning ml-2 float-right hidden" id="cleanSpinner" style="font-size: 2.5rem;"></i>
-        <button type="button" class="btn btn-lg btn-danger float-right btn-labeled btn-labeled-left" disabled="disabled" id="cleanEverythingButton">
-        <b><i class="icon-arrow-right8"></i></b>
-        Proceed
-        </button>
-        </div>
-        </div>
-        </div>
-        </div>
-    </div>
-</div>
-<input type="hidden" name="_token" value="{{ csrf_token() }}" id="csrf">
-<div class="text-right mt-5">
-<button type="submit" class="btn btn-primary btn-labeled btn-labeled-left btn-lg">
-<b><i class="icon-database-insert ml-1"></i></b>
-Save Settings
-</button>
-</div>
-<input type="hidden" name="window_redirect_hash" value="">
-</form>
-</div>
-</div>
-</div>
-</div>
-@if($versionMsg != null)
-<div class="text-center mx-3" style="color: #9575cd;font-size: 0.8rem">{{ $versionMsg }}</div>
-@endif
+                    }
+                });
+            </script>
+            <div class="tab-pane fade" id="googleAnalyticsSettings">
+                <legend class="font-weight-semibold text-uppercase font-size-sm">
+                    Google Analytics Settings
+                </legend>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Enable Google
+                    Analytics</strong></label>
+                    <div class="col-lg-9">
+                        <div class="checkbox checkbox-switchery mt-2">
+                            <label>
+                            <input value="true" type="checkbox" class="switchery-primary"
+                            @if(config('settings.enableGoogleAnalytics')=="true" )
+                            checked="checked" @endif name="enableGoogleAnalytics">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Analytics UA ID:</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="googleAnalyticsId"
+                            value="{{ config('settings.googleAnalyticsId') }}"
+                            placeholder="UA-00000000-00">
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="taxSettings">
+                <legend class="font-weight-semibold text-uppercase font-size-sm">
+                    Tax Settings
+                </legend>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Enable Tax:</strong></label>
+                    <div class="col-lg-9">
+                        <div class="checkbox checkbox-switchery mt-2">
+                            <label>
+                            <input value="true" type="checkbox" class="switchery-primary"
+                            @if(config('settings.taxApplicable')=="true" ) checked="checked"
+                            @endif name="taxApplicable">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Tax Percentage:</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="taxPercentage"
+                            value="{{ config('settings.taxPercentage') }}"
+                            placeholder="Tax in Percentage">
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="customerAppSettings">
+                <legend class="font-weight-semibold text-uppercase font-size-sm">
+                    Customer App Settings
+                </legend>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Enable Delivery Tip Amount
+                    <span class="badge badge-flat border-grey-800 text-danger text-capitalize mx-1">NEW</span></strong></label>
+                    <div class="col-lg-9">
+                        <div class="checkbox checkbox-switchery mt-2">
+                            <label>
+                            <input value="true" type="checkbox" class="switchery-primary"
+                            @if(config('settings.showTipsAmount')=="true" )
+                            checked="checked" @endif name="showTipsAmount">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-3 col-lg-3 col-form-label">
+                        <label><strong>Tip Amount <span class="badge badge-flat border-grey-800 text-danger text-capitalize mx-1">NEW</span> <i class="icon-question3 ml-1" data-popup="tooltip" title="Type any amount and hit Enter on your Keyboard" data-placement="top"> </i></strong></label>
+                    </div>
+                    <div class="col-md-9 tipss">
+                        <select class="tips" name="tips[]" multiple="multiple">
+                            @if(isset($tips) && count($tips) > 0)
+                            @foreach($tips as $value)
+                            <option selected="selected">{{$value}}</option>
+                            @endforeach
+                            @endif
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Enable Delivery Tip Percentage
+                    <span class="badge badge-flat border-grey-800 text-danger text-capitalize mx-1">NEW</span></strong></label>
+                    <div class="col-lg-9">
+                        <div class="checkbox checkbox-switchery mt-2">
+                            <label>
+                            <input value="true" type="checkbox" class="switchery-primary"
+                            @if(config('settings.showTipsPercentage')=="true" )
+                            checked="checked" @endif name="showTipsPercentage">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-3 col-lg-3 col-form-label">
+                        <label><strong>Tip Percentage <span class="badge badge-flat border-grey-800 text-danger text-capitalize mx-1">NEW</span> <i class="icon-question3 ml-1" data-popup="tooltip" title="Type any Percentage Amount and hit Enter on your Keyboard" data-placement="top"> </i> </strong></label>
+                    </div>
+                    <div class="col-md-9 tipss">
+                        <select class="tips_percentage" name="tips_percentage[]" multiple="multiple">
+                            @if(isset($tips_percentage) && count($tips_percentage) > 0)
+                            @foreach($tips_percentage as $value)
+                            <option selected="selected">{{$value}}</option>
+                            @endforeach
+                            @endif
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Show Total Item Quantity on Footer Cart <span class="badge badge-flat border-grey-800 text-danger text-capitalize mx-1">NEW</span> <i class="icon-question3 ml-1" data-popup="tooltip" title="If disabled, the count of unique items on the cart will be shown on the footer" data-placement="top"></i>
+                    </strong></label>
+                    <div class="col-lg-9">
+                        <div class="checkbox checkbox-switchery mt-2">
+                            <label>
+                            <input value="true" type="checkbox" class="switchery-primary"
+                            @if(config('settings.countQuantityAsTotalItemsOnCart')=="true" ) checked="checked"
+                            @endif name="countQuantityAsTotalItemsOnCart">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Auto Full Address on Location Selection Page <span class="badge badge-flat border-grey-800 text-danger text-capitalize mx-1">NEW</span> <i class="icon-question3 ml-1" data-popup="tooltip" title="Disabling this will only show locality, city, country and pincode on the auto address box" data-placement="top"></i>
+                    </strong></label>
+                    <div class="col-lg-9">
+                        <div class="checkbox checkbox-switchery mt-2">
+                            <label>
+                            <input value="true" type="checkbox" class="switchery-primary"
+                            @if(config('settings.googleFullAddress')=="true" ) checked="checked"
+                            @endif name="googleFullAddress">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Search Bar on Homepage <span class="badge badge-flat border-grey-800 text-danger text-capitalize mx-1">NEW</span> <i class="icon-question3 ml-1" data-popup="tooltip" title="This will override the default coupon success message" data-placement="top"></i>
+                    </strong></label>
+                    <div class="col-lg-9">
+                        <div class="checkbox checkbox-switchery mt-2">
+                            <label>
+                            <input value="true" type="checkbox" class="switchery-primary"
+                            @if(config('settings.mockSearchOnHomepage')=="true" ) checked="checked"
+                            @endif name="mockSearchOnHomepage">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Footer Navigation Type <span class="badge badge-flat border-grey-800 text-danger text-capitalize mx-1">NEW</span>
+                    </strong></label>
+                    <div class="col-lg-9">
+                        <select name="footerStyleType" class="form-control form-control-lg select">
+                        <option value="FIXED"
+                        @if(config('settings.footerStyleType')=="FIXED" )
+                        selected="selected" @endif>Fixed Style
+                        </option>
+                        <option value="FLOAT"
+                        @if(config('settings.footerStyleType')=="FLOAT"
+                        ) selected="selected" @endif>Float Style
+                        </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Show Custom iOS Add To Homescreen Popup  <i class="icon-question3 ml-1" data-popup="tooltip" title="Enabling this will display a custom popup on iOS device for Add To Homescreen once per user, 3 seconds after page is loaded." data-placement="top"></i>
+                    </strong></label>
+                    <div class="col-lg-9">
+                        <div class="checkbox checkbox-switchery mt-2">
+                            <label>
+                            <input value="true" type="checkbox" class="switchery-primary"
+                            @if(config('settings.enIOSPWAPopup')=="true" ) checked="checked"
+                            @endif name="enIOSPWAPopup">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Show Coupon Desctiption on Coupon Success  <i class="icon-question3 ml-1" data-popup="tooltip" title="This will override the default coupon success message" data-placement="top"></i>
+                    </strong></label>
+                    <div class="col-lg-9">
+                        <div class="checkbox checkbox-switchery mt-2">
+                            <label>
+                            <input value="true" type="checkbox" class="switchery-primary"
+                            @if(config('settings.showCouponDescriptionOnSuccess')=="true" ) checked="checked"
+                            @endif name="showCouponDescriptionOnSuccess">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Use Google Distance Matrix API  <i class="icon-question3 ml-1" data-popup="tooltip" title="Google APIs will be used for calculating the delivery charge if the store has enabled Dynamic Delivery charge" data-placement="top"></i>
+                    </strong></label>
+                    <div class="col-lg-9">
+                        <div class="checkbox checkbox-switchery mt-2">
+                            <label>
+                            <input value="true" type="checkbox" class="switchery-primary"
+                            @if(config('settings.enGDMA')=="true" ) checked="checked"
+                            @endif name="enGDMA"> 
+                            <b><span class="mt-1"><span class="text-danger"> IMPORTANT: </span>Donot enable Google Distance Matrix API without first follow </span> <a href="https://docs.foodomaa.com/configurations/google-distance-matrix-api" target="_blank"> this documentation.</a><br>You will get a loading screen on the Cart page if this documentation is not followed.</b>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Randomize Stores
+                    <i class="icon-question3 ml-1" data-popup="tooltip" title="Delivery and Selfpickup stores will be randomized (Sorting order will be ignored) - Postion of the stores on back button press will be changed - So enabling this is NOT Recommended for better User Experience" data-placement="right"></i>
+                    </strong></label>
+                    <div class="col-lg-9">
+                        <div class="checkbox checkbox-switchery mt-2">
+                            <label>
+                            <input value="true" type="checkbox" class="switchery-primary"
+                            @if(config('settings.randomizeStores')=="true" )
+                            checked="checked" @endif name="randomizeStores">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Show Inactive Items
+                    <i class="icon-question3 ml-1" data-popup="tooltip" title="Inactive items will be displayed but Add to Cart button will not be shown" data-placement="left"></i>
+                    </strong></label>
+                    <div class="col-lg-9">
+                        <div class="checkbox checkbox-switchery mt-2">
+                            <label>
+                            <input value="true" type="checkbox" class="switchery-primary"
+                            @if(config('settings.showInActiveItemsToo')=="true" )
+                            checked="checked" @endif name="showInActiveItemsToo">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Flat/Apartment Mandatory in Address
+                    </strong></label>
+                    <div class="col-lg-9">
+                        <div class="checkbox checkbox-switchery mt-2">
+                            <label>
+                            <input value="true" type="checkbox" class="switchery-primary"
+                            @if(config('settings.flatApartmentAddressRequired')=="true" ) checked="checked"
+                            @endif name="flatApartmentAddressRequired">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Delivery Pin
+                    </strong></label>
+                    <div class="col-lg-9">
+                        <div class="checkbox checkbox-switchery mt-2">
+                            <label>
+                            <input value="true" type="checkbox" class="switchery-primary"
+                            @if(config('settings.enableDeliveryPin')=="true" ) checked="checked"
+                            @endif name="enableDeliveryPin">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Promo Slider </strong></label>
+                    <div class="col-lg-9">
+                        <div class="checkbox checkbox-switchery mt-2">
+                            <label>
+                            <input value="true" type="checkbox" class="switchery-primary"
+                            @if(config('settings.showPromoSlider')=="true" ) checked="checked"
+                            @endif name="showPromoSlider">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Veg/Non-Veg Badge
+                    </strong></label>
+                    <div class="col-lg-9">
+                        <div class="checkbox checkbox-switchery mt-2">
+                            <label>
+                            <input value="true" type="checkbox" class="switchery-primary"
+                            @if(config('settings.showVegNonVegBadge')=="true" )
+                            checked="checked" @endif name="showVegNonVegBadge">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Beautify Date/Time
+                    </strong></label>
+                    <div class="col-lg-9">
+                        <div class="checkbox checkbox-switchery mt-2">
+                            <label>
+                            <input value="true" type="checkbox" class="switchery-primary"
+                            @if(config('settings.showFromNowDate')=="true" )
+                            checked="checked" @endif name="showFromNowDate">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Round up Dynamic Delivery Charge
+                    </strong></label>
+                    <div class="col-lg-9">
+                        <div class="checkbox checkbox-switchery mt-2">
+                            <label>
+                            <input value="true" type="checkbox" class="switchery-primary"
+                            @if(config('settings.enDelChrRnd')=="true" )
+                            checked="checked" @endif name="enDelChrRnd">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Recommended Item Slider
+                    </strong></label>
+                    <div class="col-lg-9">
+                        <div class="checkbox checkbox-switchery mt-2">
+                            <label>
+                            <input value="true" type="checkbox" class="switchery-primary"
+                            @if(config('settings.recommendedLayoutV2')=="true" )
+                            checked="checked" @endif name="recommendedLayoutV2">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Expand All Items Menu
+                    </strong></label>
+                    <div class="col-lg-9">
+                        <div class="checkbox checkbox-switchery mt-2">
+                            <label>
+                            <input value="true" type="checkbox" class="switchery-primary"
+                            @if(config('settings.expandAllItemMenu')=="true" )
+                            checked="checked" @endif name="expandAllItemMenu">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>GDPR Checkbox</strong></label>
+                    <div class="col-lg-9">
+                        <div class="checkbox checkbox-switchery mt-2">
+                            <label>
+                            <input value="true" type="checkbox" class="switchery-primary"
+                            @if(config('settings.showGdpr')=="true" ) checked="checked" @endif
+                            name="showGdpr">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Self Pickup </strong></label>
+                    <div class="col-lg-9">
+                        <div class="checkbox checkbox-switchery mt-2">
+                            <label>
+                            <input value="true" type="checkbox" class="switchery-primary"
+                            @if(config('settings.enSPU')=="true" ) checked="checked" @endif
+                            name="enSPU">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Sort Self Pickup stores by Distance <span class="badge badge-flat border-grey-800 text-danger text-capitalize mx-1">NEW</span></strong></label>
+                    <div class="col-lg-9">
+                        <div class="checkbox checkbox-switchery mt-2">
+                            <label>
+                            <input value="true" type="checkbox" class="switchery-primary"
+                            @if(config('settings.sortSelfpickupStoresByDistance')=="true" ) checked="checked" @endif
+                            name="sortSelfpickupStoresByDistance">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Default Country Code on Phone field:
+                    </strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="phoneCountryCode"
+                            value="{{ config('settings.phoneCountryCode') }}"
+                            placeholder="Default Country Code on Phone field (Leave empty if not required)">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Hide Item Price when Zero
+                    </strong></label>
+                    <div class="col-lg-9">
+                        <div class="checkbox checkbox-switchery mt-2">
+                            <label>
+                            <input value="true" type="checkbox" class="switchery-primary"
+                            @if(config('settings.hidePriceWhenZero')=="true" ) checked="checked"
+                            @endif name="hidePriceWhenZero">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Show Product Discount Percentage
+                    </strong></label>
+                    <div class="col-lg-9">
+                        <div class="checkbox checkbox-switchery mt-2">
+                            <label>
+                            <input value="true" type="checkbox" class="switchery-primary"
+                            @if(config('settings.showPercentageDiscount')=="true" )
+                            checked="checked" @endif name="showPercentageDiscount">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Use Simple Spinner for Loading Pages <span class="badge badge-flat border-grey-800 text-danger text-capitalize mx-1">NEW</span>
+                    </strong></label>
+                    <div class="col-lg-9">
+                        <div class="checkbox checkbox-switchery mt-2">
+                            <label>
+                            <input value="true" type="checkbox" class="switchery-primary"
+                            @if(config('settings.useSimpleSpinner')=="true" )
+                            checked="checked" @endif name="useSimpleSpinner">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="deliveryAppSettings">
+                <legend class="font-weight-semibold text-uppercase font-size-sm">
+                    Delivery Settings
+                </legend>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Enable Delivery Guy's Earnings
+                    </strong></label>
+                    <div class="col-lg-9">
+                        <div class="checkbox checkbox-switchery mt-2">
+                            <label>
+                            <input value="true" type="checkbox" class="switchery-primary"
+                            @if(config('settings.enableDeliveryGuyEarning')=="true" )
+                            checked="checked" @endif name="enableDeliveryGuyEarning">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Delivery Guy's Earning From
+                    </strong></label>
+                    <div class="col-lg-9">
+                        <select name="deliveryGuyCommissionFrom" class="form-control form-control-lg select">
+                        <option value="FULLORDER"
+                        @if(config('settings.deliveryGuyCommissionFrom')=="FULLORDER" )
+                        selected="selected" @endif>Commission from Full Order Value
+                        </option>
+                        <option value="DELIVERYCHARGE"
+                        @if(config('settings.deliveryGuyCommissionFrom')=="DELIVERYCHARGE"
+                        ) selected="selected" @endif>Commission from Delivery Charge
+                        Value</option>
+                        </select>
+                    </div>
+                </div>
+                {{-- 
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Show full address on Order List
+                    </strong></label>
+                    <div class="col-lg-9">
+                        <div class="checkbox checkbox-switchery mt-2">
+                            <label>
+                            <input value="true" type="checkbox" class="switchery-primary"
+                            @if(config('settings.showDeliveryFullAddressOnList')=="true" ) checked="checked"
+                            @endif name="showDeliveryFullAddressOnList">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                --}}
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Show Customer Address
+                    </strong></label>
+                    <div class="col-lg-9">
+                        <div class="checkbox checkbox-switchery mt-2">
+                            <label>
+                            <input value="true" type="checkbox" class="switchery-primary"
+                            @if(config('settings.showUserInfoBeforePickup')=="true" ) checked="checked"
+                            @endif name="showUserInfoBeforePickup">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Show Order Addons
+                    </strong></label>
+                    <div class="col-lg-9">
+                        <div class="checkbox checkbox-switchery mt-2">
+                            <label>
+                            <input value="true" type="checkbox" class="switchery-primary"
+                            @if(config('settings.showOrderAddonsDelivery')=="true" ) checked="checked"
+                            @endif name="showOrderAddonsDelivery">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Show Item Price, Total & Comments <span class="badge badge-flat border-grey-800 text-danger text-capitalize mx-1">NEW</span>
+                    </strong></label>
+                    <div class="col-lg-9">
+                        <div class="checkbox checkbox-switchery mt-2">
+                            <label>
+                            <input value="true" type="checkbox" class="switchery-primary"
+                            @if(config('settings.showPriceAndOrderCommentsDelivery')=="true" ) checked="checked"
+                            @endif name="showPriceAndOrderCommentsDelivery">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Show Delivery Guy's COD Collection 
+                    </strong></label>
+                    <div class="col-lg-9">
+                        <div class="checkbox checkbox-switchery mt-2">
+                            <label>
+                            <input value="true" type="checkbox" class="switchery-primary"
+                            @if(config('settings.showDeliveryCollection')=="true" )
+                            checked="checked" @endif name="showDeliveryCollection">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Show Delivery Guy's COD Collection
+                    </strong></label>
+                    <div class="col-lg-9">
+                        <div class="checkbox checkbox-switchery mt-2">
+                            <label>
+                            <input value="true" type="checkbox" class="switchery-primary"
+                            @if(config('settings.showDeliveryCollection')=="true" )
+                            checked="checked" @endif name="showDeliveryCollection">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <p><strong class="text-danger">Important Note: </strong> You will need to logout of the delivery application and login again to get the updated congigs/settings.</p>
+            </div>
+            <div class="tab-pane fade" id="restaurantDashboardSettings">
+                <legend class="font-weight-semibold text-uppercase font-size-sm">
+                    Store Dashboard Settings
+                </legend>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>New Order Fetch Rate:</strong></label>
+                    <div class="col-lg-9">
+                        <select name="restaurantNewOrderRefreshRate" class="form-control form-control-lg select">
+                        <option value="5" @if(config('settings.restaurantNewOrderRefreshRate') == "5") selected @endif>Fetch Every 5 Seconds</option>
+                        <option value="15" @if(config('settings.restaurantNewOrderRefreshRate') == "15") selected @endif>Fetch Every 15 Seconds</option>
+                        <option value="25" @if(config('settings.restaurantNewOrderRefreshRate') == "25") selected @endif>Fetch Every 25 Seconds</option>
+                        <option value="30" @if(config('settings.restaurantNewOrderRefreshRate') == "30") selected @endif>Fetch Every 30 Seconds</option>
+                        </select>
+                        <span class="help-text text-muted mt-2"> The lesser the value, the more load on the server. Recommended is <strong>15 Seconds </strong></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Notification Tone:</strong></label>
+                    <div class="col-lg-9">
+                        <select name="restaurantNotificationAudioTrack" class="form-control form-control-lg select" id="restaurantNotificationTone">
+                        @foreach($notificationAudioFileNames as $audioFileName)
+                        <option value="{{ $audioFileName }}" @if(config('settings.restaurantNotificationAudioTrack') == $audioFileName) selected
+                        @endif>{{ $audioFileName }}</option>
+                        @endforeach
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="customCSS">
+                <legend class="font-weight-semibold text-uppercase font-size-sm">
+                    Custom CSS
+                </legend>
+                <p>Below code will affect the styling for the Customer Application & the Delivery
+                    Application
+                </p>
+                <div id="css_editor1">{{ config('settings.customCSS') }}</div>
+                <textarea style="display: none" class="form-control" name="customCSS" rows="5"
+                    placeholder="Your CSS code goes here...">{{ config('settings.customCSS') }}</textarea>
+            </div>
+            <div class="tab-pane fade" id="cacheSettings">
+                <legend class="font-weight-semibold text-uppercase font-size-sm">
+                    Cache Settings
+                </legend>
+                <div class="row">
+                    <p class="col-md-3 col-xs-12"><strong>Application Version: </strong></p>
+                    <span class="col-md-6 col-xs-12">{{ $versionMsg }}</span>
+                </div>
+                <div class="row">
+                    <p class="col-md-3 col-xs-12"><strong>Cache Hash: </strong></p>
+                    <span
+                        class="col-md-6 col-xs-12" id="cacheVersion">{{ implode('-', str_split($versionJson->forceCacheClearVersion, 5)) }}</span>
+                </div>
+                <div class="row">
+                    <p class="col-md-3 col-xs-12"><strong>Settings Hash: </strong></p>
+                    <span
+                        class="col-md-6 col-xs-12" id="settingsVersion">{{ implode('-', str_split($versionJson->forceNewSettingsVersion, 5)) }}</span>
+                </div>
+                {{-- 
+                <div class="row">
+                    <p class="col-md-3 col-xs-12"><strong>Logout Hash: </strong></p>
+                    <span
+                        class="col-md-6 col-xs-12" id="logoutVersion">{{ implode('-', str_split($versionJson->forceLogoutAllCustomers, 5)) }}</span>
+                </div>
+                --}}
+                <hr>
+                <h4 class="font-weight-bold">Force Clear Cache</h4>
+                <p>This will force clear the
+                    cache on their devices and update the application on the user's device.
+                </p>
+                <a href="javascript:void(0)" data-type="CACHE" data-popup="tooltip"
+                    title="Double Click to Execute" data-placement="right"
+                    class="btn btn-secondary btn-labeled btn-labeled-left" id="forceClearCache"> <b><i
+                    class="icon-arrow-right7"></i></b> Force Clear Cache</a>
+                <hr>
+                <h4 class="font-weight-bold">Force New Settings</h4>
+                <p>This will force update new settings for all the users and delivery guys.</p>
+                <a href="javascript:void(0)" data-type="SETTINGS" data-popup="tooltip"
+                    title="Double Click to Execute" data-placement="right"
+                    class="btn btn-secondary btn-labeled btn-labeled-left" id="forceClearSettings">
+                <b><i class="icon-arrow-right7"></i></b> Force New Settings</a>
+                <hr>
+                {{-- 
+                <h4 class="font-weight-bold">Force Logout Customers </h4>
+                <p>This will logout all the users on the application (Not for Admin and Store Owners) <br>
+                    <b class="text-danger">Proceed with caution</b>
+                </p>
+                <a href="javascript:void(0)" data-type="LOGOUT" data-popup="tooltip"
+                    title="Double Click to Execute" data-placement="right"
+                    class="btn btn-secondary btn-labeled btn-labeled-left" id="forceLogoutAllCustomers">
+                <b><i class="icon-arrow-right7"></i></b> Force logout customers</a>
+                <hr>
+                --}}
+                <p class="text-danger">
+                    The customer app needs to reload the page for these settings to take affect.
+                </p>
+            </div>
+            <div class="tab-pane fade" id="fixUpdateIssues">
+                <legend class="font-weight-semibold text-uppercase font-size-sm">
+                    Fix Update Issues
+                </legend>
+                <p>After an update, the front-facing app (for customer or delivery) will have
+                    some issues.
+                    <br> The issue may be because of:
+                </p>
+                <ol>
+                    <li> Database error because of incorrect URL</li>
+                    <li> Cross-Origin Error because of non HTTPS URL</li>
+                    <li> Cache issues</li>
+                </ol>
+                <p><strong>Click the below button to fix these issues.</strong></p>
+                @if(Request::secure())
+                <a href="{{ route('admin.fixUpdateIssues') }}" class="btn btn-lg btn-primary" id="fixUpdateIssuesButton">Fix Issues Now</a>
+                @else
+                <a href="#" onclick="return false;" style="opacity: 0.6; cursor: not-allowed;"
+                    data-popup="tooltip"
+                    title="You need to use https version of URL for admin dashboard to proceed. Example: https://yourdomain.com/public/admin/settings"
+                    data-placement="bottom" class="btn btn-lg btn-primary">Fix Issues Now</a>
+                @endif
+            </div>
+            <div class="tab-pane fade" id="advanceSettings">
+                <legend class="font-weight-semibold text-uppercase font-size-sm">
+                    Advanced Settings
+                </legend>
+                <h2>Clean Everything</h2>
+                <p><strong>What will be removed?</strong></p>
+                <ul>
+                    <li>All the users (including Store Owners and Delivery Guys) except for the Super Admin</li>
+                    <li>All the restaurants</li>
+                    <li>All the Item Categories, Items, Addon Categories, Addons</li>
+                    <li>All the Orders</li>
+                    <li>Store Categories & Category Sliders</li>
+                    <li>Promo Sliders and all it's Slides</li>
+                    <li>All the wallet and wallet transaction logs</li>
+                    <li>All the Store Payouts and Store Payout Logs</li>
+                    <li>All the Delivery Collections and Delivery Collection Logs</li>
+                    <li>All the users addresses, Delivery Guy GPS Locations</li>
+                    <li>Internal data that links to the orders</li>
+                </ul>
+                <p><strong>What will not be removed?</strong></p>
+                <ul>
+                    <li>Website Settings</li>
+                    <li>Translations data</li>
+                    <li>Coupons</li>
+                    <li>Pages</li>
+                    <li>Popular Geo Locations</li>
+                </ul>
+                <button type="button" class="btn btn-danger btn-labeled btn-labeled-left"
+                    data-toggle="modal" data-target="#cleanEverything">
+                <b><i class="icon-trash"></i></b>
+                Clean Everything
+                </button>
+                <div class="mt-4">
+                    <p class="text-danger mb-2"><strong>EXPERIMENTAL FEATURES </strong> - no guarantee of work</p>
+                    <a href="{{ route('admin.filesBackup') }}" class="btn btn-primary btn-labeled btn-labeled-left backupBtn mr-2">
+                    <b><i class="icon-folder-download2"></i></b>
+                    Files Backup
+                    </a>
+                    <a href="{{ route('admin.dbBackup') }}" class="btn btn-primary btn-labeled btn-labeled-left backupBtn">
+                    <b><i class="icon-database-time2"></i></b>
+                    Database Backup
+                    </a>
+                    <p class="mt-2"> Please note the backup feature is experimental and the backup doesn't work on all the servers (even if a success message is returned). We will be improving this in the future releases if feasible or this module could be removed in the future releases.</p>
+                </div>
+            </div>
+            <div id="cleanEverything" class="modal fade" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"><span class="font-weight-bold text-danger"> <i class="icon-exclamation mr-2"></i> This is an irreversible action.</span></h5>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group row">
+                                <label class="col-lg-12 col-form-label">Type <b>CONFIRM</b> to proceed.</label>
+                                <div class="col-lg-12">
+                                    <input type="text" name="clear_confirmation" class="form-control form-control-lg">
+                                </div>
+                            </div>
+                            <i class="icon-spinner10 spinner text-warning ml-2 float-right hidden" id="cleanSpinner" style="font-size: 2.5rem;"></i>
+                            <button type="button" class="btn btn-lg btn-danger float-right btn-labeled btn-labeled-left" disabled="disabled" id="cleanEverythingButton">
+                            <b><i class="icon-arrow-right8"></i></b>
+                            Proceed
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+            <input type="hidden" name="_token" value="{{ csrf_token() }}" id="csrf">
+            <div class="text-right mt-5">
+                <button type="submit" class="btn btn-primary btn-labeled btn-labeled-left btn-lg">
+                <b><i class="icon-database-insert ml-1"></i></b>
+                Save Settings
+                </button>
+            </div>
+            <input type="hidden" name="window_redirect_hash" value="">
+            </form>
+            </div>
+            </div>
+            </div>
+            </div>
+            @if($versionMsg != null)
+            <div class="text-center mx-3" style="color: #9575cd;font-size: 0.8rem">{{ $versionMsg }}</div>
+            @endif
 <script>
     $(function() {
-        
+       $(".tips").select2({
+           tags: true,
+           tokenSeparators: [',',' '],
+       })
+       $(".tips").on("select2:select", function (evt) {
+         var element = evt.params.data.element;
+         var $element = $(element);
+         $element.detach();
+         $(this).append($element);
+         $(this).trigger("change");
+       })
+       $(".tips_percentage").select2({
+           tags: true,
+           tokenSeparators: [',',' '],
+       })
+       $(".tips_percentage").on("select2:select", function (evt) {
+         var element = evt.params.data.element;
+         var $element = $(element);
+         $element.detach();
+         $(this).append($element);
+         $(this).trigger("change");
+       })
+       $(document).on('keypress', '.tipss .select2-search__field', function () {
+           $(this).val($(this).val().replace(/[^\d].+/, ""));
+           if ((event.which < 48 || event.which > 57)) {
+               event.preventDefault();
+           }
+       });
+
         $('.select').select2();
     
         function setSwitchery(switchElement, checkedBool) {

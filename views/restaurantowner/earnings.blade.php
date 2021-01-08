@@ -84,7 +84,7 @@
 
                 @if(!((double)$balanceAfterCommission > (double)config('settings.minPayout')))
                 <p>
-                {{__('storeDashboard.epYourCurrentBalance')}} <strong>{{ config('settings.currencyFormat') }}{{$balanceAfterCommission}}</strong>. {{__('storeDashboard.epReqPayoutMessage')}}<strong>{{ config('settings.currencyFormat') }}{{ config('settings.minPayout') }}</strong>.
+                {{__('storeDashboard.epYourCurrentBalance')}} <strong>{{ config('settings.currencyFormat') }}{{$balanceAfterCommission}}</strong>. {{__('storeDashboard.epReqPayoutMessage')}}<strong> {{ config('settings.currencyFormat') }}{{ config('settings.minPayout') }}</strong>.
                 </p>
                 <i class="icon-exclamation" style="position: absolute; font-size: 5rem; color: #FF5722; right: 15px; top: 15px; opacity: 0.1;"></i>
                 @else
@@ -128,7 +128,7 @@
                         
                     </strong>
                 </h4>
-                <div class="table-responsive" style="overflow: hidden; height: auto; min-height: 10rem;">
+                <div class="table-responsive" style="height: auto; min-height: 10rem;">
                     <table class="table table-striped">
                         <thead>
                             <tr>

@@ -893,6 +893,14 @@
                     </div>
                 </div>
                 <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Apply Coupon Button Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="applyCouponButtonText"
+                            value="{{ config('settings.applyCouponButtonText') }}" placeholder="Apply Coupon Button Text">
+                    </div>
+                </div>
+                
+                <div class="form-group row">
                     <label class="col-lg-3 col-form-label"><strong>Cart Bill Details Text</strong></label>
                     <div class="col-lg-9">
                         <input type="text" class="form-control form-control-lg" name="cartBillDetailsText"
@@ -1046,7 +1054,57 @@
                             value="{{ config('settings.orderTextTotal') }}" placeholder="Order Total Text">
                     </div>
                 </div>
+
+                    <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Bill Detail Delivery Tip Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="tipText" value="{{ config('settings.tipText') }}" placeholder="Bill Detail Delivery Tip Text">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Delivery Tip Header Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="tipsForDeliveryText" value="{{ config('settings.tipsForDeliveryText') }}" placeholder="Delivery Tip Header Text">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Delivery Tip Thank You Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="tipsThanksText" value="{{ config('settings.tipsThanksText') }}" placeholder="Delivery Tip Thank You Text">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Tip Other Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="tipsOtherText" value="{{ config('settings.tipsOtherText') }}" placeholder="Tip Other Text">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Delivery tip transaction Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="deliveryTipTransactionMessage" value="{{ config('settings.deliveryTipTransactionMessage') }}" placeholder="Delivery tip transaction Text">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Tip Remove Button Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="cartRemoveTipText" value="{{ config('settings.cartRemoveTipText') }}" placeholder="Tip Remove Button Text">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Tip Amount Placeholder Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="cartTipAmountPlaceholderText" value="{{ config('settings.cartTipAmountPlaceholderText') }}" placeholder="Tip Amount Placeholder Text">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Tip Percentage Placeholder Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="cartTipPercentagePlaceholderText" value="{{ config('settings.cartTipPercentagePlaceholderText') }}" placeholder="Tip Percentage Placeholder Text">
+                    </div>
+                </div>
                 <!-- END Cart Screen Settings -->
+                
                 <!-- Checkout Screen Settings -->
                 <button class="btn btn-primary translation-section-btn mt-4" type="button"> <i class="icon-mobile mr-1"></i>Checkout Screen Settings </button> 
                 <div class="form-group row">
@@ -1525,6 +1583,13 @@
                             value="{{ config('settings.awaitingPaymentSubTitle') }}" placeholder="Awaiting Payment Sub Title">
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Order Payment Mode Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="orderDetailsPaymentMode"
+                            value="{{ config('settings.orderDetailsPaymentMode') }}" placeholder="Order Payment Mode Text">
+                    </div>
+                </div>
                 <!-- END Running Order Screen Settings -->
                 <!-- Account Screen Settings -->
                 <button class="btn btn-primary translation-section-btn mt-4" type="button"> <i class="icon-mobile mr-1"></i>Account Screen Settings </button> 
@@ -1852,6 +1917,20 @@
                     </div>
                 </div>
                 <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Pickedup Orders Title</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="deliveryPickedupOrdersTitle"
+                            value="{{ config('settings.deliveryPickedupOrdersTitle') }}" placeholder="Pickedup Orders Title">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>No Pickedup Orders Message</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="deliveryNoPickedupOrdersMsg"
+                            value="{{ config('settings.deliveryNoPickedupOrdersMsg') }}" placeholder="No Pickedup Orders Message">
+                    </div>
+                </div>
+                <div class="form-group row">
                     <label class="col-lg-3 col-form-label"><strong>Order Items</strong></label>
                     <div class="col-lg-9">
                         <input type="text" class="form-control form-control-lg" name="deliveryOrderItems"
@@ -1992,6 +2071,13 @@
                     </div>
                 </div>
                 <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Delivery Footer Pickedup</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="deliveryFooterPickedup"
+                            value="{{ config('settings.deliveryFooterPickedup') }}" placeholder="Delivery Footer Pickedup">
+                    </div>
+                </div>
+                <div class="form-group row">
                     <label class="col-lg-3 col-form-label"><strong>Delivery Account Earnings Text</strong></label>
                     <div class="col-lg-9">
                         <input type="text" class="form-control form-control-lg" name="deliveryEarningsText"
@@ -2066,6 +2152,34 @@
                     <div class="col-lg-9">
                         <input type="text" class="form-control form-control-lg" name="deliveryMaxOrderReachedMsg"
                             value="{{ config('settings.deliveryMaxOrderReachedMsg') }}" placeholder="Delivery Max Order Reached">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Delivery Guy Earnings Commission Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="deliveryEarningCommissionText"
+                            value="{{ config('settings.deliveryEarningCommissionText') }}" placeholder="Delivery Guy Earnings Commission Text">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Delivery Guy Earnings Tip Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="deliveryEarningTipText"
+                            value="{{ config('settings.deliveryEarningTipText') }}" placeholder="Delivery Guy Earnings Tip Text">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Delivery Guy Earnings Total Earning Text</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="deliveryEarningTotalEarningText"
+                            value="{{ config('settings.deliveryEarningTotalEarningText') }}" placeholder="Delivery Guy Earnings Total Earning Text">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label"><strong>Delivery Guy Last 7 Days Earning Chart Title</strong></label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control form-control-lg" name="deliveryLastSevenDaysEarningTitle"
+                            value="{{ config('settings.deliveryLastSevenDaysEarningTitle') }}" placeholder="Delivery Guy Last 7 Days Earning Chart Title">
                     </div>
                 </div>
                 <!--  END Delivery Screen Settings -->

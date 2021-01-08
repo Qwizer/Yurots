@@ -65,6 +65,7 @@
 </div>
 
 <script>
+     $('body').tooltip({selector: '[data-popup="tooltip"]'});
      function add(data) {
         $('#addonsLegend').removeClass('hidden');
         var newAddon = document.createElement("div");

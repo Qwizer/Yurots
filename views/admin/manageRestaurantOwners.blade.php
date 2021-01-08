@@ -8,7 +8,8 @@ Store Owners | Dashboard
         <div class="page-title d-flex">
             <h4><i class="icon-circle-right2 mr-2"></i>
                 <span class="font-weight-bold mr-2">TOTAL</span>
-                <span class="badge badge-primary badge-pill animated flipInX">{{ $count }}</span>
+                <span class="badge badge-primary badge-pill animated flipInX mr-2">{{ $count }}</span>
+                <span class="font-weight-bold">Store Owners</span>
             </h4>
             <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
         </div>
@@ -32,10 +33,10 @@ Store Owners | Dashboard
                     <thead>
                         <tr>
                             <th style="width: 20%;">Name</th>
-                            <th style="width: 50%">Email</th>
-                            <th style="width: 20%;">Created</th>
-                            <th style="width: 10%;">Role</th>
-                            <th style="width: 15%; text-align: center;">{{ config('settings.walletName') }}</th>
+                            <th style="width: 30%">Email</th>
+                            <th style="width: 20%;">Phone</th>
+                            <th style="width: 30%;">Created</th>
+                            <th style="width: 15%; text-align: right;">{{ config('settings.walletName') }}</th>
                             <th class="text-center" style="width: 10%;"><i class="
                                 icon-circle-down2"></i></th>
                         </tr>
@@ -45,14 +46,9 @@ Store Owners | Dashboard
                         <tr>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
+                            <td>{{ $user->phone }}</td>
                             <td>{{ $user->created_at->diffForHumans() }}</td>
-                            <td>
-                                @foreach ($user->roles as $role)
-                                <span class="badge badge-flat border-grey-800 text-default text-capitalize">
-                                {{ $role->name }}
-                                </span> @endforeach
-                            </td>
-                            <td class="text-center">
+                            <td class="text-right">
                                {{ config('settings.currencyFormat') }}{{ $user->balanceFloat }}
                             </td>
                             <td class="text-center">

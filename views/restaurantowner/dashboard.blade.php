@@ -3,6 +3,30 @@
 {{__('storeDashboard.dashboardTitle')}}
 @endsection
 @section('content')
+
+@if(config('settings.oneSignalAppId') != null && config('settings.oneSignalRestApiKey') != null)
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js"></script>
+<script>
+    window.OneSignal = window.OneSignal || [];
+    OneSignal.push(function() {
+      OneSignal.init({
+        appId: "{{ config('settings.oneSignalAppId') }}",
+      });
+    });
+    let user_id = "{{ Auth::user()->id }}";
+    
+    OneSignal.push(function() {
+      OneSignal.on('subscriptionChange', function(isSubscribed) {
+        if (isSubscribed) {
+          OneSignal.push(function() {
+            OneSignal.setExternalUserId(user_id);
+          });
+        }
+      });
+    });
+</script>
+@endif
+
 <div class="content mb-5">
     <div class="row mt-3">
         <div class="col-6 col-xl-3 mt-2">
@@ -10,7 +34,7 @@
                 <a class="block block-link-shadow text-left" href="javascript:void(0)">
                     <div class="block-content block-content-full clearfix">
                         <div class="float-right mt-10 d-none d-sm-block">
-                            <i class="dashboard-display-icon icon-city"></i>
+                            <i class="dashboard-display-icon icon-store2"></i>
                         </div>
                         <div class="dashboard-display-number">{{ $restaurantsCount }}</div>
                         <div class="font-size-sm text-uppercase text-muted">{{__('storeDashboard.dashboardStores')}}</div>
@@ -52,7 +76,7 @@
                             <i class="dashboard-display-icon icon-coin-dollar"></i>
                         </div>
                         <div class="dashboard-display-number">{{ config('settings.currencyFormat') }}
-                            {{ $totalEarning }}
+                            {{ floatval($totalEarning) }}
                         </div>
                         <div class="font-size-sm text-uppercase text-muted">{{__('storeDashboard.dashboardEarnings')}}</div>
                     </div>
@@ -60,7 +84,6 @@
             </div>
         </div>
     </div>
-
     <div class="row pt-4 p-0">
         <div class="col-xl-12">
             <div class="panel panel-flat dashboard-main-col mt-4">
@@ -100,9 +123,16 @@
                                 <td>
                                     {{ $nO->restaurant->name }}
                                 </td>
+                                 @php
+                                    if(!is_null($nO->tip_amount)) {
+                                        $nOTotal = $nO->total - $nO->tip_amount;
+                                    } else {
+                                        $nOTotal = $nO->total;
+                                    }
+                                @endphp
                                 <td>
                                     <span class="text-semibold no-margin">{{ config('settings.currencyFormat') }}
-                                    {{ $nO->total }}</span>
+                                    {{ $nOTotal }}</span>
                                 </td>
                                 <td>
                                     <span class="badge badge-flat border-grey-800 text-default text-capitalize">
@@ -167,9 +197,16 @@
                                     <span>--</span>
                                     @endif
                                 </td>
+                                 @php
+                                    if(!is_null($pO->tip_amount)) {
+                                        $pOTotal = $pO->total - $pO->tip_amount;
+                                    } else {
+                                        $pOTotal = $pO->total;
+                                    }
+                                @endphp
                                 <td>
                                     <span class="text-semibold no-margin">{{ config('settings.currencyFormat') }}
-                                    {{ $pO->total }}</span>
+                                    {{ $pOTotal }}</span>
                                 </td>
                                 <td>
                                     {{ $pO->created_at->diffForHumans() }}
@@ -192,7 +229,7 @@
         <div class="col-xl-12">
             <div class="panel panel-flat dashboard-main-col mt-4">
                 <div class="panel-heading">
-                    <h4 class="panel-title pl-3 pt-3"><strong>Self-Pickup Orders</strong></h4>
+                    <h4 class="panel-title pl-3 pt-3"><strong>{{__('storeDashboard.dashboardSelfpickupOrders')}}</strong></h4>
                     <hr>
                 </div>
                 <div class="table-responsive">
@@ -255,7 +292,7 @@
         <div class="col-xl-12">
             <div class="panel panel-flat dashboard-main-col mt-4">
                 <div class="panel-heading">
-                    <h4 class="panel-title pl-3 pt-3"><strong>OnGoing Deliveries</strong></h4>
+                    <h4 class="panel-title pl-3 pt-3"><strong>{{__('storeDashboard.dashboardOngoingDeliveries')}}</strong></h4>
                     <hr>
                 </div>
                 @if(count($ongoingOrders))
@@ -293,9 +330,16 @@
                                     <span>--</span>
                                     @endif
                                 </td>
+                                 @php
+                                    if(!is_null($ogO->tip_amount)) {
+                                        $ogOTotal = $ogO->total - $ogO->tip_amount;
+                                    } else {
+                                        $ogOTotal = $ogO->total;
+                                    }
+                                @endphp
                                 <td>
                                     <span class="text-semibold no-margin">{{ config('settings.currencyFormat') }}
-                                    {{ $ogO->total }}</span>
+                                    {{ $ogOTotal }}</span>
                                 </td>
                                 <td>
                                     {{ $ogO->created_at->diffForHumans() }}
@@ -310,7 +354,7 @@
                     @else
                     <div class="text-center text-muted pb-2">
                         <h4> {{__('storeDashboard.dashboardNoOrders')}} </h4>
-                    </div> 
+                    </div>
                 </div>
                 @endif
             </div>
@@ -318,7 +362,6 @@
     </div>
 </div>
 <input type="hidden" value="{{ csrf_token() }}" class="csrfToken">
-
 <div id="newOrderModal" class="modal fade mt-5" tabindex="-1" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog modal-md">
         <div class="modal-content">
@@ -333,17 +376,13 @@
                     <h3 class="text-muted"> {{__('storeDashboard.dashboardNoOrders')}} </h3>
                 </div>
             </div>
-            {{-- <div class="modal-footer">
-                <button class="btn btn-default btn-labeled btn-lg mr-2 stopSound" data-popup="tooltip" data-placement="right" title="{{ __('storeDashboard.dashboardStopSound') }}" style="background-color: #F5F5F5;">
-                <i class="icon-volume-mute5"></i>
-                </button>
-            </div> --}}
         </div>
     </div>
 </div>
 <script>
     $(function() {
-    
+        var touchtime = 0;
+        
         let notification = document.createElement('audio');
         let notificationFileRoute = '{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/tones/{{ config('settings.restaurantNotificationAudioTrack') }}.mp3';
            notification.setAttribute('src', notificationFileRoute);
@@ -397,8 +436,15 @@
                         }
     
                         let viewOrderURL = "{{ url('/store-owner/order') }}/" + order.unique_order_id;
-    
-                        newOrderData +='<div class="popup-order mb-3"><div class="text-center my-3 h5"><strong><span class="text-semibold no-margin">{{ config('settings.currencyFormat') }}'+order.total+'</span> <i class="icon-arrow-right5"></i> <a href="'+viewOrderURL+'">'+order.unique_order_id+'</a> <i class="icon-arrow-right5"></i>'+order.restaurant.name+'</strong> '+ selfPickup +'</div>';
+                        
+                        console.log(order);
+
+                        if (order.tip_amount != null) {
+                            var orderTotal = parseFloat(order.total) - parseFloat(order.tip_amount); 
+                        } else {
+                             var orderTotal = order.total;
+                        }
+                        newOrderData +='<div class="popup-order mb-3"><div class="text-center my-3 h5"><strong><span class="text-semibold no-margin">{{ config('settings.currencyFormat') }}'+orderTotal+'</span> <i class="icon-arrow-right5"></i> <a href="'+viewOrderURL+'">'+order.unique_order_id+'</a> <i class="icon-arrow-right5"></i>'+order.restaurant.name+'</strong> '+ selfPickup +'</div>';
     
                         newOrderData += '<div class="d-flex justify-content-center"><button data-id="'+order.id+'" class="btn btn-primary btn-labeled btn-labeled-left mr-2 acceptOrderBtn"><b><i class="icon-checkmark3 ml-1"></i></b> {{__('storeDashboard.dashboardAcceptOrder')}} </a> <button data-id="'+order.id+'" class="btn btn-danger btn-labeled btn-labeled-right mr-2 cancelOrderBtnPopup" data-popup="tooltip" data-placement="top" title="{{__('storeDashboard.dashboardDoubleClickMsg')}}"> <b><i class="icon-cross ml-1"></i></b> {{__('storeDashboard.dashboardCancelOrder')}}  </a></div></div>'
                         
@@ -470,10 +516,15 @@
         $('body').on("click", ".cancelOrderBtnTableList", function(e) {
             return false;
         });
-        $('body').on("dblclick", ".cancelOrderBtnTableList", function(e) {
-            $(this).parents('.new-order-actions').addClass('popup-order-processing');
-            window.location = this.href;
-            return false;
+    
+        $('body').on("click", ".cancelOrderBtnTableList", function(e) {
+            e.preventDefault()
+            if (((new Date().getTime()) - touchtime) < 500) {
+                $(this).parents('.new-order-actions').addClass('popup-order-processing');
+                window.location = this.href;
+                return false;
+            }
+            touchtime = new Date().getTime();
         });
     
         //on Single click donot cancel order popup
@@ -485,43 +536,48 @@
           $(this).parents('.accepted-order-actions').addClass('popup-order-processing');
         });
         
-        //cancel order on double click popup
-        $('body').on("dblclick", ".cancelOrderBtnPopup", function(e) {
     
-            let context = $(this).parents('.popup-order');
-            context.addClass('popup-order-processing').prepend('<div class="d-flex pt-2 pr-2 float-right"><i class="icon-spinner10 spinner"></i></div>')
-            console.log("HERE", context);
+        $('body').on("click", ".cancelOrderBtnPopup", function(e) {
+            e.preventDefault()
     
-            let id = $(this).attr("data-id");
-            let cancelOrderURL = "{{ url('/store-owner/orders/cancel-order') }}/" +id;
-            $.ajax({
-                url: cancelOrderURL,
-                type: 'GET',
-                dataType: 'JSON',
-            })
-            .done(function(data) {
-                $(context).remove();
-                //count number of order on popup, if 0 then remove popup
-                if ($('.popup-order').length == 0) {
-                    $('#newOrderModal').modal('hide');
-                }
-                $.jGrowl("{{__('storeDashboard.orderCanceledNotification')}}", {
-                    position: 'bottom-center',
-                    header: '{{__('storeDashboard.successNotification')}}',
-                    theme: 'bg-success',
-                    life: '5000'
-                });
-            })
-            .fail(function() {
-                console.log("error");
-                $.jGrowl("{{__('storeDashboard.orderSomethingWentWrongNotification')}}", {
-                    position: 'bottom-center',
-                    header: '{{__('storeDashboard.woopssNotification')}}',
-                    theme: 'bg-warning',
-                    life: '5000'
-                });
-            })
-         });
+            if (((new Date().getTime()) - touchtime) < 500) {
+    
+                let context = $(this).parents('.popup-order');
+                context.addClass('popup-order-processing').prepend('<div class="d-flex pt-2 pr-2 float-right"><i class="icon-spinner10 spinner"></i></div>')
+                console.log("HERE", context);
+                
+                let id = $(this).attr("data-id");
+                let cancelOrderURL = "{{ url('/store-owner/orders/cancel-order') }}/" +id;
+                $.ajax({
+                    url: cancelOrderURL,
+                    type: 'GET',
+                    dataType: 'JSON',
+                })
+                .done(function(data) {
+                    $(context).remove();
+                    //count number of order on popup, if 0 then remove popup
+                    if ($('.popup-order').length == 0) {
+                        $('#newOrderModal').modal('hide');
+                    }
+                    $.jGrowl("{{__('storeDashboard.orderCanceledNotification')}}", {
+                        position: 'bottom-center',
+                        header: '{{__('storeDashboard.successNotification')}}',
+                        theme: 'bg-success',
+                        life: '5000'
+                    });
+                })
+                .fail(function() {
+                    console.log("error");
+                    $.jGrowl("{{__('storeDashboard.orderSomethingWentWrongNotification')}}", {
+                        position: 'bottom-center',
+                        header: '{{__('storeDashboard.woopssNotification')}}',
+                        theme: 'bg-warning',
+                        life: '5000'
+                    });
+                })
+            }
+            touchtime = new Date().getTime();
+        });
     });
 </script>
 @endsection

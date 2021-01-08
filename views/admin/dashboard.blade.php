@@ -13,28 +13,23 @@ Dashboard
     }
 </style>
 <div class="content mb-5">
-    <div id="update_notification" style="display:none;" class="alert alert-update mt-2">
-        <button type="button" style="margin-left: 20px" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
     <div class="row mt-4">
         <div class="col-6 col-xl-3 mb-2 mt-2">
             <div class="col-xl-12 dashboard-display p-3">
-                <a class="block block-link-shadow text-left" href="javascript:void(0)">
+                <a class="block block-link-shadow text-left text-default" href="javascript:void(0)">
                     <div class="block-content block-content-full clearfix">
                         <div class="float-right mt-10 d-none d-sm-block">
                             <i class="dashboard-display-icon icon-basket"></i>
                         </div>
                         <div class="dashboard-display-number">{{ $displaySales }}</div>
-                        <div class="font-size-sm text-uppercase text-muted">Sales</div>
+                        <div class="font-size-sm text-uppercase text-muted">Orders</div>
                     </div>
                 </a>
             </div>
         </div>
         <div class="col-6 col-xl-3 mb-2 mt-2">
             <div class="col-xl-12 dashboard-display p-3">
-                <a class="block block-link-shadow text-left" href="javascript:void(0)">
+                <a class="block block-link-shadow text-left text-default" href="javascript:void(0)">
                     <div class="block-content block-content-full clearfix">
                         <div class="float-right mt-10 d-none d-sm-block">
                             <i class="dashboard-display-icon icon-users4"></i>
@@ -47,10 +42,10 @@ Dashboard
         </div>
         <div class="col-6 col-xl-3 mb-2 mt-2">
             <div class="col-xl-12 dashboard-display p-3">
-                <a class="block block-link-shadow text-left" href="javascript:void(0)">
+                <a class="block block-link-shadow text-left text-default" href="javascript:void(0)">
                     <div class="block-content block-content-full clearfix">
                         <div class="float-right mt-10 d-none d-sm-block">
-                            <i class="dashboard-display-icon icon-city"></i>
+                            <i class="dashboard-display-icon icon-store2"></i>
                         </div>
                         <div class="dashboard-display-number">{{ $displayRestaurants }}</div>
                         <div class="font-size-sm text-uppercase text-muted">Stores</div>
@@ -60,7 +55,7 @@ Dashboard
         </div>
         <div class="col-6 col-xl-3 mb-2 mt-2">
             <div class="col-xl-12 dashboard-display p-3">
-                <a class="block block-link-shadow text-left" href="javascript:void(0)">
+                <a class="block block-link-shadow text-left text-default" href="javascript:void(0)">
                     <div class="block-content block-content-full clearfix">
                         <div class="float-right mt-10 d-none d-sm-block">
                             <i class="dashboard-display-icon icon-coin-dollar"></i>
@@ -72,30 +67,32 @@ Dashboard
             </div>
         </div>
     </div>
+    <style>
+        .recent-order-card, .new-users {
+            background-color: #fff;
+            /*box-shadow: 0 3px 20px rgba(0, 0, 0, .04);*/
+            border-radius: 6px;
+            transition: 0.18s linear all;
+            margin-bottom: 12px;
+        }
+        .recent-order-card > a, .new-users > a {
+            color: #2d3748;
+        }
+        .recent-order-card:hover, .new-users:hover {
+            transition: 0.18s linear all;
+            transform: translateY(-3px);
+            box-shadow: 0 3px 20px rgba(0, 0, 0, .08);
+        }
+    </style>
     <div class="row">
         <div class="col-xl-6">
-            <div class="panel panel-flat dashboard-main-col mt-4" style="min-height: 30rem;">
-                <div class="panel-heading">
-                    <h4 class="panel-title pl-3 pt-3"><strong>Recent Orders</strong></h4>
-                    <hr>
-                </div>
-                <div class="table-responsive">
-                    <table class="table text-nowrap">
-                        <thead>
-                            <tr>
-                                <th>Order ID</th>
-                                <th>Order Status</th>
-                                <th>Price</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($orders as $order)
-                            <tr>
-                                <td>    
-                                    <a href="{{ route('admin.viewOrder', $order->unique_order_id) }}" class="letter-icon-title">{{ $order->unique_order_id }}</a>
-                                </td>
-                                <td>
-                                    <span class="badge badge-flat border-grey-800 text-default text-capitalize">
+            <h4 class="panel-title pl-1 mt-4"><strong>Recent Orders <a href="{{ route('admin.orders') }}" class="btn btn-default float-right">View All</a></strong></h4>
+            <div class="mt-2" style="min-height: 30rem;">
+                @foreach($orders as $order)
+                    <div class="recent-order-card p-2">
+                        <a href="{{ route('admin.viewOrder', $order->unique_order_id) }}">
+                            <div class="float-right text-right">
+                                <span class="badge order-badge badge-color-{{$order->orderstatus_id}} border-grey-800">
                                     @if ($order->orderstatus_id == 1) Order Placed @endif
                                     @if ($order->orderstatus_id == 2) Order Accepted @endif
                                     @if ($order->orderstatus_id == 3) Delivery Assigned @endif
@@ -105,16 +102,47 @@ Dashboard
                                     @if ($order->orderstatus_id == 7) Ready for Pickup @endif
                                     @if ($order->orderstatus_id == 8) Awaiting Payment @endif
                                     @if ($order->orderstatus_id == 9) Payment Failed @endif
-                                    </span>
-                                </td>
-                                <td>
-                                    <span class="text-semibold no-margin">{{ config('settings.currencyFormat') }} {{ $order->total }}</span>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
+                                </span>
+                                <br>
+                                @if($agent->isDesktop())
+                                    @if($order->orderstatus_id == 5)
+                                        <p class="order-dashboard-time min-fit-content mt-1"><b>Completed in: </b>{{ timeStrampDiffFormatted($order->created_at, $order->updated_at) }}</p>
+                                    @elseif($order->orderstatus_id == 6)
+                                        <p class="order-dashboard-time min-fit-content mt-1"><b>Cancelled in: </b> {{ timeStrampDiffFormatted($order->created_at, $order->updated_at) }}</p>
+                                    @else
+                                        <p class="liveTimer mt-1 text-center min-fit-content order-dashboard-time" title="{{ $order->created_at }}"><i class="icon-spinner10 spinner position-left"></i></p>
+                                    @endif
+                                @endif
+                            </div>
+                            <div class="d-flex justify-content-start">
+                                <div>
+                                    <img src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}{{ $order->restaurant->image }}"
+                                    alt="{{ $order->restaurant->name }}" height="70" width="70"
+                                    style="border-radius: 8px;">
+                                </div>
+                                
+                                <div class="ml-2">
+                                    <span><b>{{ $order->restaurant->name }}</b></span>
+                                    <br>
+                                    <span>#{{ substr ($order->unique_order_id, -9)  }}</span>
+                                    <br>
+                                    <span><strong>{{ config('settings.currencyFormat') }}{{ $order->total }}</strong></span>
+                                </div>
+                            </div>
+                            @if($agent->isMobile())
+                                <div class="mt-2">
+                                    @if($order->orderstatus_id == 5)
+                                        <p class="order-dashboard-time min-fit-content mt-1"><b>Completed in: </b>{{ timeStrampDiffFormatted($order->created_at, $order->updated_at) }}</p>
+                                    @elseif($order->orderstatus_id == 6)
+                                        <p class="order-dashboard-time min-fit-content mt-1"><b>Cancelled in: </b> {{ timeStrampDiffFormatted($order->created_at, $order->updated_at) }}</p>
+                                    @else
+                                        <p class="liveTimer mt-1 text-center min-fit-content order-dashboard-time" title="{{ $order->created_at }}"><i class="icon-spinner10 spinner position-left"></i></p>
+                                    @endif
+                                </div>
+                            @endif
+                        </a>
+                    </div>
+                @endforeach
             </div>
         </div>
         <div class="col-xl-6 d-none d-md-block">
@@ -131,49 +159,34 @@ Dashboard
     </div>
     <div class="row">
         <div class="col-xl-12">
-            <div class="panel panel-flat dashboard-main-col mt-4">
-                <div class="panel-heading">
-                    <h4 class="panel-title pl-3 pt-3"><strong>New Users</strong></h4>
-                    <hr>
-                </div>
-                <div class="table-responsive" style="overflow-y: hidden;">
-                    <table class="table text-nowrap">
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Role</th>
-                                <th>Created</th>
-                                <th class="text-center" style="width: 10%;"><i class="
-                                    icon-circle-down2"></i></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($users as $user)
-                            <tr>
-                                <td>
-                                    <a href="{{ route('admin.get.editUser', $user->id) }}" class="letter-icon-title">{{ $user->name }}</a>
-                                </td>
-                                <td>
-                                    <span class="text-muted text-size-small">{{ $user->email }}</span>
-                                </td>
-                                <td>
-                                    @foreach ($user->roles as $role)
+            <h4 class="panel-title pl-1 mt-4"><strong>New Users <a href="{{ route('admin.users') }}" class="btn btn-default float-right">View All</a></strong></h4>
+            <div class="mt-2">
+                <div class="row">
+                @foreach($users as $user)
+                    <div class="col-md-4">
+                        <div class="col-md-12 new-users p-2">
+                        <a href="{{ route('admin.get.editUser', $user->id) }}">
+                            <div class="float-right">
+                                @foreach ($user->roles as $role)
                                     <span class="badge badge-flat border-grey-800 text-default text-capitalize">
                                     {{ $role->name }}
                                     </span>
-                                    @endforeach
-                                </td>
-                                <td>{{ $user->created_at->diffForHumans() }}</td>
-                                <td class="text-center">
-                                    <a href="{{ route('admin.get.editUser', $user->id) }}"
-                                        class="badge badge-primary badge-icon"> Edit <i
-                                        class="icon-database-edit2 ml-1"></i></a>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                                @endforeach
+                            </div>
+                            <div class="d-flex justify-content-start">
+                                <div class="first-letter-icon custom-bg-{{ rand(1,8) }}">
+                                   {{ returnAcronym($user->name) }}
+                                </div>
+                                <div class="ml-2">
+                                    <span> {{ $user->name }}</span><br>
+                                    <span>{{ $user->email }}</span><br>
+                                    <span>{{ $user->created_at->diffForHumans() }}</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    </div>
+                @endforeach
                 </div>
             </div>
         </div>
@@ -181,6 +194,46 @@ Dashboard
 </div>
 <script>
     $(function () {
+
+
+        timer = setInterval(updateClock, 1000);
+
+        var newDate = new Date();
+        var newStamp = newDate.getTime();
+
+        var timer; 
+
+        function updateClock() {
+
+            $('.liveTimer').each(function(index, el) {
+                var orderCreatedData = $(this).attr("title");
+                var startDateTime = new Date(orderCreatedData); 
+                var startStamp = startDateTime.getTime();
+            
+
+                newDate = new Date();
+                newStamp = newDate.getTime();
+                var diff = Math.round((newStamp-startStamp)/1000);
+                
+                var d = Math.floor(diff/(24*60*60));
+                diff = diff-(d*24*60*60);
+                var h = Math.floor(diff/(60*60));
+                diff = diff-(h*60*60);
+                var m = Math.floor(diff/(60));
+                diff = diff-(m*60);
+                var s = diff;
+                var checkDay = d > 0 ? true : false;
+                var checkHour = h > 0 ? true : false;
+                var checkMin = m > 0 ? true : false;
+                var checkSec = s > 0 ? true : false;
+                var formattedTime = checkDay ? d+ " day" : "";
+                formattedTime += checkHour ? " " +h+ " hour" : "";
+                formattedTime += checkMin ? " " +m+ " minute" : "";
+                formattedTime += checkSec ? " " +s+ " second" : "";
+
+                $(this).text(formattedTime);
+            });
+        }
 
         require.config({
             paths: {

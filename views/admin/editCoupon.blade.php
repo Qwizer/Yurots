@@ -81,13 +81,25 @@
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>Coupon Applicable Stores:</label>
                         <div class="col-lg-9">
-                            <select class="form-control select-search select" name="restaurant_id[]" required multiple="multiple">
+                            <select class="form-control select-search couponStoreSelect" name="restaurant_id[]" required multiple="multiple" id="storeSelect">
                                 @foreach ($restaurants as $restaurant)
                                 <option value="{{ $restaurant->id }}" class="text-capitalize" {{ isset($coupon) && in_array($restaurant->id, $coupon->restaurants()->pluck('restaurant_id')->toArray()) ? 'selected' : '' }}>{{ $restaurant->name }}</option>
                                 @endforeach
                             </select>
+                            <input type="checkbox" id="selectAllStores"><span class="ml-1">Select All Stores</span>
                         </div>
                     </div>
+                    <script>
+                        $("#selectAllStores").click(function(){
+                            if($("#selectAllStores").is(':checked') ){
+                                $("#storeSelect > option").prop("selected","selected");
+                                $("#storeSelect").trigger("change");
+                            }else{
+                                $("#storeSelect > option").removeAttr("selected");
+                                 $("#storeSelect").trigger("change");
+                             }
+                        });
+                    </script>
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>Max number of
                             use in total:</label>
@@ -134,7 +146,7 @@
                             use per user:</label>
                         <div class="col-lg-9">
                             <input type="text" class="form-control form-control-lg max_count_per_user" name="max_count_per_user"
-                                placeholder="Max number of use per user" @if($coupon->user_type != "CUSTOM") required="required" @endif value="{{ $coupon->max_count_per_user }}">
+                                placeholder="Max number of use per user" @if($coupon->user_type == "CUSTOM") required="required" @endif value="{{ $coupon->max_count_per_user }}">
                         </div>
                     </div>
                     <script>
@@ -193,8 +205,10 @@
 </div>
 <script>
     $(function () {
-         $('.select').select2();
-    
+        $('.select').select2();
+        $('.couponStoreSelect').select2({
+            closeOnSelect: false
+        })
         var isactive = document.querySelector('.isactive');
         new Switchery(isactive, { color: '#2196f3' });
         

@@ -38,52 +38,121 @@ Update
         }
     </style>
     <div class="col-lg-4 col-lg-offset-4 mt-5">
-        <div class="thankyou-box">
-            <h2>
-                Update Available {{ $updateVersion }} 🔥
-            </h2>
-            <p>
-                This is the update wizard.
-            </p>
-            <form action="{{ url('install/update') }}" method="POST">
-                <input autofocus="" class="form-control mt-2" name="password" placeholder="Enter the Admin Password to continue" style="margin-top: 1.5rem" type="password"/>
-                <button class="btn btn-primary update-button" style="margin-top: 2rem;">
-                    Update Now
-                </button>
-                @csrf
-            </form>
-            <div class="box error-msg">
-                <div class="text-danger">
-                    @if(Session::has('message'))
-                    {{ Session::get('message') }}
-                    @endif
-                    @if($errors->any())
-                    {{ implode('', $errors->all(':message')) }}
-                    @endif
+
+        @if(!$extensionSatisfied)
+            <div class="box">
+                <p>Please make sure the PHP extensions listed below are installed.</p>
+
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="width: 100%;">Extensions</th>
+                                <th class="text-center">Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach ($requirement->extensions() as $label => $satisfied)
+                                @if(!$satisfied)
+                                    <tr>
+                                        <td>
+                                            {{ $label }}
+                                        </td>
+                                        <td class="text-center">
+                                            <i class="fa fa-{{ $satisfied ? 'check' : 'times' }}" aria-hidden="true"></i>
+                                        </td>
+                                    </tr>
+                                @endif
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
-            <div class="box error-msg">
-                <div class="text-danger">
-                    @if(Session::has('success'))
-                    {{ Session::get('success') }}
-                    @endif
-                    @if($errors->any())
-                    {{ implode('', $errors->all(':success')) }}
-                    @endif
+        @endif
+
+        @if(!$permissionSatisfied)
+            <div class="box">
+                <p>Please make sure you have set the correct permissions for the directories listed below. All these directories/files should be writable.</p>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="width: 100%;">Directories</th>
+                                <th class="text-center">Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach ($requirement->directories() as $label => $satisfied)
+                                @if(!$satisfied)
+                                    <tr>
+                                        <td>{{ $label }}</td>
+                                        <td class="text-center">
+                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                        </td>
+                                    </tr>
+                                @endif
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
-            <div class="warning-msg hidden" style="margin-top: 1.5rem">
-                <p class="text-danger">
-                    Update process can take upto 30 seconds.
+        @endif
+
+        @if($requirement->satisfied())
+            <div class="thankyou-box">
+                <h2>
+                    Update Available {{ $updateVersion }} 🔥
+                </h2>
+                <p>
+                    This is the update wizard.
                 </p>
-                <p class="text-danger">
-                    <strong>
-                        DONOT
-                    </strong>
-                    close or reload this window.
-                </p>
+                <form action="{{ url('install/update') }}" method="POST">
+                    <input autofocus="" class="form-control mt-2" name="password" placeholder="Enter the Admin Password to continue" style="margin-top: 1.5rem" type="password"/>
+                    <button class="btn btn-primary update-button" style="margin-top: 2rem;">
+                        Update Now
+                    </button>
+                    @csrf
+                </form>
+                <div class="box error-msg">
+                    <div class="text-danger">
+                        @if(Session::has('message'))
+                        {{ Session::get('message') }}
+                        @endif
+                        @if($errors->any())
+                        {{ implode('', $errors->all(':message')) }}
+                        @endif
+                    </div>
+                </div>
+                <div class="box error-msg">
+                    <div class="text-danger">
+                        @if(Session::has('success'))
+                        {{ Session::get('success') }}
+                        @endif
+                        @if($errors->any())
+                        {{ implode('', $errors->all(':success')) }}
+                        @endif
+                    </div>
+                </div>
+                <div class="warning-msg hidden" style="margin-top: 1.5rem">
+                    <p class="text-danger">
+                        Update process can take upto 30 seconds.
+                    </p>
+                    <p class="text-danger">
+                        <strong>
+                            DONOT
+                        </strong>
+                        close or reload this window.
+                    </p>
+                </div>
             </div>
+        @else
+        <div class="text-left" style="margin-top: 5rem;">
+            <strong>Fix the above issues and reload the page to update Foodomaa to {{ $updateVersion }}</strong>
         </div>
+        @endif
+
         <div class="update-messages">
             <div class="message-overlay">
             </div>

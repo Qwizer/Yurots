@@ -44,8 +44,20 @@
                     style="border-radius: 0.275rem;" class="text-center">
                     @if($restaurant->is_featured)<span class="badge badge-secondary badge-warning" data-popup="tooltip" title="Featured" data-placement="left" style="position: absolute; right: 0; top: 0; opacity: 0.55; background-color: #ffc107;"> <i class="icon-star-full2"></i></span> @endif
                     <div class="ml-2">
-                         <p class="mb-1 text-semibold" style="width: 110px;">{{ $restaurant->name }} </p>
+                        <p class="mb-1 text-semibold" style="width: 110px;">{{ $restaurant->name }} </p>
+                        <p class="mb-0">
+                        @if($dapCheck)                        
+                        @if(count($restaurant->delivery_areas) === 0)
+                          <span class="badge badge-flat border-grey-800 mr-1 mb-2" style="font-size: 0.9rem;">  NA </span>
+                        @else
+                            @foreach($restaurant->delivery_areas as $deliveryArea)
+                            <span class="badge badge-flat border-grey-800 mr-1 mb-2" style="font-size: 0.9rem;">{{ $deliveryArea->name }}</span>
+                            @endforeach
+                        @endif
+                        @endif
+                        </p>
                         <small class="display-block">  @if($restaurant->is_active) <span class="status-mark border-success"></span> Currently Open  @else <span class="status-mark border-danger"></span> Currently Closed @endif</small>
+                        
                     </div>
                 </div>
             </div>

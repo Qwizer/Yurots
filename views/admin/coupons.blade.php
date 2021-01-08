@@ -174,14 +174,26 @@
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>Coupon Applicable Stores:</label>
                         <div class="col-lg-9">
-                            <select multiple="multiple" class="form-control select-search select" name="restaurant_id[]" required>
+                            <select multiple="multiple" class="form-control select-search couponStoreSelect" name="restaurant_id[]" required id="storeSelect">
                                 @foreach ($restaurants as $restaurant)
                                 <option value="{{ $restaurant->id }}" class="text-capitalize">{{ $restaurant->name }}
                                 </option>
                                 @endforeach
                             </select>
+                             <input type="checkbox" id="selectAllStores"><span class="ml-1">Select All Stores</span>
                         </div>
                     </div>
+                    <script>
+                        $("#selectAllStores").click(function(){
+                            if($("#selectAllStores").is(':checked') ){
+                                $("#storeSelect > option").prop("selected","selected");
+                                $("#storeSelect").trigger("change");
+                            }else{
+                                $("#storeSelect > option").removeAttr("selected");
+                                 $("#storeSelect").trigger("change");
+                             }
+                        });
+                    </script>
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>Max number of
                             use in total</label>
@@ -268,6 +280,9 @@
 <script>
     $(function () {
            $('.select').select2();
+           $('.couponStoreSelect').select2({
+               closeOnSelect: false
+           })
     
            var isactive = document.querySelector('.isactive');
            new Switchery(isactive, { color: '#2196f3' });

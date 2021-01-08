@@ -17,30 +17,32 @@
             type="text/css">
         <link href="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/global_assets/css/icons/icomoon/styles.min.css" rel="stylesheet"
             type="text/css">
-        <link href="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/css/bootstrap.min.css?v=2.4.0-stable-01" rel="stylesheet" type="text/css">
         <link href="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/css/combined.min.css" rel="stylesheet" type="text/css">
         <link href="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/css/layout.min.css" rel="stylesheet" type="text/css">
-        <link href="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/css/components.min.css" rel="stylesheet" type="text/css">
+        <link href="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/css/components.min.css?v=2.4.0-stable-01" rel="stylesheet" type="text/css">
         <link href="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/css/colors.min.css" rel="stylesheet" type="text/css">
         <link href="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/global_assets/css/extras/animate.min.css" rel="stylesheet"
             type="text/css">
-        <link href="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/css/backend-custom.css" rel="stylesheet"
+        <link href="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/css/backend-custom.css?v=2.4.1" rel="stylesheet"
             type="text/css">
-        <link href="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/css/bootstrap-material-datetimepicker.css" rel="stylesheet"
-            type="text/css">
-        <!-- /global stylesheets -->
-        
-        @if(Request::is('store-owner/*'))
-        <!-- The core Firebase JS SDK is always required and must be listed first -->
-            <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
-            <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-messaging.js"></script>
-        @endif
+        <link href="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/css/bootstrap-material-datetimepicker.css" rel="stylesheet" type="text/css">
 
+        <link type="text/css" href="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/css/OverlayScrollbars.min.css" rel="stylesheet"/>
+        
+        <!-- /global stylesheets -->
+
+        
         <!-- Core JS files -->
         <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/global_assets/js/main/jquery.min.js"></script>
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.10.2/Sortable.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/jquery-sortablejs@latest/jquery-sortable.js"></script>
+
+        
+        <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/js/jquery.overlayScrollbars.min.js"></script>
+        
+        <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/global_assets//js/plugins/ui/moment/moment.min.js"></script>
 
 
         <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/global_assets/js/main/bootstrap.bundle.min.js"></script>
@@ -51,18 +53,27 @@
         <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/global_assets/js/plugins/ui/sticky.min.js"></script>
         <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/global_assets/js/plugins/buttons/spin.min.js"></script>
         <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/global_assets/js/plugins/buttons/ladda.min.js"></script>
+
         @if(!Request::is('admin/dashboard'))
-        <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/global_assets/js/plugins/notifications/jgrowl.min.js"></script>
-        <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/global_assets/js/plugins/forms/selects/select2.min.js"></script>
-        <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/global_assets/js/plugins/forms/styling/uniform.min.js"></script>
-        <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/global_assets/js/plugins/forms/styling/switchery.min.js"></script>
-        <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/global_assets/js/plugins/pickers/color/spectrum.js"></script>
-        <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/global_assets/js/plugins/editors/summernote/summernote.js"></script>
-        <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/global_assets//js/plugins/ui/moment/moment.min.js"></script>
-        <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/global_assets/js/plugins/pickers/daterangepicker.js"></script>
-        <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/global_assets/js/plugins/uploaders/dropzone.min.js"></script>
+            <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/global_assets/js/plugins/notifications/jgrowl.min.js"></script>
+            <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/global_assets/js/plugins/forms/selects/select2.min.js"></script>
+            <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/global_assets/js/plugins/forms/styling/uniform.min.js"></script>
+            <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/global_assets/js/plugins/forms/styling/switchery.min.js"></script>
+            <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/global_assets/js/plugins/pickers/color/spectrum.js"></script>
+            <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/global_assets/js/plugins/editors/summernote/summernote.js"></script>
+            <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/global_assets/js/plugins/pickers/daterangepicker.js"></script>
+            <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/global_assets/js/plugins/uploaders/dropzone.min.js"></script>
         @endif
-        <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/global_assets/js/plugins/visualization/echarts/echarts.js"></script>
+
+        
+
+        <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/global_assets/js/plugins/tables/datatables/datatables.min.js"></script>
+        <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/global_assets/js/plugins/tables/datatables/extensions/fixed_columns.min.js"></script>
+        <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/global_assets/js/plugins/tables/datatables/extensions/col_reorder.min.js"></script>
+        <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/global_assets/js/plugins/tables/datatables/extensions/buttons.min.js"></script>
+
+        <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/global_assets/js/plugins/visualization/echarts/echarts.js" defer></script>
+
         <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/js/app.js"></script>
         <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/js/navbar-sticky.js"></script>
         <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/js/printThis.js"></script>
@@ -71,15 +82,16 @@
         <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/global_assets/js/plugins/editors/ace/ace.js"></script>
         @endif 
 
-        @if(Request::is('admin/stores') || Request::is('admin/store/*') || Request::is('store-owner/stores') || Request::is('store-owner/store/*') || Request::is('admin/popular-geo-locations'))
+        {{-- @if(Request::is('admin/stores') || Request::is('admin/store/*') || Request::is('store-owner/stores') || Request::is('store-owner/store/*') || Request::is('admin/popular-geo-locations')) --}}
         <!-- Load GMAPS Only when needed -->
             {{-- <script src="https://maps.googleapis.com/maps/api/js?key={{ config('settings.googleApiKeyIP') }}"></script> --}}
             {{-- <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/js/google-maps.js"></script> --}}
-        @endif
+        {{-- @endif --}}
         
         <script type="text/javascript" src="{{substr(url("/"), 0, strrpos(url("/"), '/'))}}/assets/backend/js/bootstrap-material-datetimepicker.js"></script>
         <!-- /theme JS files -->
         <link rel="manifest" href="{{ URL::asset('backend-manifest.json') }}">
+
     </head>
     <body>
         @if(!Request::is('auth/login'))
@@ -91,6 +103,7 @@
             </div>
         </div>
         @include('admin.includes.notification')
+
         <script>
             $(function() {
                 $('form').submit(function(){
@@ -101,6 +114,13 @@
                   var $summernoteTextarea = $(this).closest('.note-editor').siblings('textarea');
                   $summernoteTextarea.val(codeviewHtml);
                  });
+                // $(".dataTables_scrollBody").overlayScrollbars({
+                //     scrollbars : {
+                //         visibility: "auto",
+                //         autoHide: "move",
+                //         autoHideDelay: 1000
+                //     }
+                // });
             });
         </script>
     </body>

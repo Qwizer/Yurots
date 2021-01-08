@@ -77,10 +77,10 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Image</th>
-                            <th style="width: 13%">Name</th>
-                            <th style="width: 13%">Owner</th>
+                            <th style="width: 5%;">ID</th>
+                            <th style="width: 10%">Image</th>
+                            <th style="width: 15%">Name</th>
+                            <th style="width: 15%">Owner</th>
                             @if($dapCheck)
                             <th>Operational Areas</th>
                             @endif

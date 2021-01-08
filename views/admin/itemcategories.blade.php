@@ -108,7 +108,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title"><span class="font-weight-bold">Add New Item Category</span></h5>
+                <h5 class="modal-title"><span class="font-weight-bold">Edit Item Category Name</span></h5>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
